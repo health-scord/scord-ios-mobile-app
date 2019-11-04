@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Dropdown-Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Manage-Interests" transform="translate(-380.000000, -358.000000)" fill="#FE0B84">
+            <g id="Dropdown-Icon" transform="translate(386.000000, 364.000000) rotate(-90.000000) translate(-386.000000, -364.000000) translate(380.000000, 358.000000)">
+                <path d="M6,5.68434189e-14 C6.55228475,5.67930878e-14 7,0.455760956 7,1.00247329 L7,10.9975267 C7,11.5511774 6.55613518,12 6,12 L6,12 C5.44771525,12 5,11.544239 5,10.9975267 L5,1.00247329 C5,0.448822582 5.44386482,5.68941008e-14 6,5.68434189e-14 L6,5.68434189e-14 Z" id="Combined-Shape" transform="translate(6.000000, 6.000000) rotate(-90.000000) translate(-6.000000, -6.000000) "></path>
+                <path d="M5.5,1.79262439e-15 C6.05228475,1.74066812e-15 6.5,0.455760956 6.5,1.00247329 L6.5,10.9975267 C6.5,11.5511774 6.05613518,12 5.5,12 L5.5,12 C4.94771525,12 4.5,11.544239 4.5,10.9975267 L4.5,1.00247329 C4.5,0.448822582 4.94386482,1.84494288e-15 5.5,1.79262439e-15 L5.5,1.79262439e-15 Z" id="Combined-Shape" transform="translate(5.500000, 6.000000) scale(1, -1) rotate(-360.000000) translate(-5.500000, -6.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

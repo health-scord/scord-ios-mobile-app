@@ -1,0 +1,156 @@
+$fuchsia: #FE0B84;
+
+@import "../../app/components/ui/PrimaryButton/PrimaryButton.scss";
+@import "../../app/components/ui/SecondaryButton/SecondaryButton.scss";
+@import "../../app/components/ui/Validation/Validation.scss";
+@import "../../app/components/ui/IntroHeader/IntroHeader.scss";
+@import "../../app/components/ui/Accordion/Accordion.scss";
+@import "../../app/components/ui/SearchInput/SearchInput.scss";
+@import "../../app/components/ui/ActivityItem/ActivityItem.scss";
+@import "../../app/components/ui/PreferenceHeader/PreferenceHeader.scss";
+@import "../../app/components/ui/MetaInput/MetaInput.scss";
+@import "../../app/components/ui/ListBar/ListBar.scss";
+@import "../../app/components/ui/CalendarItem/CalendarItem.scss";
+@import "../../app/components/ui/ShopButton/ShopButton.scss";
+@import "../../app/components/ui/CalendarGroup/CalendarGroup.scss";
+@import "../../app/components/pages/MainMapView/MainMapView.scss";
+@import "../../app/components/ui/MapCard/MapCard.scss";
+@import "../../app/components/ui/Badge/Badge.scss";
+@import "../../app/components/ui/ButtonGroup/ButtonGroup.scss";
+@import "../../app/components/ui/RatingFilter/RatingFilter.scss";
+@import "../../app/components/ui/GeneralHeader/GeneralHeader.scss";
+@import "../../app/components/ui/InfoBox/InfoBox.scss";
+@import "../../app/components/ui/ImageCarousel/ImageCarousel.scss";
+@import "../../app/components/ui/LightHeader/LightHeader.scss";
+@import "../../app/components/ui/SearchItem/SearchItem.scss";
+@import "../../app/components/ui/FilterHeader/FilterHeader.scss";
+
+.carousel {
+    // color: black;
+    height: 300;
+    width: 300;
+    background-color: red;
+}
+
+.slide {
+    // color: black;
+    height: 300;
+    // width: 200;
+    background-color: blue;
+}
+
+.slideHeadline {
+    color: black;
+}
+
+.slideDescription {
+    color: black;
+}
+
+.activityItem {
+    background-color: white;
+}
+
+.preferenceHeader {
+    background-color: red;
+}
+
+.formInput {
+    border-width: 1px;
+    border-color: rgb(155, 155, 155);
+    padding: 8px 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: rgb(155, 155, 155);
+}
+
+.formInputText {
+    font-size: 14;
+    color: rgb(155, 155, 155);
+}
+
+.formContainer {
+    background-color: white;
+    align-self: center;
+}
+
+.noteText {
+    font-size: 14;
+    color: rgb(155, 155, 155);
+    align-self: center;
+    font-family: "OpenSans";
+}
+
+.link {
+    background-color: transparent;
+}
+
+.linkText {
+    font-size: 14;
+    color: rgb(155, 155, 155);
+    align-self: center;
+    font-family: "OpenSans";
+    text-decoration-line: underline;
+}
+
+.inlineRow {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.formInputIcon {
+    justify-content: flex-end;
+}
+
+.switchLabel {
+    font-family: "OpenSans";
+    font-size: 14;
+}
+
+.spaceBetween {
+    justify-content: space-between;
+}
+
+.hr {
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(198, 193, 186);
+    flex: 1;
+    height: 1;
+    margin-bottom: 15;
+}
+
+.modalHeadline {
+    color: white;
+    font-size: 28;
+    text-align: center;
+    margin-bottom: 28;
+    font-family: "OpenSans";
+}
+
+.modalContainer {
+    width: 275;
+    align-self: center;
+    padding-top: 70;
+}
+
+.modalBackground {
+    background-color: rgba(0, 0, 0, 0.85);
+    flex: 1;
+}
+
+.modalCloseButton {
+    right: 0;
+    width: 45;
+    height: 45;
+    padding: 10;
+    position: absolute;
+    right: 10;
+    top: 10;
+}
+
+.colorContainer {}
+
+.colorContainerGradient {
+    padding: 20;
+}
+
