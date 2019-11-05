@@ -29,8 +29,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const authClient = new AuthClient();
 
   const [userDoesNotExist, setUserDoesNotExist] = React.useState(false);
-  const [notValidType, setNotValidType] = React.useState(false);
-  const [emailNotConfirmed, setEmailNotConfirmed] = React.useState(false);
+  const [tooManyLoginAttempts, setTooManyLoginAttempts] = React.useState(false);
+  const [generalError, setGeneralError] = React.useState(false);
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -45,17 +45,17 @@ const LoginForm: React.FC<LoginFormProps> = ({
     <View>
       <View>
 
-        {notValidType ? (
+        {tooManyLoginAttempts ? (
           <Validation intent="danger">
-            Your user is not a valid type. Please contact support.
+            Your account has been blocked after multiple consecutive login attempts.
           </Validation>
         ) : (
           <></>
         )}
 
-        {emailNotConfirmed ? (
+        {generalError ? (
           <Validation intent="danger">
-            Your email has yet to be confirmed. Please check your email!
+            There was an error logging in.
           </Validation>
         ) : (
           <></>
@@ -70,7 +70,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
         )}
 
         <Formik
-          initialValues={{}}
+          initialValues={{
+            email: "",
+            password: ""
+          }}
           onSubmit={(values, actions) => {
             console.log("values", { values, actions });
 
@@ -84,41 +87,49 @@ const LoginForm: React.FC<LoginFormProps> = ({
             //   },
             // });
 
-            authClient.login(values, (err, res) => {
-              console.info("tad", err, res);
-              if (!res.body.success) {
-                if (res.body.errorMessage === ERROR_CODE.C003) {
-                  setUserDoesNotExist(true);
-                } else {
-                  setUserDoesNotExist(false);
+            authClient.login(
+              { 
+                username: values.email,
+                password: values.password 
+              }, 
+              (err, res) => {
+                if (err) {
+                  console.error("err", err);
                 }
-                if (res.body.errorMessage === ERROR_CODE.C006) {
-                  setNotValidType(true);
-                } else {
-                  setNotValidType(false);
-                }
-                // if (res.body.errorMessage === ERROR_CODE.C007) {
-                //   setEmailNotConfirmed(true);
-                // } else {
-                //   setEmailNotConfirmed(false);
+                // if (res['body']['access_token']) {
+                //   console.info('success');
+                //   // window.location.replace("/");
                 // }
-              }
-              if (res.body.success) {
-                // alert("Success");
-                storageClient.storeItem('@Reeviewr:token', res.body.data.id);
-                Navigation.push(componentId, {
-                  component: {
-                    name: 'MainMapView',
-                    options: {
-                      topBar: {
-                        visible: false
-                      }
-                    }
+                actions.resetForm();
+              },
+              (err) => {
+                console.error("ERROR LOGIN:", err, err.message, err.response);
+
+                actions.setSubmitting(false);
+
+                // TODO: dynamic errors like sign up
+                // https://auth0.com/docs/libraries/error-messages
+                if (err.response) {
+                  setTooManyLoginAttempts(false);
+                  setUserDoesNotExist(false);
+                  setGeneralError(false);
+
+                  switch (err.response.body.error) {
+                    case "too_many_attempts":
+                      setTooManyLoginAttempts(true);
+                      break;
+
+                    case "invalid_grant":
+                      setUserDoesNotExist(true);
+                      break;
+                
+                    default:
+                      setGeneralError(true);
+                      break;
                   }
-                });
+                }
               }
-              actions.resetForm();
-            });
+            );
           }}
           validationSchema={validationSchema}
           render={props => {
@@ -126,8 +137,18 @@ const LoginForm: React.FC<LoginFormProps> = ({
               <Form>
                 <FormInput label="Email" placeholder="Email" name="email" type="email" />
                 <FormInput label="Password" placeholder="Password" name="password" type="password" secureTextEntry={true} />
-                <PrimaryButton onPress={props.handleSubmit as any} label="Next" />
-                {/* <Button onPress={props.handleSubmit as any} title="Next" /> */}
+                <TouchableOpacity style={{ ...styles.link, marginTop: 30 }} onPress={() => {
+                  Navigation.push(componentId, {
+                    component: {
+                      name: 'ForgotPassword'
+                    }
+                  })
+                }}>
+                  <Text style={styles.linkText}>Forgot your password?</Text>
+                </TouchableOpacity>
+                <PrimaryButton onPress={props.handleSubmit as any} label="Login" />
+                <PrimaryButton onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"))} label="Login with Google" />
+                <PrimaryButton onPress={() => authClient.socialLogin("facebook", () => console.info("finished"))} label="Login with Facebook" />
                 {/* {Platform.OS === "ios" && <KeyboardSpacer />} */}
               </Form>
             );

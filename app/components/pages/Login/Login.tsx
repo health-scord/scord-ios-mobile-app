@@ -9,30 +9,25 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 
 import styles from "../../../../build/styles";
 import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton";
+import IntroHeader from "../../ui/IntroHeader/IntroHeader";
 
 const Login: React.FC<LoginProps> = ({ componentId }) => {
   return (
     <KeyboardAwareScrollView>
       <FormContainer>
+        <IntroHeader />
         <LoginForm componentId={componentId} />
-        <TouchableOpacity style={{ ...styles.link, marginTop: 30 }} onPress={() => {
-          Navigation.push(componentId, {
-            component: {
-              name: 'ForgotPassword'
-            }
-          })
-        }}>
-          <Text style={styles.linkText}>Forgot your password?</Text>
-        </TouchableOpacity>
         <View style={{ marginTop: 100 }}>
-          <Text style={{...styles.noteText, marginBottom: 20 }}>Don't have an account yet?</Text>
-          <PrimaryButton onPress={() => {
-            Navigation.push(componentId, {
+          <Text style={{...styles.noteText, marginBottom: 20 }}>Don't have an account?</Text>
+          <TouchableOpacity onPress={() => {
+             Navigation.push(componentId, {
               component: {
                 name: 'SignUp'
               }
             })
-          }} label="Sign Up For Free" />
+          }}>
+            <Text>Sign Up</Text>
+          </TouchableOpacity>
         </View>
       </FormContainer>
     </KeyboardAwareScrollView>

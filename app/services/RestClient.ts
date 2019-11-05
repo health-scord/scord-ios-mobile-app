@@ -1,30 +1,15 @@
 // const methods = ['get', 'post', 'put', 'patch', 'del'];
 import fetch from "cross-fetch";
-import superagent from "superagent";
-
-// import { SERVER_URL } from 'react-native-dotenv';
+const superagent = require('superagent');
 
 // get endpoint in proper format
-function formatUrl(path, version = "1.0") {
-  let pathBase = "https://playonweb.herokuapp.com";
-  if (__DEV__) {
-    pathBase = "http://Alexs-Mac-mini.local:3001";
-  }
+function formatUrl(path) {
+  let pathBase = "";
+
+  pathBase = process.env.SERVER_URL;
 
   const adjustedPath = path[0] !== "/" ? "/" + path : path;
-
-  const formattedUrl = pathBase + "/v" + version + adjustedPath;
-
-  console.info(
-    "path",
-    path,
-    "pathBase",
-    pathBase,
-    "version",
-    version,
-    "adjustedPath",
-    adjustedPath
-  );
+  const formattedUrl = pathBase + adjustedPath;
 
   return formattedUrl;
 }
@@ -32,49 +17,68 @@ function formatUrl(path, version = "1.0") {
 export default class RestClient {
   constructor() {}
 
-  makeRequest(endpoint, values, callback) {
+  execSuper(
+    endpoint = "", 
+    params = {}, 
+    method = "GET", 
+    headers = {}, 
+    format = true, 
+    onError = (err) => console.error("exec error", err)
+  ) {
     try {
-      this.execSuper(endpoint, values, "POST").end((err, res) => {
-        if (err) {
-          console.error(err);
-
-          if (typeof res !== "undefined") {
-            if (res.body !== null) {
-              console.error(res.body.errorMessage);
-            }
-          }
-        }
-        callback(err, res);
-      });
-    } catch (err) {
-      console.error("ERROR 2001: ", err);
+      if (method === "POST") {
+        console.info('run superagent', format, endpoint, params, onError);
+        return superagent
+          .post(format ? formatUrl(endpoint) : endpoint)
+          .type('form')
+          .send(params)
+          .on('error', onError)
+          // .withCredentials()
+          // .set("accept", "json")
+          // .set(headers);
+      } else if (method === "PATCH") {
+        console.info('run patch', format, endpoint, params, onError);
+        return superagent
+          .patch(format ? formatUrl(endpoint) : endpoint)
+          .type('form')
+          .send(params)
+          .on('error', onError)
+          // .withCredentials()
+          // .set("accept", "json")
+          // .set(headers);
+      } else if (method === "GET") {
+        console.info("run fetch", endpoint, params, method, format)
+        // return superagent
+        //   .post(format ? formatUrl(endpoint) : endpoint)
+        //   .send(params)
+        //   .withCredentials()
+        //   .set("accept", "json");
+        return this.exec(endpoint, params, method, format);
+      }
+    } catch(err) {
+      console.error("err 5", err)
     }
   }
 
-  execSuper(endpoint, params, method = "GET") {
-    if (method === "POST") {
-      return superagent
-        .post(formatUrl(endpoint))
-        .send(params)
-        .withCredentials()
-        .set("accept", "json");
-    }
+  paramsToString(params) {
+    let sendParams = "?";
+      for (const key in params) {
+        if (params.hasOwnProperty(key)) {
+          sendParams += key + "=" + params[key] + "&";
+        }
+      }
+    return sendParams;
   }
 
   // exec currently unused
-  exec(endpoint, params, method = "GET") {
+  exec(endpoint, params, method = "GET", format) {
     const newHeaders = new Headers();
     newHeaders.append("Content-Type", "application/json");
 
     let sendParams = "";
     let fetchParams;
     if (method === "GET") {
-      sendParams += "?";
-      for (const key in params) {
-        if (params.hasOwnProperty(key)) {
-          sendParams += key + "=" + params[key] + "&";
-        }
-      }
+      sendParams = this.paramsToString(params);
       fetchParams = { method };
     } else if (method === "POST") {
       fetchParams = {
@@ -84,7 +88,7 @@ export default class RestClient {
       };
     }
 
-    const fullUrl = formatUrl(endpoint) + sendParams;
+    const fullUrl = format ? formatUrl(endpoint) + sendParams : endpoint + sendParams;
 
     console.info("FETCH ", method, fullUrl, fetchParams);
 
@@ -95,6 +99,40 @@ export default class RestClient {
 
       const jsonData = data.json();
       return jsonData;
+    });
+  }
+
+  makeRequest(
+    endpoint, 
+    values, 
+    callback, 
+    method = "POST", 
+    headers = {}, 
+    format = true, 
+    onError = (err) => console.error("exec/makeRequest error", err)
+  ) {
+    return new Promise((resolve, reject) => {
+      try {
+        console.info("exec", this.execSuper, "superagent", superagent)
+        this.execSuper(endpoint, values, method, headers, format, onError).then((res, err) => {
+          if (err) {
+            console.error("err 3", err, res);
+  
+            if (typeof res !== "undefined") {
+              if (res.body !== null) {
+                console.error("error body", res.body.errorMessage);
+              }
+            }
+
+            reject(err);
+          }
+          callback(err, res);
+          resolve(res);
+        });
+      } catch (err) {
+        console.error("ERROR 2001: ", err);
+        reject(err);
+      }
     });
   }
 }
