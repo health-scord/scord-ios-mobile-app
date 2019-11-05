@@ -7,18 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA41D2552E40DB97047E5B /* Entypo.ttf */; };
 		00E356F31AD99517003FC87E /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
+		019B58A6E1D4430597408102 /* marker.svg in Resources */ = {isa = PBXBuildFile; fileRef = 374C48738C254451A1C2C252 /* marker.svg */; };
+		09B5DDEDC1714B7CAB3586B4 /* plus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 013482BE2BF84D73B746CBE0 /* plus.svg */; };
 		1176D26F98E153505DE7843D /* libPods-ScordMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E86FFB0DC0AA30CABF93B3 /* libPods-ScordMobileTests.a */; };
+		137CBD7D95BC4CB2968E93D6 /* explore.svg in Resources */ = {isa = PBXBuildFile; fileRef = DEBF4BFEE55C4A70908F76AE /* explore.svg */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1B0731E2609D4CCDA6313DA8 /* close.svg in Resources */ = {isa = PBXBuildFile; fileRef = FBED35E48D4C4F88A12D4974 /* close.svg */; };
+		1B830B27DA434D7E81B8B329 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11C66C4D969042F29DCDFFAC /* OpenSans-SemiboldItalic.ttf */; };
+		1F781D40FFB14DCA9A692030 /* activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0283215F574C6AB26396A3 /* activity.png */; };
+		24279F3350174EA185A05BCC /* cluster.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3F95903D799849218D99CA03 /* cluster.svg */; };
+		294E0239F14F4527A5D8AAA3 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = FE3E398C5C62417B9DD6CF26 /* logo.svg */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
+		349AFCDA4A0C4142A3F3FA0C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88AE4E843F4D470582FF8525 /* FontAwesome5_Regular.ttf */; };
+		3AB6A29434EB4DDA9B985702 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E047C775A3C34E7B8F834D00 /* AntDesign.ttf */; };
+		3BCE6539509D4AA980C9DECA /* activity.svg in Resources */ = {isa = PBXBuildFile; fileRef = FFCB74C5E5D146A4A5F1F82E /* activity.svg */; };
+		3D5B8803C06F4601AEE2F949 /* like.svg in Resources */ = {isa = PBXBuildFile; fileRef = 50E66651C5B2450AA4DCC09D /* like.svg */; };
+		4350EEF2D1474921A0A81F66 /* back.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37858521A24840A8ACF0D377 /* back.svg */; };
+		460DB40886E641998140E03B /* share.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1DE4DA6B9C4944C79910FB9D /* share.svg */; };
 		515052F33F05352BD977DF4C /* libPods-ScordMobile-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC02E3349A2A2F2ADBD560 /* libPods-ScordMobile-tvOS.a */; };
+		5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C706A31F9641839D1C913F /* Logo.png */; };
+		5B970BDB5BB64FD39975FB3D /* explore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB54626A67A47A5ABBE05A3 /* explore.png */; };
+		60180CE4AC90401DA1433BF1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2BFD4D1FB4422492FB8CD0 /* FontAwesome5_Solid.ttf */; };
+		60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C50B4A706A3745A7BB18F5EC /* Playon_Logo_Icon.png */; };
+		663918BC4DCD4A85B6392C79 /* right.svg in Resources */ = {isa = PBXBuildFile; fileRef = DB3D0C1A5EE2402F814B8BB1 /* right.svg */; };
+		6892122236654948B9394A70 /* intro1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B0FA10718242B9AB936C8C /* intro1@2x.png */; };
+		6AB9052CDF864F4BB1C1ABF5 /* time.svg in Resources */ = {isa = PBXBuildFile; fileRef = BE75A2B140594C0F8FCE7471 /* time.svg */; };
+		6B9F7A1ECBF546CDBDFA31E7 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E6390D24DD47628D7059FE /* MaterialIcons.ttf */; };
+		6C963526C0E74419B3F2F28D /* intro1.png in Resources */ = {isa = PBXBuildFile; fileRef = 02506CFF92B94BC1A368BEE1 /* intro1.png */; };
+		6DFA104F086D4CC5AB746E32 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A680D730FB0746B4ABAAC16E /* Fontisto.ttf */; };
 		6E5D9F7A91F6B8F4504D3841 /* libPods-ScordMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57739FF3A592E54CEE179AB6 /* libPods-ScordMobile.a */; };
+		6F26973AB9484708B878D656 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF3BE1E1E3C44F50B2F09C9D /* OpenSans-Bold.ttf */; };
+		73B800898B784214928F400C /* profile.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB87F847F6455CA7099D42 /* profile.svg */; };
+		79DA9D912C1B4F1FADF732E5 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19698474CC9C49849B1EBED5 /* Feather.ttf */; };
+		8348D389809747DC8BAA40C0 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 431E8D63EAC447B6A2E3AA18 /* Ionicons.ttf */; };
+		863A5B86C50948A19449EE61 /* search.svg in Resources */ = {isa = PBXBuildFile; fileRef = 25F1C8B66DAC4388AF4CFFFD /* search.svg */; };
+		8B0053CEED914CB89598B968 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF77CE8FCDB7447A8499DC65 /* Foundation.ttf */; };
+		919D6D5027FF43F8A485F533 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06ADEC4DC5FB4E788EAE601F /* OpenSans-BoldItalic.ttf */; };
+		94C1BC356A8047C9A7EF1046 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3E49EACC7F48EEA1C32FBF /* FontAwesome5_Brands.ttf */; };
+		95B86BC95EE84D7AA23EDE9C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C4351F2F17440BFA45E0AC9 /* MaterialCommunityIcons.ttf */; };
+		A2E2B0CE3238480C940B574D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68BA22C790BA401CA1F0BA35 /* SimpleLineIcons.ttf */; };
+		A4246B4ABC3946AAACCD52BF /* pin.svg in Resources */ = {isa = PBXBuildFile; fileRef = 576D8204B27A416781553FC9 /* pin.svg */; };
+		A5FE602725D440029F505D7E /* check.svg in Resources */ = {isa = PBXBuildFile; fileRef = 40CEA044C7244DAEA17DE5C6 /* check.svg */; };
+		A78BD8DFCDB6474A9713B40E /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79668EFDF6CD47D98120313E /* OpenSans-ExtraBoldItalic.ttf */; };
+		A9140BBB8FD145C5BEAAF6C7 /* dropdownIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4F99A4EB2F464D6A9A0D905B /* dropdownIcon.svg */; };
+		B5DC89EFFDEE4B49A0DFEA32 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16BDF1308B9648DC873CA12D /* EvilIcons.ttf */; };
+		B718242486654C799B206E33 /* heart.svg in Resources */ = {isa = PBXBuildFile; fileRef = 295193760A904CD1BB090D4B /* heart.svg */; };
+		BA84AF7DB6994D71B78EEA5E /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4736C9F715E54CFAB5C51D87 /* OpenSans-Regular.ttf */; };
+		BEA476DBE744474E828360B9 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3A2DE586CBC4E8EA4DF22D3 /* OpenSans-ExtraBold.ttf */; };
+		C0C892F9F35644CB9462EC7F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BBD0C4EDDD044E9BEB3992F /* Zocial.ttf */; };
+		D4E5B3215E1C4AE4A487AEC8 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EF0459354E40CEAF084A80 /* OpenSans-Semibold.ttf */; };
+		D74EBEA693384266B0455CCB /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D469D81264A4539912EDE32 /* profile.png */; };
+		E095EF6755974239A89AADF3 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEECB7ED0AF040DA99937361 /* OpenSans-Italic.ttf */; };
+		E1813EBF17A440B394714F8F /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20A7856E8DB54B4BAE7B01D1 /* OpenSans.ttf */; };
+		E289A9E599E34F4697938277 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09874863E52541CDA3E83646 /* FontAwesome.ttf */; };
+		EC7275A6B22C4F26B482AE77 /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 04B582D4E0B5494D9803426D /* icon.svg */; };
+		F051DC43DA454F22803C2D59 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */; };
+		F169CA39F2BC472C978AAE53 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA628BB352E469097584A5F /* OpenSans-Light.ttf */; };
+		F99A82C900184F0BB7A7785E /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */; };
 		FE8697926B978AD867C7A617 /* libPods-ScordMobile-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F69CDC4B99CD6F2D6A0B04 /* libPods-ScordMobile-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +97,14 @@
 		00E356EE1AD99517003FC87E /* ScordMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScordMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ScordMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScordMobileTests.m; sourceTree = "<group>"; };
+		013482BE2BF84D73B746CBE0 /* plus.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = plus.svg; path = ../assets/svg/plus.svg; sourceTree = "<group>"; };
+		02506CFF92B94BC1A368BEE1 /* intro1.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = intro1.png; path = ../assets/img/intro1.png; sourceTree = "<group>"; };
+		04B582D4E0B5494D9803426D /* icon.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon.svg; path = ../assets/svg/icon.svg; sourceTree = "<group>"; };
+		06ADEC4DC5FB4E788EAE601F /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-BoldItalic.ttf"; path = "../assets/fonts/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		09874863E52541CDA3E83646 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		0DAB87F847F6455CA7099D42 /* profile.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = profile.svg; path = ../assets/svg/profile.svg; sourceTree = "<group>"; };
+		0E2BFD4D1FB4422492FB8CD0 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		11C66C4D969042F29DCDFFAC /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiboldItalic.ttf"; path = "../assets/fonts/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ScordMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScordMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ScordMobile/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ScordMobile/AppDelegate.m; sourceTree = "<group>"; };
@@ -52,21 +113,66 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ScordMobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ScordMobile/main.m; sourceTree = "<group>"; };
 		144B482AE85B8DB96BA771D4 /* Pods-ScordMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile.release.xcconfig"; path = "Target Support Files/Pods-ScordMobile/Pods-ScordMobile.release.xcconfig"; sourceTree = "<group>"; };
+		16BDF1308B9648DC873CA12D /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		19698474CC9C49849B1EBED5 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		1BFA41D2552E40DB97047E5B /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		1DE4DA6B9C4944C79910FB9D /* share.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = share.svg; path = ../assets/svg/share.svg; sourceTree = "<group>"; };
+		20A7856E8DB54B4BAE7B01D1 /* OpenSans.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OpenSans.ttf; path = ../assets/fonts/OpenSans.ttf; sourceTree = "<group>"; };
+		25F1C8B66DAC4388AF4CFFFD /* search.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = search.svg; path = ../assets/svg/search.svg; sourceTree = "<group>"; };
+		28E6390D24DD47628D7059FE /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		295193760A904CD1BB090D4B /* heart.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = heart.svg; path = ../assets/svg/heart.svg; sourceTree = "<group>"; };
+		2BBD0C4EDDD044E9BEB3992F /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ScordMobile-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScordMobile-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ScordMobile-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ScordMobile-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E0283215F574C6AB26396A3 /* activity.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = activity.png; path = ../assets/svg/activity.png; sourceTree = "<group>"; };
 		3288454C5238B13B31DABE4F /* Pods-ScordMobile-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ScordMobile-tvOS/Pods-ScordMobile-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		374C48738C254451A1C2C252 /* marker.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = marker.svg; path = ../assets/svg/marker.svg; sourceTree = "<group>"; };
+		37858521A24840A8ACF0D377 /* back.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = back.svg; path = ../assets/svg/back.svg; sourceTree = "<group>"; };
+		3C4351F2F17440BFA45E0AC9 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		3D469D81264A4539912EDE32 /* profile.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = profile.png; path = ../assets/svg/profile.png; sourceTree = "<group>"; };
+		3DA628BB352E469097584A5F /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		3F95903D799849218D99CA03 /* cluster.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = cluster.svg; path = ../assets/svg/cluster.svg; sourceTree = "<group>"; };
+		3FB54626A67A47A5ABBE05A3 /* explore.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = explore.png; path = ../assets/svg/explore.png; sourceTree = "<group>"; };
+		40CEA044C7244DAEA17DE5C6 /* check.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = check.svg; path = ../assets/svg/check.svg; sourceTree = "<group>"; };
+		431E8D63EAC447B6A2E3AA18 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		4736C9F715E54CFAB5C51D87 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		4A1C4B12F86343976930961E /* Pods-ScordMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobile/Pods-ScordMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		4F99A4EB2F464D6A9A0D905B /* dropdownIcon.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = dropdownIcon.svg; path = ../assets/svg/dropdownIcon.svg; sourceTree = "<group>"; };
+		50E66651C5B2450AA4DCC09D /* like.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = like.svg; path = ../assets/svg/like.svg; sourceTree = "<group>"; };
 		54C4F23684294AD1BA89FDB1 /* Pods-ScordMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobileTests/Pods-ScordMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		576D8204B27A416781553FC9 /* pin.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pin.svg; path = ../assets/svg/pin.svg; sourceTree = "<group>"; };
 		57739FF3A592E54CEE179AB6 /* libPods-ScordMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScordMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68BA22C790BA401CA1F0BA35 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		79668EFDF6CD47D98120313E /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../assets/fonts/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		86C706A31F9641839D1C913F /* Logo.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Logo.png; path = ../assets/img/Logo.png; sourceTree = "<group>"; };
+		88AE4E843F4D470582FF8525 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		8D3E49EACC7F48EEA1C32FBF /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		90F69CDC4B99CD6F2D6A0B04 /* libPods-ScordMobile-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScordMobile-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-LightItalic.ttf"; path = "../assets/fonts/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		A1E86FFB0DC0AA30CABF93B3 /* libPods-ScordMobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScordMobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A680D730FB0746B4ABAAC16E /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		B325A81E538C24DCA9EA0906 /* Pods-ScordMobile-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobile-tvOS/Pods-ScordMobile-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BAC812AFD2C4729098850308 /* Pods-ScordMobile-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ScordMobile-tvOSTests/Pods-ScordMobile-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		BE75A2B140594C0F8FCE7471 /* time.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = time.svg; path = ../assets/svg/time.svg; sourceTree = "<group>"; };
+		C3A2DE586CBC4E8EA4DF22D3 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBold.ttf"; path = "../assets/fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		C3BC02E3349A2A2F2ADBD560 /* libPods-ScordMobile-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScordMobile-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C50B4A706A3745A7BB18F5EC /* Playon_Logo_Icon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Playon_Logo_Icon.png; path = ../assets/img/Playon_Logo_Icon.png; sourceTree = "<group>"; };
 		C7F0DD4AE2528A00E3D4C81C /* Pods-ScordMobile-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobile-tvOSTests/Pods-ScordMobile-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D2EF0459354E40CEAF084A80 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Semibold.ttf"; path = "../assets/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		DB3D0C1A5EE2402F814B8BB1 /* right.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = right.svg; path = ../assets/svg/right.svg; sourceTree = "<group>"; };
+		DEBF4BFEE55C4A70908F76AE /* explore.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = explore.svg; path = ../assets/svg/explore.svg; sourceTree = "<group>"; };
+		DEECB7ED0AF040DA99937361 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Italic.ttf"; path = "../assets/fonts/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		DF77CE8FCDB7447A8499DC65 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		E047C775A3C34E7B8F834D00 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		E2B0FA10718242B9AB936C8C /* intro1@2x.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "intro1@2x.png"; path = "../assets/img/intro1@2x.png"; sourceTree = "<group>"; };
 		E87882F2E521B4365F4EB4DE /* Pods-ScordMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobileTests.release.xcconfig"; path = "Target Support Files/Pods-ScordMobileTests/Pods-ScordMobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EF3BE1E1E3C44F50B2F09C9D /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		FBED35E48D4C4F88A12D4974 /* close.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = close.svg; path = ../assets/svg/close.svg; sourceTree = "<group>"; };
+		FE3E398C5C62417B9DD6CF26 /* logo.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = logo.svg; path = ../assets/svg/logo.svg; sourceTree = "<group>"; };
+		FFCB74C5E5D146A4A5F1F82E /* activity.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = activity.svg; path = ../assets/svg/activity.svg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +228,66 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		10A2E8E77D294FA68AC719F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				02506CFF92B94BC1A368BEE1 /* intro1.png */,
+				E2B0FA10718242B9AB936C8C /* intro1@2x.png */,
+				86C706A31F9641839D1C913F /* Logo.png */,
+				C50B4A706A3745A7BB18F5EC /* Playon_Logo_Icon.png */,
+				2E0283215F574C6AB26396A3 /* activity.png */,
+				FFCB74C5E5D146A4A5F1F82E /* activity.svg */,
+				37858521A24840A8ACF0D377 /* back.svg */,
+				40CEA044C7244DAEA17DE5C6 /* check.svg */,
+				FBED35E48D4C4F88A12D4974 /* close.svg */,
+				3F95903D799849218D99CA03 /* cluster.svg */,
+				4F99A4EB2F464D6A9A0D905B /* dropdownIcon.svg */,
+				3FB54626A67A47A5ABBE05A3 /* explore.png */,
+				DEBF4BFEE55C4A70908F76AE /* explore.svg */,
+				295193760A904CD1BB090D4B /* heart.svg */,
+				04B582D4E0B5494D9803426D /* icon.svg */,
+				50E66651C5B2450AA4DCC09D /* like.svg */,
+				FE3E398C5C62417B9DD6CF26 /* logo.svg */,
+				374C48738C254451A1C2C252 /* marker.svg */,
+				576D8204B27A416781553FC9 /* pin.svg */,
+				013482BE2BF84D73B746CBE0 /* plus.svg */,
+				3D469D81264A4539912EDE32 /* profile.png */,
+				0DAB87F847F6455CA7099D42 /* profile.svg */,
+				DB3D0C1A5EE2402F814B8BB1 /* right.svg */,
+				25F1C8B66DAC4388AF4CFFFD /* search.svg */,
+				1DE4DA6B9C4944C79910FB9D /* share.svg */,
+				BE75A2B140594C0F8FCE7471 /* time.svg */,
+				EF3BE1E1E3C44F50B2F09C9D /* OpenSans-Bold.ttf */,
+				06ADEC4DC5FB4E788EAE601F /* OpenSans-BoldItalic.ttf */,
+				C3A2DE586CBC4E8EA4DF22D3 /* OpenSans-ExtraBold.ttf */,
+				79668EFDF6CD47D98120313E /* OpenSans-ExtraBoldItalic.ttf */,
+				DEECB7ED0AF040DA99937361 /* OpenSans-Italic.ttf */,
+				3DA628BB352E469097584A5F /* OpenSans-Light.ttf */,
+				A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */,
+				4736C9F715E54CFAB5C51D87 /* OpenSans-Regular.ttf */,
+				D2EF0459354E40CEAF084A80 /* OpenSans-Semibold.ttf */,
+				11C66C4D969042F29DCDFFAC /* OpenSans-SemiboldItalic.ttf */,
+				20A7856E8DB54B4BAE7B01D1 /* OpenSans.ttf */,
+				E047C775A3C34E7B8F834D00 /* AntDesign.ttf */,
+				1BFA41D2552E40DB97047E5B /* Entypo.ttf */,
+				16BDF1308B9648DC873CA12D /* EvilIcons.ttf */,
+				19698474CC9C49849B1EBED5 /* Feather.ttf */,
+				09874863E52541CDA3E83646 /* FontAwesome.ttf */,
+				8D3E49EACC7F48EEA1C32FBF /* FontAwesome5_Brands.ttf */,
+				88AE4E843F4D470582FF8525 /* FontAwesome5_Regular.ttf */,
+				0E2BFD4D1FB4422492FB8CD0 /* FontAwesome5_Solid.ttf */,
+				A680D730FB0746B4ABAAC16E /* Fontisto.ttf */,
+				DF77CE8FCDB7447A8499DC65 /* Foundation.ttf */,
+				431E8D63EAC447B6A2E3AA18 /* Ionicons.ttf */,
+				3C4351F2F17440BFA45E0AC9 /* MaterialCommunityIcons.ttf */,
+				28E6390D24DD47628D7059FE /* MaterialIcons.ttf */,
+				85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */,
+				68BA22C790BA401CA1F0BA35 /* SimpleLineIcons.ttf */,
+				2BBD0C4EDDD044E9BEB3992F /* Zocial.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* ScordMobile */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +331,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				B84429804247DC42E0AB8C05 /* Pods */,
+				10A2E8E77D294FA68AC719F9 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -194,7 +361,6 @@
 				54C4F23684294AD1BA89FDB1 /* Pods-ScordMobileTests.debug.xcconfig */,
 				E87882F2E521B4365F4EB4DE /* Pods-ScordMobileTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -230,6 +396,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				0C891202BA97C3EB6DCE57C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,12 +452,15 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = T8P2454QKB;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -308,6 +478,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +509,59 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				6C963526C0E74419B3F2F28D /* intro1.png in Resources */,
+				6892122236654948B9394A70 /* intro1@2x.png in Resources */,
+				5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */,
+				60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */,
+				1F781D40FFB14DCA9A692030 /* activity.png in Resources */,
+				3BCE6539509D4AA980C9DECA /* activity.svg in Resources */,
+				4350EEF2D1474921A0A81F66 /* back.svg in Resources */,
+				A5FE602725D440029F505D7E /* check.svg in Resources */,
+				1B0731E2609D4CCDA6313DA8 /* close.svg in Resources */,
+				24279F3350174EA185A05BCC /* cluster.svg in Resources */,
+				A9140BBB8FD145C5BEAAF6C7 /* dropdownIcon.svg in Resources */,
+				5B970BDB5BB64FD39975FB3D /* explore.png in Resources */,
+				137CBD7D95BC4CB2968E93D6 /* explore.svg in Resources */,
+				B718242486654C799B206E33 /* heart.svg in Resources */,
+				EC7275A6B22C4F26B482AE77 /* icon.svg in Resources */,
+				3D5B8803C06F4601AEE2F949 /* like.svg in Resources */,
+				294E0239F14F4527A5D8AAA3 /* logo.svg in Resources */,
+				019B58A6E1D4430597408102 /* marker.svg in Resources */,
+				A4246B4ABC3946AAACCD52BF /* pin.svg in Resources */,
+				09B5DDEDC1714B7CAB3586B4 /* plus.svg in Resources */,
+				D74EBEA693384266B0455CCB /* profile.png in Resources */,
+				73B800898B784214928F400C /* profile.svg in Resources */,
+				663918BC4DCD4A85B6392C79 /* right.svg in Resources */,
+				863A5B86C50948A19449EE61 /* search.svg in Resources */,
+				460DB40886E641998140E03B /* share.svg in Resources */,
+				6AB9052CDF864F4BB1C1ABF5 /* time.svg in Resources */,
+				6F26973AB9484708B878D656 /* OpenSans-Bold.ttf in Resources */,
+				919D6D5027FF43F8A485F533 /* OpenSans-BoldItalic.ttf in Resources */,
+				BEA476DBE744474E828360B9 /* OpenSans-ExtraBold.ttf in Resources */,
+				A78BD8DFCDB6474A9713B40E /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				E095EF6755974239A89AADF3 /* OpenSans-Italic.ttf in Resources */,
+				F169CA39F2BC472C978AAE53 /* OpenSans-Light.ttf in Resources */,
+				F99A82C900184F0BB7A7785E /* OpenSans-LightItalic.ttf in Resources */,
+				BA84AF7DB6994D71B78EEA5E /* OpenSans-Regular.ttf in Resources */,
+				D4E5B3215E1C4AE4A487AEC8 /* OpenSans-Semibold.ttf in Resources */,
+				1B830B27DA434D7E81B8B329 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				E1813EBF17A440B394714F8F /* OpenSans.ttf in Resources */,
+				3AB6A29434EB4DDA9B985702 /* AntDesign.ttf in Resources */,
+				00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */,
+				B5DC89EFFDEE4B49A0DFEA32 /* EvilIcons.ttf in Resources */,
+				79DA9D912C1B4F1FADF732E5 /* Feather.ttf in Resources */,
+				E289A9E599E34F4697938277 /* FontAwesome.ttf in Resources */,
+				94C1BC356A8047C9A7EF1046 /* FontAwesome5_Brands.ttf in Resources */,
+				349AFCDA4A0C4142A3F3FA0C /* FontAwesome5_Regular.ttf in Resources */,
+				60180CE4AC90401DA1433BF1 /* FontAwesome5_Solid.ttf in Resources */,
+				6DFA104F086D4CC5AB746E32 /* Fontisto.ttf in Resources */,
+				8B0053CEED914CB89598B968 /* Foundation.ttf in Resources */,
+				8348D389809747DC8BAA40C0 /* Ionicons.ttf in Resources */,
+				95B86BC95EE84D7AA23EDE9C /* MaterialCommunityIcons.ttf in Resources */,
+				6B9F7A1ECBF546CDBDFA31E7 /* MaterialIcons.ttf in Resources */,
+				F051DC43DA454F22803C2D59 /* Octicons.ttf in Resources */,
+				A2E2B0CE3238480C940B574D /* SimpleLineIcons.ttf in Resources */,
+				C0C892F9F35644CB9462EC7F /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +596,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		0C891202BA97C3EB6DCE57C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScordMobile/Pods-ScordMobile-resources.sh",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScordMobile/Pods-ScordMobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -587,6 +827,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ScordMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -607,6 +848,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ScordMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -628,6 +870,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = T8P2454QKB;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ScordMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -647,6 +891,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T8P2454QKB;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ScordMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -673,6 +919,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ScordMobile-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -701,6 +948,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ScordMobile-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -728,6 +976,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ScordMobile-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -755,6 +1004,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "ScordMobile-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (

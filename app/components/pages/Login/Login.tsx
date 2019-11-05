@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { LoginProps } from "./Login.d";
 import LoginForm from "../../ui/LoginForm/LoginForm";
-import IntroHeader from "../../ui/IntroHeader/IntroHeader";
 import { View, TouchableOpacity, TouchableHighlight, Text } from "react-native";
 import FormContainer from "../../ui/FormContainer/FormContainer";
 import { Navigation } from "react-native-navigation";
@@ -14,7 +13,6 @@ import PrimaryButton from "../../ui/PrimaryButton/PrimaryButton";
 const Login: React.FC<LoginProps> = ({ componentId }) => {
   return (
     <KeyboardAwareScrollView>
-      <IntroHeader title="Login" />
       <FormContainer>
         <LoginForm componentId={componentId} />
         <TouchableOpacity style={{ ...styles.link, marginTop: 30 }} onPress={() => {

@@ -1,5 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
+  - BVLinearGradient (2.5.6):
+    - React
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.61.2)
   - FBReactNativeSpec (0.61.2):
@@ -182,6 +184,10 @@ PODS:
     - React-cxxreact (= 0.61.2)
     - React-jsi (= 0.61.2)
   - React-jsinspector (0.61.2)
+  - react-native-geolocation (2.0.2):
+    - React
+  - react-native-maps (0.26.1):
+    - React
   - React-RCTActionSheet (0.61.2):
     - React-Core/RCTActionSheetHeaders (= 0.61.2)
   - React-RCTAnimation (0.61.2):
@@ -217,9 +223,18 @@ PODS:
     - React-cxxreact (= 0.61.2)
     - React-jsi (= 0.61.2)
     - ReactCommon/jscallinvoker (= 0.61.2)
+  - ReactNativeNavigation (3.4.0):
+    - React
+  - RNCAsyncStorage (1.6.2):
+    - React
+  - RNSVG (9.13.3):
+    - React
+  - RNVectorIcons (6.6.0):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
@@ -236,6 +251,8 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
+  - react-native-maps (from `../node_modules/react-native-maps`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -247,6 +264,10 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeNavigation (from `../node_modules/react-native-navigation/ReactNativeNavigation.podspec`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNSVG (from `../node_modules/react-native-svg`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -254,6 +275,8 @@ SPEC REPOS:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -282,6 +305,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-geolocation:
+    :path: "../node_modules/@react-native-community/geolocation"
+  react-native-maps:
+    :path: "../node_modules/react-native-maps"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -302,11 +329,20 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeNavigation:
+    :podspec: "../node_modules/react-native-navigation/ReactNativeNavigation.podspec"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 68b6a76960fbd8ecd9fb7ce0aadd3329c3340a99
   FBReactNativeSpec: 5a764c60abdc3336a213e5310c40b74741f32839
@@ -321,6 +357,8 @@ SPEC CHECKSUMS:
   React-jsi: 32285a21b1b24c36060493ed3057a34677d58d09
   React-jsiexecutor: 8909917ff7d8f21a57e443a866fd8d4560e50c65
   React-jsinspector: 111d7d342b07a904c400592e02a2b958f1098b60
+  react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
+  react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
   React-RCTActionSheet: 89b037c0fb7d2671607cb645760164e7e0c013f6
   React-RCTAnimation: e3cefa93c38c004c318f7ec04b883eb14b8b8235
   React-RCTBlob: d26ac0e313fbf14e7203473fd593ccaaeee8329e
@@ -331,8 +369,12 @@ SPEC CHECKSUMS:
   React-RCTText: e3ef6191cdb627855ff7fe8fa0c1e14094967fb8
   React-RCTVibration: fb54c732fd20405a76598e431aa2f8c2bf527de9
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
+  ReactNativeNavigation: 8c8c90fec3ee912010ce4cfb6c9678912c056b9b
+  RNCAsyncStorage: 60a80e72d95bf02a01cace55d3697d9724f0d77f
+  RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f
 
-PODFILE CHECKSUM: 01636a6fd7141c6ffa4830aff89af4e5b7adc043
+PODFILE CHECKSUM: 8fa02b457761e5ea3a61b715e746a0b6b82fc3cf
 
 COCOAPODS: 1.8.4
