@@ -26,4 +26,12 @@ export default class StorageClient {
             console.error(error);
         }
     };
+
+    async deleteItem(name) {
+        try {
+            await AsyncStorage.removeItem(name);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 }

@@ -4,14 +4,21 @@ import RestClient from "./RestClient";
 import createAuth0Client from "@auth0/auth0-spa-js";
 import config from "../auth_config.json";
 import * as $ from "jquery";
-import auth0 from "auth0-js";
+// import auth0 from "auth0-js";
+import StorageClient from "./StorageClient";
+import Auth0 from 'react-native-auth0';
 
 export default class AuthClient {
-  public auth0;
-  public webAuth = new auth0.WebAuth({
-    domain:       config.domain,
-    clientID:     config.clientId
+  // public auth0;
+  // public webAuth = new auth0.WebAuth({
+  //   domain:       config.domain,
+  //   clientID:     config.clientId
+  // });
+  public auth0 = new Auth0({
+    domain: config.domain,
+    clientId: config.clientId,
   });
+  public storageClient = new StorageClient();
   public restClient = new RestClient();
 
   constructor() {
@@ -19,17 +26,19 @@ export default class AuthClient {
   }
 
   async init() {
-    this.auth0 = await createAuth0Client({
-      domain: config.domain,
-      client_id: config.clientId,
-      redirect_uri: window.location.origin
-    });
+    // this.auth0 = await createAuth0Client({
+    //   domain: config.domain,
+    //   client_id: config.clientId,
+    //   redirect_uri: window.location.origin
+    // });
   }
 
   async getUserData(dispatch) {
     return new Promise((resolve, reject) => {
-      const token = Cookies.get("scordAccessToken");
-      const auth0Id = Cookies.get("scordAuth0Id");
+      // const token = Cookies.get("scordAccessToken");
+      // const auth0Id = Cookies.get("scordAuth0Id");
+      const token = this.storageClient.getToken("scordAccessToken");
+      const auth0Id = this.storageClient.getToken("scordAuth0Id");
   
       this.restClient.makeRequest(
         process.env.SERVER_URL + "/accounts/" + auth0Id, 
@@ -143,7 +152,8 @@ export default class AuthClient {
     ).then(res => {
       const token = res['body']['access_token'];
 
-      Cookies.set("scordAccessToken", token);
+      // Cookies.set("scordAccessToken", token);
+      this.storageClient.storeItem("scordAuth0Id", token);
 
       this.setAuth0Id(token, callback, onError);
     })
@@ -164,11 +174,12 @@ export default class AuthClient {
     ).then(res2 => {
       const auth0Id = res2['body']['sub'].split("auth0|")[1];
       
-      Cookies.set("scordAuth0Id", auth0Id);
+      // Cookies.set("scordAuth0Id", auth0Id);
+      this.storageClient.storeItem("scordAuth0Id", auth0Id);
 
-      setTimeout(() => {
-        window.location.replace("/");
-      }, 500);
+      // setTimeout(() => {
+      //   window.location.replace("/");
+      // }, 500);
     })
   }
 
@@ -179,11 +190,10 @@ export default class AuthClient {
       //   if (err) {
       //     reject(err);
       //   }
-        self.webAuth.client.userInfo(token, function(err, user) {
-          if (err) {
-            reject(err);
-          }
+        self.auth0.auth.userInfo({ token }).then((user) => {
           resolve(user);
+        }).catch((err) => {
+          reject(err);
         });
       // });
     })
@@ -199,18 +209,23 @@ export default class AuthClient {
     // });
     // const fullUrl = "https://" + config.domain + "/authorize" + queryString;
     // window.location.href = fullUrl;
-    console.info("auth0", this.auth0, this.webAuth);
-    this.webAuth.authorize({
-      connection,
-      responseType: "token",
-      redirectUri: process.env.SERVER_URL,
-      clientId: config.clientId
-    })
+    // console.info("auth0", this.auth0, this.webAuth);
+    // this.webAuth.authorize({
+    //   connection,
+    //   responseType: "token",
+    //   redirectUri: process.env.SERVER_URL,
+    //   clientId: config.clientId
+    // })
+    this.auth0.authorize({
+      connection
+    });
   }
 
   logout() {
-    Cookies.remove("scordAccessToken");
-    Cookies.remove("scordAuth0Id");
-    window.location.href = window.location.origin;
+    // Cookies.remove("scordAccessToken");
+    // Cookies.remove("scordAuth0Id");
+    // window.location.href = window.location.origin;
+    this.storageClient.deleteItem("scordAccessToken");
+    this.storageClient.deleteItem("scordAuth0Id");
   }
 }

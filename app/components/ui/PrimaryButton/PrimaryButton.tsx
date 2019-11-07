@@ -17,11 +17,11 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   
   return (
     <TouchableOpacity style={{ ...styles.primaryButton, ...style }} onPress={pressHandler}>
-      <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#FF5532', '#FE0B83']} style={styles.primaryButtonGradient}>
+      {/* <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#FF5532', '#FE0B83']} style={styles.primaryButtonGradient}> */}
         <Text style={styles.primaryButtonText}>
           {label}
         </Text>
-      </LinearGradient>
+      {/* </LinearGradient> */}
     </TouchableOpacity>
   );
 };
