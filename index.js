@@ -1,5 +1,7 @@
 import { Navigation } from "react-native-navigation";
 import Login from "./app/components/pages/Login/Login";
+import SignUp from "./app/components/pages/SignUp/SignUp";
+import ForgotPassword from "./app/components/pages/ForgotPassword/ForgotPassword";
 import RootProvider from "./app/RootProvider";
 import Dispatcher from "./app/components/pages/Dispatcher/Dispatcher";
 // import RootProvider from "./app/RootProvider";
@@ -7,8 +9,8 @@ import Dispatcher from "./app/components/pages/Dispatcher/Dispatcher";
 console.disableYellowBox = true; 
 
 Navigation.registerComponent(`Login`, () => RootProvider(Login)); // done
-// Navigation.registerComponent(`SignUp`, () => RootProvider(SignUp)); // done
-// Navigation.registerComponent(`ForgotPassword`, () => RootProvider(ForgotPassword)); // done
+Navigation.registerComponent(`SignUp`, () => RootProvider(SignUp)); // done
+Navigation.registerComponent(`ForgotPassword`, () => RootProvider(ForgotPassword)); // done
 Navigation.registerComponent(`Dispatcher`, () => RootProvider(Dispatcher)); // done
 
 Navigation.events().registerAppLaunchedListener(() => {

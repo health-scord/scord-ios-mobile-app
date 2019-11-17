@@ -3,5 +3,6 @@ export interface PrimaryButtonProps {
   className?: string;
   onPress?: (e: MouseEvent) => void;
   label: string;
+  buttonProps?: any;
   style?: any;
 }

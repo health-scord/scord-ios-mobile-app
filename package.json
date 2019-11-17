@@ -49,6 +49,7 @@
     "react-native-datepicker": "^1.7.2",
     "react-native-formik": "^1.7.7",
     "react-native-google-autocomplete": "^0.1.7",
+    "react-native-ios-kit": "^0.0.7",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-map-clustering": "^2.0.2",

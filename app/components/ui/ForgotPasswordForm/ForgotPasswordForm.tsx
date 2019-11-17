@@ -72,7 +72,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
             return (
               <Form>
                 <FormInput label="Email" placeholder="Email" name="email" type="text" />
-                <PrimaryButton onPress={props.handleSubmit as any} label="Reset Password" />
+                <PrimaryButton buttonProps={{ inverted: true, rounded: true }} onPress={props.handleSubmit as any} label="Reset Password" />
               </Form>
             );
           }}

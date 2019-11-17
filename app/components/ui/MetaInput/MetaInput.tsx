@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { MetaInputProps } from "./MetaInput.d";
-import { View, Switch, Text, TouchableOpacity, TouchableHighlight, TextInput } from "react-native";
+import { Button, View, Switch, Text, TouchableOpacity, TouchableHighlight, TextInput } from "react-native";
 import StarRating from "../StarRating/StarRating";
 
 import styles from "../../../../build/styles";
@@ -161,9 +161,7 @@ const MetaInput: React.FC<MetaInputProps> = ({
   }
 
   const detailComp = details !== null ?
-    <TouchableOpacity style={styles.detailLink}>
-      <Text style={styles.detailLinkText}>DETAILS</Text>
-    </TouchableOpacity>
+    <Button title="DETAILS" />
     : <></>;
 
     const bodyComp = open ? 

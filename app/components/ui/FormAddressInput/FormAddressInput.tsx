@@ -3,7 +3,7 @@ import * as React from "react";
 import { FormAddressInputProps } from "./FormAddressInput.d";
 
 import { GoogleAutoComplete } from 'react-native-google-autocomplete';
-import { TextInput, ScrollView, View, Text, TouchableHighlight } from "react-native";
+import { TextInput, ScrollView, View, Text, TouchableHighlight, Button } from "react-native";
 import ShadowView from 'react-native-shadow-view';
 import StyleHelpers from "../../../services/StyleHelpers";
 
@@ -48,13 +48,10 @@ const FormAddressInput: React.FC<FormAddressInputProps> = ({
                   {locationResults.map((el, i) => { 
                     console.info("el", el);
                     return (
-                      <TouchableHighlight 
-                        underlayColor="#E5E5E5"
+                      <Button 
+                        title={el.description}
                         onPress={() => handleTextChange(el.description)}
-                        style={{ padding: 5 }}
-                      >
-                        <Text>{el.description}</Text>
-                      </TouchableHighlight>
+                      />
                     )
                   })}
                 </ScrollView>

@@ -1,8 +1,9 @@
 import * as React from "react";
 
 import { PrimaryButtonProps } from "./PrimaryButton.d";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, Button as RNButton, View } from "react-native";
 import LinearGradient from 'react-native-linear-gradient';
+import { Button } from 'react-native-ios-kit';
 
 import styles from "../../../../build/styles";
 
@@ -11,19 +12,24 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   className = "",
   onPress = e => console.info("Click"),
   label = "Submit",
+  buttonProps = {},
   style = {}
 }) => {
   const pressHandler = e => onPress(e);
-  
+
   return (
-    <TouchableOpacity style={{ ...styles.primaryButton, ...style }} onPress={pressHandler}>
-      {/* <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#FF5532', '#FE0B83']} style={styles.primaryButtonGradient}> */}
-        <Text style={styles.primaryButtonText}>
-          {label}
-        </Text>
-      {/* </LinearGradient> */}
-    </TouchableOpacity>
-  );
+    <View style={style}>
+      <Button onPress={pressHandler} {...buttonProps}>{label}</Button>
+    </View>
+  )
+  
+  // return (
+  //   <TouchableOpacity style={{ ...styles.primaryButton, ...style }} onPress={pressHandler}>
+  //     <Text style={styles.primaryButtonText}>
+  //       {label}
+  //     </Text>
+  //   </TouchableOpacity>
+  // );
 };
 
 export default PrimaryButton;

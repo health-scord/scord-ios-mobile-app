@@ -21,7 +21,7 @@ const FormDatepicker: React.FC<FormDatepickerProps> = ({
 
   return (
     <DatePicker
-      style={{ width: styleHelpers.perc(80), marginBottom: 15 }}
+      // style={{ width: styleHelpers.perc(80), marginBottom: 15 }}
       date={date}
       mode="date"
       placeholder={placeholder}
@@ -30,16 +30,16 @@ const FormDatepicker: React.FC<FormDatepickerProps> = ({
       // maxDate="2016-06-01"
       confirmBtnText="Confirm"
       cancelBtnText="Cancel"
-      customStyles={{
-        dateInput: {
-          ...{
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            top: 6
-          },
-          ...styles.formInput
-        }
-      }}
+      // customStyles={{
+      //   dateInput: {
+      //     ...{
+      //       flexDirection: "row",
+      //       justifyContent: "flex-start",
+      //       top: 6
+      //     },
+      //     ...styles.formInput
+      //   }
+      // }}
       onDateChange={(date) => {
         setDate(date);
         formProps.setFieldValue("birthday", date);

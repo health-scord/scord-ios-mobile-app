@@ -3,4 +3,6 @@ export interface FormSelectProps {
   className?: string;
   onClick?: (e: MouseEvent) => void;
   formProps: any;
+  items: any;
+  onValueChange: any;
 }

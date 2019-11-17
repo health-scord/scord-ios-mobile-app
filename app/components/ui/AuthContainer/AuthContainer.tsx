@@ -14,11 +14,11 @@ const AuthContainer: React.FC<AuthContainerProps> = ({
 }) => {
   const clickHandler = e => onClick(e);
   return (
-    <LinearGradient useAngle={true} angle={135} colors={['rgb(73, 46, 174)', 'rgb(178, 92, 205)']} style={styles.authContainer}>
+    // <LinearGradient useAngle={true} angle={135} colors={['rgb(73, 46, 174)', 'rgb(178, 92, 205)']} style={styles.authContainer}>
       <View style={styles.authContainerInner}>
         {children}
       </View>
-    </LinearGradient>
+    // </LinearGradient>
   );
 };
 

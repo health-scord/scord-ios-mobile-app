@@ -13,7 +13,6 @@ import AuthClient from "../../../services/AuthClient";
 import { ERROR_CODE } from "../../../services/ERROR_CODE";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
-import SecondaryButton from "../SecondaryButton/SecondaryButton";
 import styles from "../../../../build/styles";
 import FormDatepicker from "../FormDatepicker/FormDatepicker";
 import FormSelect from "../FormSelect/FormSelect";
@@ -110,10 +109,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                 <FormInput label="Password" placeholder="Password" name="password" type="password" />
                 <FormInput label="Zip Code" placeholder="Zip Code" name="zipCode" type="text" />
                 {/* <FormInput label="Birthday" placeholder="Birthday" name="birthday" type="text" /> */}
-                <FormDatepicker formProps={props} />
+                <FormDatepicker placeholder="Birthday" formProps={props} />
                 <FormSelect formProps={props} />
                 <View style={styles.inlineRow}>
-                  <SecondaryButton style={{ flex: 1, marginRight: 7 }} onPress={() => { console.info("complete later") }} label="Complete Later" />
+                  <PrimaryButton style={{ flex: 1, marginRight: 7 }} onPress={() => { console.info("complete later") }} label="Complete Later" />
                   <PrimaryButton style={{ flex: 1, marginLeft: 7 }} onPress={props.handleSubmit as any} label="Sign Up" />
                 </View>
               </Form>

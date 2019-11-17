@@ -42,9 +42,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   });
   
   return (
-    <View>
-      <View>
-
+    <>
         {tooManyLoginAttempts ? (
           <Validation intent="danger">
             Your account has been blocked after multiple consecutive login attempts.
@@ -135,27 +133,61 @@ const LoginForm: React.FC<LoginFormProps> = ({
           render={props => {
             return (
               <Form>
-                <FormInput label="Email" placeholder="Email" name="email" type="email" />
-                <FormInput label="Password" placeholder="Password" name="password" type="password" secureTextEntry={true} />
-                <TouchableOpacity style={{ ...styles.link, marginTop: 30 }} onPress={() => {
-                  Navigation.push(componentId, {
-                    component: {
-                      name: 'ForgotPassword'
-                    }
-                  })
-                }}>
-                  <Text style={styles.linkText}>Forgot your password?</Text>
-                </TouchableOpacity>
-                <PrimaryButton onPress={props.handleSubmit as any} label="Login" />
-                <PrimaryButton onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"))} label="Login with Google" />
-                <PrimaryButton onPress={() => authClient.socialLogin("facebook", () => console.info("finished"))} label="Login with Facebook" />
+                <FormInput 
+                  label="Email" 
+                  placeholder="Email" 
+                  name="email" 
+                  type="email" 
+                />
+                <FormInput 
+                  label="Password" 
+                  placeholder="Password" 
+                  name="password" 
+                  type="password" 
+                  secureTextEntry={true} 
+                />
+                <PrimaryButton 
+                  buttonProps={{
+                    inverted: true,
+                    rounded: true
+                  }} 
+                  style={{ marginBottom: 20 }} 
+                  onPress={props.handleSubmit as any} 
+                  label="Login"
+                />
+                <Button 
+                  title="Forgot your password?" 
+                  onPress={() => {
+                    Navigation.push(componentId, {
+                      component: {
+                        name: 'ForgotPassword'
+                      }
+                    })
+                  }} 
+                />
+                <PrimaryButton 
+                  buttonProps={{
+                    inverted: true,
+                    rounded: true
+                  }} 
+                  style={{ marginBottom: 20 }} 
+                  onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"))} 
+                  label="Login with Google"
+                />
+                <PrimaryButton 
+                  buttonProps={{
+                    inverted: true,
+                    rounded: true
+                  }} 
+                  onPress={() => authClient.socialLogin("facebook", () => console.info("finished"))} 
+                  label="Login with Facebook" 
+                />
                 {/* {Platform.OS === "ios" && <KeyboardSpacer />} */}
               </Form>
             );
           }}
         />
-      </View>
-    </View>
+      </>
   );
 };
 

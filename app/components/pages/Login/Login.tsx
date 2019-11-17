@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { LoginProps } from "./Login.d";
 import LoginForm from "../../ui/LoginForm/LoginForm";
-import { View, TouchableOpacity, TouchableHighlight, Text } from "react-native";
+import { View, TouchableOpacity, TouchableHighlight, Text, Button } from "react-native";
 import FormContainer from "../../ui/FormContainer/FormContainer";
 import { Navigation } from "react-native-navigation";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -20,16 +20,13 @@ const Login: React.FC<LoginProps> = ({ componentId }) => {
           <IntroHeader />
           <LoginForm componentId={componentId} />
           <View style={{ marginTop: 100 }}>
-            <Text style={{...styles.noteText, marginBottom: 20 }}>Don't have an account?</Text>
-            <TouchableOpacity onPress={() => {
+            <Button title="Sign up for an account" onPress={() => {
               Navigation.push(componentId, {
                 component: {
                   name: 'SignUp'
                 }
               })
-            }}>
-              <Text>Sign Up</Text>
-            </TouchableOpacity>
+            }} />
           </View>
         </FormContainer>
       </KeyboardAwareScrollView>

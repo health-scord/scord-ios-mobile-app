@@ -1,6 +1,20 @@
-$fuchsia: #FE0B84;
+$green: #7ED321;
+
+$iosBlue: "rgb(10, 122, 255)";
+$iosLightBlue: "rgb(0, 122, 255)";
+$iosGreen: "rgb(52, 199, 89)";
+$iosLightGreen: "rgb(48, 209, 88)";
+$iosRed: "rgb(255, 59, 48)";
+$iosLightRed: "rgb(255, 69, 58)";
 
 @import "../../app/components/ui/Validation/Validation.scss";
 @import "../../app/components/ui/MetaInput/MetaInput.scss";
 @import "../../app/components/ui/AuthContainer/AuthContainer.scss";
+@import "../../app/components/ui/Callout/Callout.scss";
+@import "../../app/components/ui/FormContainer/FormContainer.scss";
+@import "../../app/components/ui/FormInput/FormInput.scss";
+@import "../../app/components/ui/IntroHeader/IntroHeader.scss";
+@import "../../app/components/ui/Loading/Loading.scss";
+@import "../../app/components/ui/PrimaryButton/PrimaryButton.scss";
+@import "../../app/components/ui/SearchInput/SearchInput.scss";
 
