@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import client from "./ApolloClient";
-import RestClient from "./RestClient";
+import RestClient, { formatUrl } from "./RestClient";
 import createAuth0Client from "@auth0/auth0-spa-js";
 import config from "../auth_config.json";
 import * as $ from "jquery";
@@ -35,27 +35,32 @@ export default class AuthClient {
 
   async getUserData(dispatch) {
     return new Promise((resolve, reject) => {
-      // const token = Cookies.get("scordAccessToken");
-      // const auth0Id = Cookies.get("scordAuth0Id");
-      const token = this.storageClient.getToken("scordAccessToken");
-      const auth0Id = this.storageClient.getToken("scordAuth0Id");
-  
-      this.restClient.makeRequest(
-        process.env.SERVER_URL + "/accounts/" + auth0Id, 
-        {}, 
-        () => console.info("getUserData finished"),
-        "GET", 
-        { "content-type": "application/json" },
-        false
-      ).then(res => {
-        if (dispatch) {
-          dispatch({
-            type: "setUserData",
-            userData: res,
-          });
-        }
-        resolve(res);
-      })
+      this.storageClient.getToken("scordAccessToken").then((token) => {
+        this.storageClient.getToken("scordAuth0Id").then((auth0Id) => {
+          if ((token !== null && typeof token !== 'undefined') &&
+            (auth0Id !== null && typeof auth0Id !== 'undefined')) {
+              this.restClient.makeRequest(
+                formatUrl("/accounts/" + auth0Id), 
+                {}, 
+                () => console.info("getUserData finished"),
+                "GET", 
+                { "content-type": "application/json" },
+                false
+              ).then(res => {
+                console.info("user data", res);
+                if (dispatch) {
+                  dispatch({
+                    type: "setUserData",
+                    userData: res,
+                  });
+                }
+                resolve(res);
+              });
+            } else {
+              console.error("ERROR. Not logging in 2033")
+            }
+        });
+      });
     });
   }
 

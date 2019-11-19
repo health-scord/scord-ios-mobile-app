@@ -1,12 +1,14 @@
 // const methods = ['get', 'post', 'put', 'patch', 'del'];
 import fetch from "cross-fetch";
 const superagent = require('superagent');
+import env from "../../env";
 
 // get endpoint in proper format
-function formatUrl(path) {
-  let pathBase = "";
-
-  pathBase = process.env.SERVER_URL;
+export const formatUrl = (path) => {
+  let pathBase = "https://68.183.100.145";
+  if (__DEV__) {
+    pathBase = env.restUri;
+  }
 
   const adjustedPath = path[0] !== "/" ? "/" + path : path;
   const formattedUrl = pathBase + adjustedPath;
@@ -99,7 +101,9 @@ export default class RestClient {
 
       const jsonData = data.json();
       return jsonData;
-    });
+    }).catch((err) => {
+      console.error("FETCH ERR", err, JSON.stringify(err));
+    })
   }
 
   makeRequest(

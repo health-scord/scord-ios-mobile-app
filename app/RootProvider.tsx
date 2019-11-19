@@ -5,6 +5,8 @@ import { View } from 'react-native';
 import client from './services/ApolloClient';
 
 import { ThemeProvider } from 'react-native-ios-kit';
+import App from "./components/pages/App/App";
+import { AppContextAPI } from "./context/AppContextAPI";
 
 function RootProvider(Component) {
     return (props) => (
@@ -21,9 +23,13 @@ function RootProvider(Component) {
             // footnoteBackgroundColor: string,
             // positiveColor: string,
         }}>
-            <ApolloProvider client={client}>
-                <Component {...props} />
-            </ApolloProvider>
+            <AppContextAPI>
+                <App>
+                    <ApolloProvider client={client}>
+                        <Component {...props} />
+                    </ApolloProvider>
+                </App>
+            </AppContextAPI>
         </ThemeProvider>
     );
 }

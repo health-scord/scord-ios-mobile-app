@@ -9,32 +9,25 @@
 /* Begin PBXBuildFile section */
 		00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA41D2552E40DB97047E5B /* Entypo.ttf */; };
 		00E356F31AD99517003FC87E /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
-		019B58A6E1D4430597408102 /* marker.svg in Resources */ = {isa = PBXBuildFile; fileRef = 374C48738C254451A1C2C252 /* marker.svg */; };
 		09B5DDEDC1714B7CAB3586B4 /* plus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 013482BE2BF84D73B746CBE0 /* plus.svg */; };
 		1176D26F98E153505DE7843D /* libPods-ScordMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E86FFB0DC0AA30CABF93B3 /* libPods-ScordMobileTests.a */; };
-		137CBD7D95BC4CB2968E93D6 /* explore.svg in Resources */ = {isa = PBXBuildFile; fileRef = DEBF4BFEE55C4A70908F76AE /* explore.svg */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B0731E2609D4CCDA6313DA8 /* close.svg in Resources */ = {isa = PBXBuildFile; fileRef = FBED35E48D4C4F88A12D4974 /* close.svg */; };
 		1B830B27DA434D7E81B8B329 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11C66C4D969042F29DCDFFAC /* OpenSans-SemiboldItalic.ttf */; };
-		1F781D40FFB14DCA9A692030 /* activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0283215F574C6AB26396A3 /* activity.png */; };
-		24279F3350174EA185A05BCC /* cluster.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3F95903D799849218D99CA03 /* cluster.svg */; };
-		294E0239F14F4527A5D8AAA3 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = FE3E398C5C62417B9DD6CF26 /* logo.svg */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
 		349AFCDA4A0C4142A3F3FA0C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88AE4E843F4D470582FF8525 /* FontAwesome5_Regular.ttf */; };
 		3AB6A29434EB4DDA9B985702 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E047C775A3C34E7B8F834D00 /* AntDesign.ttf */; };
-		3BCE6539509D4AA980C9DECA /* activity.svg in Resources */ = {isa = PBXBuildFile; fileRef = FFCB74C5E5D146A4A5F1F82E /* activity.svg */; };
 		3D5B8803C06F4601AEE2F949 /* like.svg in Resources */ = {isa = PBXBuildFile; fileRef = 50E66651C5B2450AA4DCC09D /* like.svg */; };
 		4350EEF2D1474921A0A81F66 /* back.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37858521A24840A8ACF0D377 /* back.svg */; };
 		460DB40886E641998140E03B /* share.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1DE4DA6B9C4944C79910FB9D /* share.svg */; };
 		515052F33F05352BD977DF4C /* libPods-ScordMobile-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC02E3349A2A2F2ADBD560 /* libPods-ScordMobile-tvOS.a */; };
 		5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C706A31F9641839D1C913F /* Logo.png */; };
-		5B970BDB5BB64FD39975FB3D /* explore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB54626A67A47A5ABBE05A3 /* explore.png */; };
 		60180CE4AC90401DA1433BF1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2BFD4D1FB4422492FB8CD0 /* FontAwesome5_Solid.ttf */; };
 		60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C50B4A706A3745A7BB18F5EC /* Playon_Logo_Icon.png */; };
 		663918BC4DCD4A85B6392C79 /* right.svg in Resources */ = {isa = PBXBuildFile; fileRef = DB3D0C1A5EE2402F814B8BB1 /* right.svg */; };
@@ -68,7 +61,6 @@
 		E095EF6755974239A89AADF3 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEECB7ED0AF040DA99937361 /* OpenSans-Italic.ttf */; };
 		E1813EBF17A440B394714F8F /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20A7856E8DB54B4BAE7B01D1 /* OpenSans.ttf */; };
 		E289A9E599E34F4697938277 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09874863E52541CDA3E83646 /* FontAwesome.ttf */; };
-		EC7275A6B22C4F26B482AE77 /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 04B582D4E0B5494D9803426D /* icon.svg */; };
 		F051DC43DA454F22803C2D59 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */; };
 		F169CA39F2BC472C978AAE53 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA628BB352E469097584A5F /* OpenSans-Light.ttf */; };
 		F99A82C900184F0BB7A7785E /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */; };
@@ -513,20 +505,12 @@
 				6892122236654948B9394A70 /* intro1@2x.png in Resources */,
 				5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */,
 				60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */,
-				1F781D40FFB14DCA9A692030 /* activity.png in Resources */,
-				3BCE6539509D4AA980C9DECA /* activity.svg in Resources */,
 				4350EEF2D1474921A0A81F66 /* back.svg in Resources */,
 				A5FE602725D440029F505D7E /* check.svg in Resources */,
 				1B0731E2609D4CCDA6313DA8 /* close.svg in Resources */,
-				24279F3350174EA185A05BCC /* cluster.svg in Resources */,
 				A9140BBB8FD145C5BEAAF6C7 /* dropdownIcon.svg in Resources */,
-				5B970BDB5BB64FD39975FB3D /* explore.png in Resources */,
-				137CBD7D95BC4CB2968E93D6 /* explore.svg in Resources */,
 				B718242486654C799B206E33 /* heart.svg in Resources */,
-				EC7275A6B22C4F26B482AE77 /* icon.svg in Resources */,
 				3D5B8803C06F4601AEE2F949 /* like.svg in Resources */,
-				294E0239F14F4527A5D8AAA3 /* logo.svg in Resources */,
-				019B58A6E1D4430597408102 /* marker.svg in Resources */,
 				A4246B4ABC3946AAACCD52BF /* pin.svg in Resources */,
 				09B5DDEDC1714B7CAB3586B4 /* plus.svg in Resources */,
 				D74EBEA693384266B0455CCB /* profile.png in Resources */,
