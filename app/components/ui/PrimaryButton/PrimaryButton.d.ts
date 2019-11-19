@@ -4,5 +4,5 @@ export interface PrimaryButtonProps {
   onPress?: (e: MouseEvent) => void;
   label: string;
   buttonProps?: any;
-  style?: any;
+  styles?: any;
 }

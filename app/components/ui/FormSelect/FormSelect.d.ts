@@ -5,4 +5,5 @@ export interface FormSelectProps {
   formProps: any;
   items: any;
   onValueChange: any;
+  style: any;
 }

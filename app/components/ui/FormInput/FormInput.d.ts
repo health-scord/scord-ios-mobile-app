@@ -6,4 +6,9 @@ export interface FormInputProps {
   placeholder: string;
   name: string;
   type: string;
+  error: any;
+  value: any;
+  setFieldValue: any;
+  secureTextEntry: any;
+  style: any;
 }

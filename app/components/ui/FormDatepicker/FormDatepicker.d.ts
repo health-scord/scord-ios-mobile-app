@@ -4,4 +4,5 @@ export interface FormDatepickerProps {
   onClick?: (e: MouseEvent) => void;
   placeholder?: string;
   formProps: any;
+  name?: any;
 }

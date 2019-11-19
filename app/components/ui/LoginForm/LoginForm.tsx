@@ -16,6 +16,7 @@ import Callout from "../Callout/Callout";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import Validation from "../Validation/Validation";
 import StorageClient from "../../../services/StorageClient";
+import HomeTabs from "../../pages/Dispatcher/HomeTabs";
 
 const Form = withNextInputAutoFocusForm(View);
 
@@ -73,7 +74,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             password: ""
           }}
           onSubmit={(values, actions) => {
-            console.log("values", { values, actions });
+            console.log("login values", { values, actions });
 
             Keyboard.dismiss();
 
@@ -94,11 +95,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 if (err) {
                   console.error("err", err);
                 }
-                // if (res['body']['access_token']) {
-                //   console.info('success');
-                //   // window.location.replace("/");
-                // }
-                actions.resetForm();
               },
               (err) => {
                 console.error("ERROR LOGIN:", err, err.message, err.response);
@@ -125,6 +121,15 @@ const LoginForm: React.FC<LoginFormProps> = ({
                       setGeneralError(true);
                       break;
                   }
+                }
+              },
+              (token, auth0Id) => {
+                actions.resetForm();
+
+                console.info("login finalized", token, auth0Id);
+
+                if (token && auth0Id) {
+                  Navigation.push(componentId, HomeTabs());
                 }
               }
             );

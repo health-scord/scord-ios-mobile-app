@@ -13,7 +13,7 @@ import Validation from "../Validation/Validation";
 
 import styles from "../../../../build/styles";
 
-class TextInput extends React.PureComponent<any, any> {
+class TextInput extends React.PureComponent<FormInputProps, any> {
   render() {
     const { 
       error, 
@@ -38,7 +38,7 @@ class TextInput extends React.PureComponent<any, any> {
           // style={styles.formInput}
           {...this.props}
           // ios_backgroundColor={error ? "red" : "transparent"}
-          // onValueChange={setFieldValue}
+          onValueChange={setFieldValue}
         />
         {error ? <Validation intent="danger">{error}</Validation> : <></>}
         {/* <Text>{label}</Text> */}

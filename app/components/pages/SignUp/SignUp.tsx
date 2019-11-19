@@ -9,7 +9,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 const SignUp: React.FC<SignUpProps> = ({ componentId }) => {
   return (
     <KeyboardAwareScrollView>
-      <IntroHeader title="Create a player" />
+      <IntroHeader />
       <FormContainer>
         <SignUpForm componentId={componentId} />
       </FormContainer>

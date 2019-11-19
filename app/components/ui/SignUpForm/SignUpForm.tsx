@@ -56,7 +56,15 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
     <View>
       <View>
         <Formik
-          initialValues={{}}
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            zipCode: "",
+            birthday: "",
+            gender: ""
+          }}
           onSubmit={(values, actions) => {
             console.log("values", values, actions);
 
@@ -97,6 +105,9 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                 });
               }
               actions.resetForm();
+            }, (err) => {
+              console.error("ERROR signup", err);
+              alert("Sign up error 202");
             });
           }}
           validationSchema={validationSchema}
@@ -109,11 +120,21 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                 <FormInput label="Password" placeholder="Password" name="password" type="password" />
                 <FormInput label="Zip Code" placeholder="Zip Code" name="zipCode" type="text" />
                 {/* <FormInput label="Birthday" placeholder="Birthday" name="birthday" type="text" /> */}
-                <FormDatepicker placeholder="Birthday" formProps={props} />
-                <FormSelect formProps={props} />
-                <View style={styles.inlineRow}>
-                  <PrimaryButton style={{ flex: 1, marginRight: 7 }} onPress={() => { console.info("complete later") }} label="Complete Later" />
-                  <PrimaryButton style={{ flex: 1, marginLeft: 7 }} onPress={props.handleSubmit as any} label="Sign Up" />
+                <FormDatepicker name="birthday" placeholder="Birthday" formProps={props} />
+                <FormSelect formProps={props} style={{ marginBottom: 15 }} items={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]} />
+                <View style={{}}>
+                  {/* <PrimaryButton 
+                    buttonProps={{ inverted: true, rounded: true }} 
+                    onPress={() => { console.info("complete later") }} 
+                    label="Complete Later" 
+                    styles={{ flex:1, marginBottom: 15 }}
+                  /> */}
+                  <PrimaryButton 
+                    buttonProps={{ inverted: true, rounded: true }}  
+                    onPress={props.handleSubmit as any} 
+                    label="Sign Up" 
+                    styles={{ flex: 1 }} 
+                  />
                 </View>
               </Form>
             );

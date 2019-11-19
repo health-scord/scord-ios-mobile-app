@@ -4,14 +4,20 @@ import SignUp from "./app/components/pages/SignUp/SignUp";
 import ForgotPassword from "./app/components/pages/ForgotPassword/ForgotPassword";
 import RootProvider from "./app/RootProvider";
 import Dispatcher from "./app/components/pages/Dispatcher/Dispatcher";
+import Account from "./app/components/pages/Account/Account";
+import Offers from "./app/components/pages/Offers/Offers";
+import Scores from "./app/components/pages/Scores/Scores";
 // import RootProvider from "./app/RootProvider";
 
 console.disableYellowBox = true; 
 
-Navigation.registerComponent(`Login`, () => RootProvider(Login)); // done
-Navigation.registerComponent(`SignUp`, () => RootProvider(SignUp)); // done
-Navigation.registerComponent(`ForgotPassword`, () => RootProvider(ForgotPassword)); // done
-Navigation.registerComponent(`Dispatcher`, () => RootProvider(Dispatcher)); // done
+Navigation.registerComponent(`Login`, () => RootProvider(Login));
+Navigation.registerComponent(`SignUp`, () => RootProvider(SignUp));
+Navigation.registerComponent(`ForgotPassword`, () => RootProvider(ForgotPassword));
+Navigation.registerComponent(`Dispatcher`, () => RootProvider(Dispatcher));
+Navigation.registerComponent(`Account`, () => RootProvider(Account));
+Navigation.registerComponent(`Offers`, () => RootProvider(Offers));
+Navigation.registerComponent(`Scores`, () => RootProvider(Scores));
 
 Navigation.events().registerAppLaunchedListener(() => {
     // Navigation.setDefaultOptions({

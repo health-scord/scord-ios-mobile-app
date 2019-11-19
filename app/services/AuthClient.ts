@@ -130,7 +130,7 @@ export default class AuthClient {
     })
   }
 
-  async login(values, callback, onError) {
+  async login(values, callback, onError, finished) {
     // the local User _id is not used, we use the associated auth0 id
     // auth0 token request
     this.restClient.makeRequest(
@@ -153,13 +153,13 @@ export default class AuthClient {
       const token = res['body']['access_token'];
 
       // Cookies.set("scordAccessToken", token);
-      this.storageClient.storeItem("scordAuth0Id", token);
+      this.storageClient.storeItem("scordAccessToken", token);
 
-      this.setAuth0Id(token, callback, onError);
+      this.setAuth0Id(token, callback, onError, finished);
     })
   }
 
-  setAuth0Id(token, callback, onError) {
+  setAuth0Id(token, callback, onError, finished) {
     // auth0 id request #1
     this.restClient.makeRequest(
       "https://" + config.domain + "/userinfo", 
@@ -177,9 +177,9 @@ export default class AuthClient {
       // Cookies.set("scordAuth0Id", auth0Id);
       this.storageClient.storeItem("scordAuth0Id", auth0Id);
 
-      // setTimeout(() => {
-      //   window.location.replace("/");
-      // }, 500);
+      if (typeof finished !== "undefined") {
+        finished(token, auth0Id);
+      }
     })
   }
 

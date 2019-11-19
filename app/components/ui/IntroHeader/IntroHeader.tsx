@@ -9,10 +9,11 @@ const IntroHeader: React.FC<IntroHeaderProps> = ({
   ref = null,
   className = "",
   onClick = e => console.info("Click"),
+  style = {},
 }) => {
   const clickHandler = e => onClick(e);
   return (
-    <View style={styles.introHeader}>
+    <View style={{...styles.introHeader, ...style}}>
       <Text style={styles.logoMark}>scord</Text>
       <Text style={styles.slogan}>Put your fitness data to work for you</Text>
     </View>

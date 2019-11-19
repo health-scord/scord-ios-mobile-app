@@ -2,6 +2,7 @@ import * as React from 'react';
 import {FormSelectProps} from './FormSelect.d';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from '../../../../build/styles';
+import { View } from 'react-native';
 
 const FormSelect: React.FC<FormSelectProps> = ({
   ref = null,
@@ -10,6 +11,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
   formProps = null,
   items = [],
   onValueChange = () => console.info('onValueChange'),
+  style = {}
 }) => {
   const clickHandler = e => onClick(e);
 
@@ -22,21 +24,23 @@ const FormSelect: React.FC<FormSelectProps> = ({
   }
 
   return (
-    <RNPickerSelect
-      onValueChange={value => {
-        setSelection(value);
-        onValueChange(value);
-        // formProps.setFieldValue('gender', value);
-      }}
-      textInputProps={{
-        style: {...styles.formInput, color},
-      }}
-      items={items}
-      // items={[
-      //     { label: 'Male', value: 'male' },
-      //     { label: 'Female', value: 'female' }
-      // ]}
-    />
+    <View style={style}>
+      <RNPickerSelect
+        onValueChange={value => {
+          setSelection(value);
+          onValueChange(value);
+          // formProps.setFieldValue('gender', value);
+        }}
+        textInputProps={{
+          style: {...styles.formInput, color},
+        }}
+        items={items}
+        // items={[
+        //     { label: 'Male', value: 'male' },
+        //     { label: 'Female', value: 'female' }
+        // ]}
+      />
+    </View>
   );
 };
 

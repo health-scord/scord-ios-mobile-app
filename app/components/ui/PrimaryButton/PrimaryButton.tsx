@@ -13,12 +13,12 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   onPress = e => console.info("Click"),
   label = "Submit",
   buttonProps = {},
-  style = {}
+  styles = {}
 }) => {
   const pressHandler = e => onPress(e);
 
   return (
-    <View style={style}>
+    <View style={styles}>
       <Button onPress={pressHandler} {...buttonProps}>{label}</Button>
     </View>
   )
