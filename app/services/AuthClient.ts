@@ -7,6 +7,7 @@ import * as $ from "jquery";
 // import auth0 from "auth0-js";
 import StorageClient from "./StorageClient";
 import Auth0 from 'react-native-auth0';
+import env from "../../env";
 
 export default class AuthClient {
   // public auth0;
@@ -37,8 +38,9 @@ export default class AuthClient {
     return new Promise((resolve, reject) => {
       this.storageClient.getToken("scordAccessToken").then((token) => {
         this.storageClient.getToken("scordAuth0Id").then((auth0Id) => {
-          if ((token !== null && typeof token !== 'undefined') &&
-            (auth0Id !== null && typeof auth0Id !== 'undefined')) {
+          const validCreds = (token !== null && typeof token !== 'undefined') && (auth0Id !== null && typeof auth0Id !== 'undefined');
+
+          if ((dispatch !== null && validCreds) || (dispatch === null && !validCreds)) {
               this.restClient.makeRequest(
                 formatUrl("/accounts/" + auth0Id), 
                 {}, 
@@ -92,7 +94,7 @@ export default class AuthClient {
 
   async createLocalAccount(id, values, callback, onError) {
     this.restClient.makeRequest(
-      "/accounts", 
+      env.restUri + "/accounts", 
       {
         "id": id,
         ...values

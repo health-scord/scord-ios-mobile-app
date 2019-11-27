@@ -19,3 +19,8 @@ $iosLightRed: "rgb(255, 69, 58)";
 @import "../../app/components/ui/SearchInput/SearchInput.scss";
 @import "../../app/components/ui/FormDatepicker/FormDatepicker.scss";
 
+.inlineRow {
+    display: flex;
+    flex-direction: row;
+}
+

@@ -11,27 +11,33 @@ const Switch: React.FC<any> = ({
   error, 
   value, 
   setFieldValue, 
-  label
+  label,
+  reverse = false,
+  colorOff = "grey",
+  colorOn = "rgb(10, 122, 255)"
 }) => {
   const [on, setOn] = React.useState(false);
 
-  let labelStyle = { color: "rgb(155, 155, 155)" };
+  let labelStyle = { color: colorOff };
   if (on) {
-    labelStyle = { color: "rgb(254, 11, 132)" };
+    labelStyle = { color: colorOn };
   }
+
+  const labelComp = <Text style={{ ...styles.switchLabel, ...labelStyle, top: 5 }}>{label}</Text>;
 
   return (
     <View style={{ ...styles.inlineRow, ...styles.spaceBetween, marginBottom: 15 }}>
-      <Text style={{ ...styles.switchLabel, ...labelStyle, top: 5 }}>{label}</Text>
+      {reverse ? labelComp : <></>}
       <RNSwitch
         value={value}
         // ios_backgroundColor={error ? "red" : "transparent"}
-        trackColor={{ false: "#FE0B84", true: "#FE0B84" }}
+        trackColor={{ false: colorOff, true: colorOn }}
         onValueChange={(value) => {
           setOn(value);
           setFieldValue(value);
         }}
       />
+      {!reverse ? labelComp : <></>}
     </View>
   );
 };
