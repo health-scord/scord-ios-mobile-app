@@ -138,45 +138,48 @@ const LoginForm: React.FC<LoginFormProps> = ({
           render={props => {
             return (
               <Form>
-                <FormInput 
-                  label="Email" 
-                  placeholder="Email" 
-                  name="email" 
-                  type="email" 
-                />
-                <FormInput 
-                  label="Password" 
-                  placeholder="Password" 
-                  name="password" 
-                  type="password" 
-                  secureTextEntry={true} 
-                />
+                <View style={{ marginBottom: 10 }}>
+                  <FormInput 
+                    label="Email" 
+                    placeholder="Email" 
+                    name="email" 
+                    type="email" 
+                  />
+                  <FormInput 
+                    label="Password" 
+                    placeholder="Password" 
+                    name="password" 
+                    type="password" 
+                    secureTextEntry={true} 
+                  />
+                  <PrimaryButton 
+                    buttonProps={{
+                      inverted: true,
+                      rounded: true
+                    }} 
+                    style={{ marginBottom: 20 }} 
+                    onPress={props.handleSubmit as any} 
+                    label="Login"
+                  />
+                  <Button 
+                    title="Forgot your password?" 
+                    
+                    onPress={() => {
+                      Navigation.push(componentId, {
+                        component: {
+                          name: 'ForgotPassword'
+                        }
+                      })
+                    }} 
+                  />
+                </View>
                 <PrimaryButton 
                   buttonProps={{
                     inverted: true,
                     rounded: true
                   }} 
-                  style={{ marginBottom: 20 }} 
-                  onPress={props.handleSubmit as any} 
-                  label="Login"
-                />
-                <Button 
-                  title="Forgot your password?" 
-                  onPress={() => {
-                    Navigation.push(componentId, {
-                      component: {
-                        name: 'ForgotPassword'
-                      }
-                    })
-                  }} 
-                />
-                <PrimaryButton 
-                  buttonProps={{
-                    inverted: true,
-                    rounded: true
-                  }} 
-                  style={{ marginBottom: 20 }} 
-                  onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"))} 
+                  styles={{ marginBottom: 10 }} 
+                  onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"), componentId)} 
                   label="Login with Google"
                 />
                 <PrimaryButton 
@@ -184,7 +187,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                     inverted: true,
                     rounded: true
                   }} 
-                  onPress={() => authClient.socialLogin("facebook", () => console.info("finished"))} 
+                  onPress={() => authClient.socialLogin("facebook", () => console.info("finished"), componentId)} 
                   label="Login with Facebook" 
                 />
                 {/* {Platform.OS === "ios" && <KeyboardSpacer />} */}

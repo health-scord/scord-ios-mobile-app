@@ -17,7 +17,7 @@ const FormAddressInput: React.FC<FormAddressInputProps> = ({
   const styleHelpers = new StyleHelpers();
   const clickHandler = e => onClick(e);
   return (
-    <GoogleAutoComplete apiKey="AIzaSyB8OHaKoWjlSoquN0y_topQeUngZCj5xjE" debounce={300}>
+    <GoogleAutoComplete apiKey="death" debounce={300}>
       {({ inputValue, handleTextChange, locationResults, fetchDetails }) => (
         <React.Fragment>
           <TextInput
