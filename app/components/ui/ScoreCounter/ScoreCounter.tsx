@@ -5,6 +5,7 @@ import { useAppContext } from "../../../context";
 import { View, Text } from "react-native";
 
 import styles from "../../../../build/styles";
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
 const ScoreCounter: React.FC<ScoreCounterProps> = ({
   ref = null,
@@ -12,18 +13,42 @@ const ScoreCounter: React.FC<ScoreCounterProps> = ({
   onClick = e => console.info("Click"),
   userData = null
 }) => {
-  
 
   const calculated = typeof userData.healthScore !== "undefined" ? userData.healthScore.calculated : undefined;
 
-  return (
+  let bodyContent = (
     <>
-      <View style={styles.scoreCounter}>
-      {typeof calculated !== "undefined" ? 
-            <Text style={{ ...styles.scoreCounterText, color: "#92cf48", opacity: 1 }}>{calculated}</Text> 
-            : <Text style={styles.scoreCounterText}>No data</Text>}
-      </View>
+      <Text style={styles.scoreLabelEmpty}>--</Text>
     </>
+  );
+
+  if (typeof calculated !== "undefined") {
+    bodyContent = (
+      <>
+        <View style={styles.box}>
+          <Text style={styles.italicLabel}>Min</Text>
+          <Text style={styles.label}>100</Text>
+        </View>
+        <View style={styles.box}>
+          <Text style={styles.scoreLabel}>{calculated}</Text>
+        </View>
+        <View style={styles.box}>
+          <Text style={styles.label}>300</Text>
+          <Text style={styles.italicLabel}>Max</Text>
+        </View>
+      </>
+    );
+  }
+
+  return (
+    <View style={styles.scoreCounter}>
+      <View style={styles.boxHeader}>
+        <Text style={styles.boxLabel}>Your Score is:</Text>
+      </View>
+      <View style={{ ...styles.boxContent, ...styles.inlineRow }}>
+        {bodyContent}
+      </View>
+    </View>
   );
 };
 

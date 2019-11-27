@@ -57,7 +57,7 @@ export default class AuthClient {
                 resolve(res);
               });
             } else {
-              console.error("ERROR. Not logging in 2033")
+              console.warn("ERROR. Not logging in 2033")
             }
         });
       });
@@ -226,11 +226,11 @@ export default class AuthClient {
     });
   }
 
-  logout() {
+  async logout() {
     // Cookies.remove("scordAccessToken");
     // Cookies.remove("scordAuth0Id");
     // window.location.href = window.location.origin;
-    this.storageClient.deleteItem("scordAccessToken");
-    this.storageClient.deleteItem("scordAuth0Id");
+    await this.storageClient.deleteItem("scordAccessToken");
+    await this.storageClient.deleteItem("scordAuth0Id");
   }
 }

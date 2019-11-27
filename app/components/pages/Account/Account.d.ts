@@ -1,1 +1,3 @@
-export interface AccountProps {}
+export interface AccountProps {
+    componentId: any;
+}

@@ -6,17 +6,19 @@ import ScoreCounter from "../../ui/ScoreCounter/ScoreCounter";
 import Stats from "../../ui/Stats/Stats";
 import { useAppContext } from "../../../context";
 import NotchSpacer from "../../ui/NotchSpacer/NotchSpacer";
+import Summary from "../../ui/Summary/Summary";
 
 const Scores: React.FC<ScoresProps> = () => {
   const [{ userData }, dispatch] = useAppContext();
 
-  if (userData === null) return <></>
+  if (typeof userData === "undefined" || userData === null) return <></>
 
   return (
     <>
       <NotchSpacer />
       <ScoreCounter userData={userData} />
-      <Stats />
+      <Summary userData={userData} />
+      <Stats userData={userData} />
     </>
   );
 };
