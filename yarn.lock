@@ -1532,6 +1532,52 @@
   resolved "https://registry.yarnpkg.com/@mapbox/sphericalmercator/-/sphericalmercator-1.1.0.tgz#f3b1af042620716a1289fc41e1e97f610823aefe"
   integrity sha512-pEsfZyG4OMThlfFQbCte4gegvHUjxXCjz0KZ4Xk8NdOYTQBLflj6U8PL05RPAiuRAMAQNUUKJuL6qYZ5Y4kAWA==
 
+"@mgcrea/react-native-action-sheet-provider@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@mgcrea/react-native-action-sheet-provider/-/react-native-action-sheet-provider-0.8.6.tgz#d4655cc33ccbec16661cb72752cfac66d30a464a"
+  integrity sha512-MxTNNpOt8vxj7No/a6jGjTcQ1S0PcLc/hkpPig5kezUogXK57qGW5Wawul8Wf3ifbAf7t4iWMpUE7f19iKmQ1A==
+  dependencies:
+    "@mgcrea/react-native-backdrop-provider" "0.8.6"
+
+"@mgcrea/react-native-backdrop-provider@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@mgcrea/react-native-backdrop-provider/-/react-native-backdrop-provider-0.8.6.tgz#47483d39d00e966f1c54fa44584f62a69cff3eaf"
+  integrity sha512-MDtrO9OACA/EHN2gY8DTxTJdkpDkHNj6y6aKuGn3BJ4323CVlbmMkvtmJKl2p7y6vPSzMCQfQ7tfQXhAhD98nw==
+
+"@mgcrea/react-native-button@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@mgcrea/react-native-button/-/react-native-button-0.8.6.tgz#aec2c1ba395d9bec33e598cfe1df733bbb66d819"
+  integrity sha512-iE4BOEPyNjzTUj4wYOileuYzpbdx6Z6bSLCzzcYQIS8zngs5Xn+lIyxBNS2EZsFLXVZ2ie7MtzSXIaitnvoKJA==
+
+"@mgcrea/react-native-date-picker@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@mgcrea/react-native-date-picker/-/react-native-date-picker-0.8.6.tgz#5945f7b771c63747e3f547d3ff03f3eb619c92c6"
+  integrity sha512-cI4cgpDUJt8S8xrovU4ytuqi3M+Tg2fsx7MUWd6VhNRiz6067imZIywlaOX1briJunhyinj9eYU+3RN/F27Yqg==
+  dependencies:
+    "@mgcrea/react-native-button" "0.8.6"
+    "@mgcrea/react-native-modal-dialog" "0.8.6"
+
+"@mgcrea/react-native-modal-dialog@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@mgcrea/react-native-modal-dialog/-/react-native-modal-dialog-0.8.6.tgz#71dff4b0360ea12d34bc558c32e5a6f56140cdd8"
+  integrity sha512-79Eic1gbJnb8weB9flRTxvDEadjDYq8x1wMCZlOyheEDsZn0g870bPdK2oCKYstw5X38A8Qn1XwfXBiNxxtyLQ==
+  dependencies:
+    "@mgcrea/react-native-backdrop-provider" "0.8.6"
+
+"@mgcrea/react-native-picker@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@mgcrea/react-native-picker/-/react-native-picker-0.8.6.tgz#06d809f5f1d3e1b932a49386ad372ba2758f2c34"
+  integrity sha512-eYyoFXoZkwMtQ70ivx9OsP6WUsMxFuRDakOB2Ab1VM/q4SnTbbRXp9dv26+A0m2dq+QKJzCLpxJ5brI6Yj5VDQ==
+
+"@mgcrea/react-native-select@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@mgcrea/react-native-select/-/react-native-select-0.8.6.tgz#ac6a2a8cc054b09113f14b71de80d5ff1cd0ed94"
+  integrity sha512-p5cE5T4ZqVpyThCsdzWJ6Hq/MyJHmhpIklxUxhsrEqYbI6pQpbS6FKZMeenWhU2xb9Gjixu1ZZKJrg3UKMbrNA==
+  dependencies:
+    "@mgcrea/react-native-button" "0.8.6"
+    "@mgcrea/react-native-modal-dialog" "0.8.6"
+    "@mgcrea/react-native-picker" "0.8.6"
+
 "@react-native-community/async-storage@^1.6.2":
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.6.2.tgz#a19ca7149c4dfe8216f2330e6b1ebfe2d075ef92"
@@ -8213,6 +8259,19 @@ react-native-picker-select@^6.3.3:
   integrity sha512-9cSXWonugev+e0EHrV8FhzwkjAhpipLFXsGMv+Ns5xI47T9fyNrOXpSeSfgnmycbuAbWRVlJRhJZ9eDGUaNk7w==
   dependencies:
     lodash.isequal "^4.5.0"
+
+react-native-propel-kit@^0.8.6:
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/react-native-propel-kit/-/react-native-propel-kit-0.8.6.tgz#e35340a155d8336c42e963f366fb1134c5d0218b"
+  integrity sha512-xYBoiuaI06Ru42UBcy2PXQ9b0xni2QS58uOIvo8A+aqSGdmJhgxFHo37GycYlboF92tokscXJrwmncbQlZ/L3Q==
+  dependencies:
+    "@mgcrea/react-native-action-sheet-provider" "0.8.6"
+    "@mgcrea/react-native-backdrop-provider" "0.8.6"
+    "@mgcrea/react-native-button" "0.8.6"
+    "@mgcrea/react-native-date-picker" "0.8.6"
+    "@mgcrea/react-native-modal-dialog" "0.8.6"
+    "@mgcrea/react-native-picker" "0.8.6"
+    "@mgcrea/react-native-select" "0.8.6"
 
 react-native-root-siblings@3.1.7:
   version "3.1.7"

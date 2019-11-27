@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import client from './services/ApolloClient';
 
 import { ThemeProvider } from 'react-native-ios-kit';
+import {BackdropProvider} from 'react-native-propel-kit';
 import App from "./components/pages/App/App";
 import { AppContextAPI } from "./context/AppContextAPI";
 
@@ -23,13 +24,15 @@ function RootProvider(Component) {
             // footnoteBackgroundColor: string,
             // positiveColor: string,
         }}>
-            <AppContextAPI>
-                <App>
-                    <ApolloProvider client={client}>
-                        <Component {...props} />
-                    </ApolloProvider>
-                </App>
-            </AppContextAPI>
+            <BackdropProvider>
+                <AppContextAPI>
+                    <App>
+                        <ApolloProvider client={client}>
+                            <Component {...props} />
+                        </ApolloProvider>
+                    </App>
+                </AppContextAPI>
+            </BackdropProvider>
         </ThemeProvider>
     );
 }

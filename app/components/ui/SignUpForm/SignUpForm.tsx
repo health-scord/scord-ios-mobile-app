@@ -62,8 +62,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
             email: "",
             password: "",
             zipCode: "",
-            birthday: "",
-            gender: ""
+            birthday: new Date(),
+            gender: "male"
           }}
           onSubmit={(values, actions) => {
             console.log("values", values, actions);
@@ -121,7 +121,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                 <FormInput label="Zip Code" placeholder="Zip Code" name="zipCode" type="text" />
                 {/* <FormInput label="Birthday" placeholder="Birthday" name="birthday" type="text" /> */}
                 <FormDatepicker name="birthday" placeholder="Birthday" formProps={props} />
-                <FormSelect formProps={props} style={{ marginBottom: 15 }} items={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]} />
+                <FormSelect name="gender" placeholder="Gender" formProps={props} style={{ marginBottom: 15 }} items={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]} />
                 <View style={{}}>
                   {/* <PrimaryButton 
                     buttonProps={{ inverted: true, rounded: true }} 
