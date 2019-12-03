@@ -5,13 +5,16 @@ import { Linking } from "react-native";
 
 import env from "../../../../env";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import StyleHelpers from "../../../services/StyleHelpers";
 
 const SyncFitbit: React.FC<SyncFitbitProps> = ({
   ref = null,
   className = "",
   onClick = e => console.info("Click"),
-  userData = {}
+  userData = {},
+  passProps = {}
 }) => {
+  const styleHelpers = new StyleHelpers();
   const clickHandler = e => onClick(e);
 
   const syncFitbit = (e) => {
@@ -32,9 +35,13 @@ const SyncFitbit: React.FC<SyncFitbitProps> = ({
 
   return (
     <PrimaryButton 
-      buttonProps={{ inverted: true, rounded: true }} 
+      buttonProps={{ 
+        inverted: true, 
+        rounded: true 
+      }} 
       label="Sync my fitbit" 
       onPress={syncFitbit}
+      {...passProps}
     />
   );
 };

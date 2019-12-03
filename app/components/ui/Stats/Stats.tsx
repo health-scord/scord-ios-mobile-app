@@ -4,12 +4,15 @@ import { StatsProps } from "./Stats.d";
 import { View, Text } from "react-native";
 
 import styles from "../../../../build/styles";
+import StyleHelpers from "../../../services/StyleHelpers";
+import FormContainer from "../FormContainer/FormContainer";
 
 const Stats: React.FC<StatsProps> = ({
   ref = null,
   className = "",
   onClick = e => console.info("Click"),
 }) => {
+  const styleHelpers = new StyleHelpers();
   const clickHandler = e => onClick(e);
 
   const stats = [
@@ -28,15 +31,17 @@ const Stats: React.FC<StatsProps> = ({
   ];
 
   return (
-    <View style={styles.stats}>
-      {stats.map((stat, i) => {
-        return (
-          <View key={i} style={styles.statItem}>
-            <Text style={styles.itemLabel}>{stat.label}</Text>
-            <Text style={styles.itemPerc}>{stat.percentage ? stat.percentage : "No Data"}</Text>
-          </View>
-        );
-      })}
+    <View style={{ ...styles.stats }}>
+      <FormContainer>
+        {stats.map((stat, i) => {
+          return (
+            <View key={i} style={styles.statItem}>
+              <Text style={styles.itemLabel}>{stat.label}</Text>
+              <Text style={styles.itemPerc}>{stat.percentage ? stat.percentage : "No Data"}</Text>
+            </View>
+          );
+        })}
+      </FormContainer>
     </View>
   );
 };

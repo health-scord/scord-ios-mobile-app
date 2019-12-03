@@ -9,12 +9,17 @@ const Validation: React.FC<ValidationProps> = ({
   ref = null,
   className = "",
   onClick = e => console.info("Click"),
-  children = null
+  children = null,
+  intent = "danger"
 }) => {
   const clickHandler = e => onClick(e);
+
+  let color = "red";
+  if (intent === "yay") color = "green";
+
   return (
-    <View style={styles.validation}>
-      <Text style={styles.validationText}>{children}</Text>
+    <View style={{ ...styles.validation }}>
+      <Text style={{ ...styles.validationText, ...{ color } }}>{children}</Text>
     </View>
   );
 };

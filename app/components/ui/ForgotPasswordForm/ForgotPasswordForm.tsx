@@ -12,6 +12,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import AuthClient from "../../../services/AuthClient";
 import { ERROR_CODE } from "../../../services/ERROR_CODE";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import Validation from "../Validation/Validation";
 
 const Form = withNextInputAutoFocusForm(View);
 
@@ -22,48 +23,52 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 }) => {
   const authClient = new AuthClient();
   // const [{ mixpanel }, dispatch] = useAppContext();
-  const [userExists, setUserExists] = React.useState(false);
+  const [cannotFindEmail, setCannotFindEmail] = React.useState(false);
+  const [emailSent, setEmailSent] = React.useState(false);
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
-      .required(),
+      .min(4, "Too Short!")
+      .max(100, "Too Long!")
+      .email("Invalid email")
+      .required("Required"),
   });
   
   return (
     <KeyboardAwareScrollView>
       <View>
+      {emailSent ? (
+        <Validation intent="yay">
+          An email has been sent to you to reset your password!
+        </Validation>
+      ) : (
+        <></>
+      )}
+
         <Formik
           initialValues={{}}
           onSubmit={(values, actions) => {
-            console.log("values", values, actions);
-
-            // mixpanel.track("Sign up form submission attempt", {
-            //   env: process.env.NODE_ENV,
-            //   time: new Date(),
-            //   data: {
-            //     values,
-            //   },
-            // });
-
-            authClient.forgotPassword(values, (err, res) => {
-              console.info("returned", err, res);
-
+            console.log("values", { values, actions });
+            authClient.forgotPassword({ connection: "Username-Password-Authentication", ...values}, (err, res) => {
               if (err) {
-                console.error(err);
-                if (res.body.errorMessage === ERROR_CODE.C008) {
-                  setUserExists(true);
-                } else {
-                  setUserExists(false);
-                }
+                console.error("err", err)
+                // console.info("here 1");
+                // if (res.body.errorMessage === ERROR_CODE.C001) {
+                //   // console.info("hero");
+                //   setCannotFindEmail(true);
+                // } else {
+                //   setCannotFindEmail(false);
+                // }
+                // if (res.body.errorMessage === ERROR_CODE.C002) {
+                // }
               }
-              if (res.body.success) {
-                
-                // redirect to Home
-                console.info(
-                  "thank you - go confirm your email and complete your profile"
-                );
-                
+              console.info("res", res);
+              if (res.text) {
+                setEmailSent(true);
+              } else {
+                setEmailSent(false);
               }
+              actions.setSubmitting(false);
               actions.resetForm();
             });
           }}

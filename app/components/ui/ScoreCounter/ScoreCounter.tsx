@@ -6,6 +6,7 @@ import { View, Text } from "react-native";
 
 import styles from "../../../../build/styles";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import StyleHelpers from "../../../services/StyleHelpers";
 
 const ScoreCounter: React.FC<ScoreCounterProps> = ({
   ref = null,
@@ -13,12 +14,12 @@ const ScoreCounter: React.FC<ScoreCounterProps> = ({
   onClick = e => console.info("Click"),
   userData = null
 }) => {
-
+  const styleHelpers = new StyleHelpers();
   const calculated = typeof userData.healthScore !== "undefined" ? userData.healthScore.calculated : undefined;
 
   let bodyContent = (
     <>
-      <Text style={styles.scoreLabelEmpty}>--</Text>
+      <Text style={{ ...styles.scoreLabelEmpty, ...{ width: styleHelpers.getWidth() } }}>--</Text>
     </>
   );
 

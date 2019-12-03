@@ -113,7 +113,7 @@ export default class RestClient {
     method = "POST", 
     headers = {}, 
     format = true, 
-    onError = (err) => console.error("exec/makeRequest error", err)
+    onError = (err) => console.warn("exec/makeRequest error", err)
   ) {
     return new Promise((resolve, reject) => {
       try {

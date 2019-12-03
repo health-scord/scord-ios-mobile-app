@@ -3,4 +3,5 @@ export interface SyncFitbitProps {
   className?: string;
   onClick?: (e: MouseEvent) => void;
   userData: any;
+  passProps: any;
 }

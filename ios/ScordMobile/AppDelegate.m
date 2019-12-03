@@ -4,6 +4,7 @@
 #import <React/RCTRootView.h>
 #import <ReactNativeNavigation/ReactNativeNavigation.h>
 #import <React/RCTLinkingManager.h>
+//#import "RCTLinkingManager.h"
 
 @implementation AppDelegate
 
