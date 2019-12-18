@@ -29,9 +29,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const storageClient = new StorageClient();
   const authClient = new AuthClient();
 
-  const [userDoesNotExist, setUserDoesNotExist] = React.useState(false);
-  const [tooManyLoginAttempts, setTooManyLoginAttempts] = React.useState(false);
-  const [generalError, setGeneralError] = React.useState(false);
+  const [formError, setFormError] = React.useState([null, null]);
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -44,25 +42,9 @@ const LoginForm: React.FC<LoginFormProps> = ({
   
   return (
     <>
-        {tooManyLoginAttempts ? (
+        {formError[0] !== null ? (
           <Validation intent="danger">
-            Your account has been blocked after multiple consecutive login attempts.
-          </Validation>
-        ) : (
-          <></>
-        )}
-
-        {generalError ? (
-          <Validation intent="danger">
-            There was an error logging in.
-          </Validation>
-        ) : (
-          <></>
-        )}
-
-        {userDoesNotExist ? (
-          <Validation intent="danger">
-            Please try another email and password combination.
+            {formError[1]}
           </Validation>
         ) : (
           <></>
@@ -97,30 +79,36 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 }
               },
               (err) => {
-                console.error("ERROR LOGIN:", err, err.message, err.response);
+                console.warn("ERROR LOGIN:", err, err.message, err.response);
 
                 actions.setSubmitting(false);
 
                 // TODO: dynamic errors like sign up
                 // https://auth0.com/docs/libraries/error-messages
-                if (err.response) {
-                  setTooManyLoginAttempts(false);
-                  setUserDoesNotExist(false);
-                  setGeneralError(false);
+                // if (err.response) {
+                //   setTooManyLoginAttempts(false);
+                //   setUserDoesNotExist(false);
+                //   setGeneralError(false);
 
-                  switch (err.response.body.error) {
-                    case "too_many_attempts":
-                      setTooManyLoginAttempts(true);
-                      break;
+                //   switch (err.response.body.error) {
+                //     case "too_many_attempts":
+                //       setTooManyLoginAttempts(true);
+                //       break;
 
-                    case "invalid_grant":
-                      setUserDoesNotExist(true);
-                      break;
+                //     case "invalid_grant":
+                //       setUserDoesNotExist(true);
+                //       break;
                 
-                    default:
-                      setGeneralError(true);
-                      break;
-                  }
+                //     default:
+                //       setGeneralError(true);
+                //       break;
+                //   }
+                // }
+                
+                if (err.response) {
+                  setFormError([err.response.body.error, err.response.body.error_description]);
+                } else {
+                  setFormError([null, null]);
                 }
               },
               (token, auth0Id) => {

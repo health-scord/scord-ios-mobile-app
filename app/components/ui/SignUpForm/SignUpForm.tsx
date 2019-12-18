@@ -37,14 +37,28 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
 
   const [{ userData, mixpanel }, dispatch] = useAppContext();
   const [formError, setFormError] = React.useState([null, null]);
-  const [successfulSubmission, setSuccessfulSubmission] = React.useState(false);
+    const [successfulSubmission, setSuccessfulSubmission] = React.useState(false);
 
-  const validationSchema = Yup.object().shape({
-    username: Yup.string()
-      .required("Username is a required field"),
-    firstName: Yup.string()
-      .required("First Name is a required field"),
-    lastName: Yup.string()
+    // React.useEffect(() => {
+    //   authClient.signup(
+    //     {
+    //       email: "alexthegoodman+0003@gmail.com",
+    //       username: "alexthegoodman0003",
+    //       firstName: "Alex",
+    //       lastName: "Woodman",
+    //       password: ""
+    //     },
+    //     (val) => console.info("val", val),
+    //     (err) => console.warn("err", err)
+    //   );
+    // }, []);
+
+    const validationSchema = Yup.object().shape({
+        username: Yup.string()
+            .required("Username is a required field"),
+        firstName: Yup.string()
+            .required("First Name is a required field"),
+        lastName: Yup.string()
       .required("Last Name is a required field"),
     email: Yup.string()
       .email("Must be an email")
@@ -59,7 +73,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
     // gender: Yup.string()
     //   .required("Gender is a required field")
   });
-  
+
   return (
     <View>
       <View>
@@ -90,6 +104,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
           onSubmit={(values, actions) => {
             console.log("values", values, actions);
 
+            actions.setSubmitting(true);
+
             Keyboard.dismiss();
 
             console.log(
@@ -106,61 +122,109 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
             //   },
             // });
 
-            const callback = (err, res) => {
-              console.info("returned", err, res);
+            const callback = (res) => {
+              console.info("returned", res);
 
               setFormError([null, null]);
 
-              if (err) {
-                console.error(err);
-                if (res.badRequest) {
-                  setFormError([res.body.code, res.body.message]);
-                }
-              }
-              if (res.body.id) {
-                // redirect to Home
-                console.info(
-                  "thank you - go confirm your email and complete your profile"
-                );
-                setSuccessfulSubmission(true);
+              // if (err) {
+              //   console.error(err);
+              //   if (res.badRequest) {
+              //     setFormError([res.body.code, res.body.message]);
+              //   }
+              // }
+              if (res.id) {
+                authClient.login(
+                    {
+                        username: values.email,
+                        password: values.password
+                    },
+                    (err, res) => {
+                        if (err) {
+                            console.error("err", err);
+                        }
+                    },
+                    (err) => {
+                        console.warn("ERROR LOGIN:", err, err.message, err.response);
 
-                Navigation.push(componentId, HomeTabs());
+                        actions.setSubmitting(false);
+
+                    // TODO: dynamic errors like sign up
+                    // https://auth0.com/docs/libraries/error-messages
+                    // if (err.response) {
+                    //   setTooManyLoginAttempts(false);
+                    //   setUserDoesNotExist(false);
+                    //   setGeneralError(false);
+
+                    //   switch (err.response.body.error) {
+                    //     case "too_many_attempts":
+                    //       setTooManyLoginAttempts(true);
+                    //       break;
+
+                        //     case "invalid_grant":
+                    //       setUserDoesNotExist(true);
+                    //       break;
+
+                        //     default:
+                    //       setGeneralError(true);
+                    //       break;
+                    //   }
+                    // }
+
+                        if (err.response) {
+                      setFormError([err.response.body.error, err.response.body.error_description]);
+                    } else {
+                      setFormError([null, null]);
+                    }
+                  },
+                  (token, auth0Id) => {
+                    actions.resetForm();
+
+                      console.info("login from signup finalized", token, auth0Id);
+
+                      if (token && auth0Id) {
+                      Navigation.push(componentId, HomeTabs());
+                    }
+                  }
+                );
+                // redirect to Home
+                // console.info(
+                //   "thank you - go confirm your email and complete your profile"
+                // );
+                // setSuccessfulSubmission(true);
+
+                // Navigation.push(componentId, HomeTabs());
               }
               actions.resetForm();
             }
 
             const onError = (err) => {
-              console.info("onError sign up", err);
+              console.warn("onError sign up", err, err.response);
 
               if (typeof err !== "undefined" && typeof err.response !== "undefined") {
                 const { code, description, message, policy } = err.response.body;
-                
-                setFormError([code, typeof message === "string" ? message : description]);
-  
-                actions.setSubmitting(false);
+
+                  setFormError([code, typeof message === "string" ? message : description]);
+
+                  actions.setSubmitting(false);
               }
             }
 
             // BEWARE: getUserData is expected to fail if no account exists
             // this informs whether to update or create
-            authClient.getUserData(null).then((res) => {
-              console.info("token res 2", res)
-              storageClient.getToken("scordAccessToken").then((token) => {
-                storageClient.getToken("scordAuth0Id").then((auth0Id) => {
-                  if (typeof res['error'] !== "undefined" && res['error'].error.title === "Account Not Found") {
-                    // send to complete profile if not
-                    if (auth0Id !== null && typeof auth0Id !== 'undefined') {
-                      authClient.createLocalAccount(auth0Id, values, callback, onError);
-                    } else {
-                      authClient.signup(values, callback, onError);
-                    }
-                  } else {
-                    // send to scores is yes
-                    authClient.updateAccount(userData.id, values, callback, onError);
-                  }
-                });
-              });
-            })
+              if (typeof userData.id !== "undefined") {
+                  authClient.updateAccount(userData.id, values, callback, onError);
+              } else {
+                  storageClient.getToken("scordAccessToken").then((token) => {
+                      storageClient.getToken("scordAuth0Id").then((auth0Id) => {
+                          if (auth0Id !== null && typeof auth0Id !== 'undefined') {
+                              authClient.createLocalAccount(auth0Id, values, callback, onError);
+                          } else {
+                              authClient.signup(values, callback, onError);
+                          }
+                      });
+                  });
+              }
 
             // if (initialValues === null) {
             //   authClient.signup(values, callback, onError);
@@ -188,8 +252,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
             //     }
             //   }
             //   if (res.body.success) {
-                
-            //     // redirect to Home
+
+              //     // redirect to Home
             //     console.info(
             //       "thank you - go confirm your email and complete your profile"
             //     );
@@ -224,20 +288,21 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                 {/* <FormInput label="Birthday" placeholder="Birthday" name="birthday" type="text" /> */}
                 {/* <FormDatepicker name="birthday" placeholder="Birthday" formProps={props} />
                 <FormSelect name="gender" placeholder="Gender" formProps={props} style={{ marginBottom: 15 }} items={[{ label: "Male", value: "male" }, { label: "Female", value: "female" }]} /> */}
-                <View style={{}}>
-                  {/* <PrimaryButton 
-                    buttonProps={{ inverted: true, rounded: true }} 
-                    onPress={() => { console.info("complete later") }} 
-                    label="Complete Later" 
+                  <View style={{}}>
+                      {/* <PrimaryButton
+                    buttonProps={{ inverted: true, rounded: true }}
+                    onPress={() => { console.info("complete later") }}
+                    label="Complete Later"
                     styles={{ flex:1, marginBottom: 15 }}
                   /> */}
-                  <PrimaryButton 
-                    buttonProps={{ inverted: true, rounded: true }}  
-                    onPress={props.handleSubmit as any} 
-                    label="Sign Up" 
-                    styles={{ flex: 1 }} 
-                  />
-                </View>
+                      <PrimaryButton
+                          disabled={props.isSubmitting}
+                          buttonProps={{inverted: true, rounded: true}}
+                          onPress={props.handleSubmit as any}
+                          label="Sign Up"
+                          styles={{flex: 1}}
+                      />
+                  </View>
               </Form>
             );
           }}

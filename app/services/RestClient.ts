@@ -5,10 +5,11 @@ import env from "../../env";
 
 // get endpoint in proper format
 export const formatUrl = (path) => {
-  let pathBase = "https://68.183.100.145";
-  if (__DEV__) {
-    pathBase = env.restUri;
-  }
+  // let pathBase = "https://68.183.100.145";
+  // if (__DEV__) {
+  //   pathBase = env.restUri;
+  // }
+  let pathBase = env.userApi;
 
   const adjustedPath = path[0] !== "/" ? "/" + path : path;
   const formattedUrl = pathBase + adjustedPath;
@@ -73,7 +74,7 @@ export default class RestClient {
   }
 
   // exec currently unused
-  exec(endpoint, params, method = "GET", format) {
+  exec(endpoint, params, method = "GET", format, headers, onError) {
     const newHeaders = new Headers();
     newHeaders.append("Content-Type", "application/json");
 
@@ -81,12 +82,15 @@ export default class RestClient {
     let fetchParams;
     if (method === "GET") {
       sendParams = this.paramsToString(params);
-      fetchParams = { method };
+      fetchParams = { 
+        method, 
+        headers: newHeaders
+      };
     } else if (method === "POST") {
       fetchParams = {
         method,
-        body: JSON.stringify(params),
         headers: newHeaders,
+        body: JSON.stringify(params),
       };
     }
 
@@ -96,13 +100,15 @@ export default class RestClient {
 
     return fetch(fullUrl, fetchParams).then(data => {
       if (!data.ok || data.status === 414) {
-        console.error("Fetch error", data.status);
+        console.warn("Fetch error", data.status);
       }
 
       const jsonData = data.json();
+
+      console.info("resonse data", jsonData);
       return jsonData;
     }).catch((err) => {
-      console.error("FETCH ERR", err, JSON.stringify(err));
+      console.warn("FETCH ERR", err, JSON.stringify(err));
     })
   }
 
@@ -117,21 +123,22 @@ export default class RestClient {
   ) {
     return new Promise((resolve, reject) => {
       try {
-        console.info("exec", this.execSuper, "superagent", superagent)
-        this.execSuper(endpoint, values, method, headers, format, onError).then((res, err) => {
-          if (err) {
-            console.error("err 3", err, res);
+        console.info("makeRequest", endpoint, values, method, headers, this.execSuper, "superagent", superagent)
+        this.exec(endpoint, values, method, format, headers, onError).then((value) => {
+          console.info("run callback", value)
+          // if (err) {
+          //   console.error("makeRequest ERROR", err, res);
   
-            if (typeof res !== "undefined") {
-              if (res.body !== null) {
-                console.error("error body", res.body.errorMessage);
-              }
-            }
+          //   if (typeof res !== "undefined") {
+          //     if (res.body !== null) {
+          //       console.error("makeRequest ERROR BODY", res.body.errorMessage);
+          //     }
+          //   }
 
-            reject(err);
-          }
-          callback(err, res);
-          resolve(res);
+          //   reject(err);
+          // }
+          callback(value);
+          resolve(value);
         });
       } catch (err) {
         console.error("ERROR 2001: ", err);

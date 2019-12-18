@@ -18,7 +18,7 @@ const SyncFitbit: React.FC<SyncFitbitProps> = ({
   const clickHandler = e => onClick(e);
 
   const syncFitbit = (e) => {
-    const url = env.restUri + `/accounts/${
+    const url = env.authApi + `/accounts/${
       userData.id
     }/authorizeDevice/fitbit`;
 

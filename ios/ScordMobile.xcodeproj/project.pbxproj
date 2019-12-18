@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA41D2552E40DB97047E5B /* Entypo.ttf */; };
 		00E356F31AD99517003FC87E /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };

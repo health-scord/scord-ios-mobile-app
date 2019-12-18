@@ -42,26 +42,36 @@ export default class AuthClient {
         this.storageClient.getToken("scordAuth0Id").then((auth0Id) => {
           const validCreds = (token !== null && typeof token !== 'undefined') && (auth0Id !== null && typeof auth0Id !== 'undefined');
 
-          if ((dispatch !== null && validCreds) || (dispatch === null)) {
-              this.restClient.makeRequest(
-                formatUrl("/accounts/" + auth0Id), 
-                {}, 
+          if (!validCreds && dispatch === null) {
+            console.warn("ERROR. Not logging in 2033");
+            resolve(true);
+          } else if ((dispatch !== null && validCreds) || (dispatch === null)) {
+            this.restClient.makeRequest(
+                formatUrl("/accounts/" + auth0Id),
+                {},
                 () => console.info("getUserData finished"),
-                "GET", 
-                { "content-type": "application/json" },
+                "GET",
+                {"content-type": "application/json"},
                 false
-              ).then(res => {
-                console.info("user data", res);
-                if (dispatch && setData) {
-                  dispatch({
-                    type: "setUserData",
-                    userData: res,
-                  });
+            ).then(res => {
+              console.info("user data", res);
+
+                if (typeof res["error"] === "undefined") {
+                  if (dispatch && setData) {
+                    dispatch({
+                      type: "setUserData",
+                      userData: res,
+                    });
+                  }
+                  resolve(res);
+                } else {
+                  reject(res);
                 }
-                resolve(res);
+
               });
             } else {
-              console.warn("ERROR. Not logging in 2033")
+            console.warn("ERROR. Not logging in 2033")
+            reject(false);
             }
         });
       });
@@ -72,22 +82,22 @@ export default class AuthClient {
   async signup(values, callback, onError) {
     // auth0 user create
     this.restClient.makeRequest(
-      "https://" + config.domain + "/dbconnections/signup", 
-      {
-        "client_id": config.clientId,
-        "connection": "Username-Password-Authentication",
-        ...values
-      }, 
-      () => console.info("Step 1 finished"), 
-      "POST", 
-      { "content-type": "application/x-www-form-urlencoded" },
-      false,
-      onError
+        "https://" + config.domain + "/dbconnections/signup",
+        {
+          "client_id": config.clientId,
+          "connection": "Username-Password-Authentication",
+          ...values
+        },
+        () => console.info("Step 1 finished"),
+        "POST",
+        {"content-type": "application/x-www-form-urlencoded"},
+        false,
+        onError
     ).then((res) => {
-      console.info("res", res, values)
+      console.info("dbconnections/signup", res, values)
       // data-service user create
-      if (typeof res['body']['_id'] !== "undefined") {
-        this.createLocalAccount(res['body']['_id'], values, callback, onError);
+      if (typeof res['_id'] !== "undefined") {
+        this.createLocalAccount(res['_id'], values, callback, onError);
       } else {
         console.error(res);
       }
@@ -96,70 +106,72 @@ export default class AuthClient {
 
   async createLocalAccount(id, values, callback, onError) {
     this.restClient.makeRequest(
-      env.restUri + "/accounts", 
-      {
-        "id": id,
-        ...values
-      }, 
-      callback, // finish
-      "POST", 
-      { "content-type": "application/json" },
-      false,
-      onError
+        env.userApi + "/accounts",
+        {
+          "id": id,
+          ...values
+        },
+        callback, // finish
+        "POST",
+        {"content-type": "application/json"},
+        false,
+        onError
     )
   }
 
   async updateAccount(id, values, callback, onError) {
     // data-service user update
     this.restClient.makeRequest(
-      "/accounts/" + id, 
-      values, 
-      callback, // finish
-      "PATCH", 
-      { "content-type": "application/json" },
-      false,
-      onError
+        "/accounts/" + id,
+        values,
+        callback, // finish
+        "PATCH",
+        {"content-type": "application/json"},
+        false,
+        onError
     )
   }
 
   forgotPassword(values, callback) {
     this.restClient.makeRequest(
-      "https://" + config.domain + "/dbconnections/change_password", 
-      {
-        email: values.email,
-        client_id: config.clientId,
-        connection: values.connection
-      }, 
-      callback, 
-      "POST", 
-      { "content-type": "application/x-www-form-urlencoded" },
-      false
+        "https://" + config.domain + "/dbconnections/change_password",
+        {
+          email: values.email,
+          client_id: config.clientId,
+          connection: values.connection
+        },
+        callback,
+        "POST",
+        {"content-type": "application/x-www-form-urlencoded"},
+        false
     ).then(data => {
       console.info("data", data);
     })
   }
 
   async login(values, callback, onError, finished) {
+    console.info("login", values, callback, onError, finished);
     // the local User _id is not used, we use the associated auth0 id
     // auth0 token request
     this.restClient.makeRequest(
-      "https://" + config.domain + "/oauth/token", 
-      {
-        grant_type: "password",
-        client_id: config.clientId,
-        // client_secret
-        // audience
-        // scope
-        // realm
-        ...values
-      }, 
-      callback,
-      "POST", 
-      { "content-type": "application/x-www-form-urlencoded" },
-      false,
-      onError
+        "https://" + config.domain + "/oauth/token",
+        {
+          grant_type: "password",
+          client_id: config.clientId,
+          // client_secret
+          // audience
+          // scope
+          // realm
+          ...values
+        },
+        callback,
+        "POST",
+        {"content-type": "application/x-www-form-urlencoded"},
+        false,
+        onError
     ).then(res => {
-      const token = res['body']['access_token'];
+      console.info("login res", res);
+      const token = res['access_token'];
 
       // Cookies.set("scordAccessToken", token);
       this.storageClient.storeItem("scordAccessToken", token);
@@ -171,18 +183,19 @@ export default class AuthClient {
   setAuth0Id(token, callback, onError, finished) {
     // auth0 id request #1
     this.restClient.makeRequest(
-      "https://" + config.domain + "/userinfo", 
-      {
-        access_token: token
-      }, 
-      callback,
-      "POST", 
-      { "content-type": "application/x-www-form-urlencoded" },
-      false,
-      onError
+        "https://" + config.domain + "/userinfo",
+        {
+          access_token: token
+        },
+        callback,
+        "POST",
+        {"content-type": "application/x-www-form-urlencoded"},
+        false,
+        onError
     ).then(res2 => {
-      const auth0Id = res2['body']['sub'].split("auth0|")[1];
-      
+      console.info("res2", res2);
+      const auth0Id = res2['sub'].split("auth0|")[1];
+
       // Cookies.set("scordAuth0Id", auth0Id);
       this.storageClient.storeItem("scordAuth0Id", auth0Id);
 
@@ -194,7 +207,7 @@ export default class AuthClient {
 
   getAuth0UserInfo(token) {
     let self = this;
-    return new Promise((resolve, reject) => {
+    new Promise((resolve, reject) => {
       // this.webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
       //   if (err) {
       //     reject(err);
@@ -206,7 +219,7 @@ export default class AuthClient {
         });
       // });
     })
-    
+
   }
 
   socialLogin(connection, callback, compId) {
@@ -245,9 +258,9 @@ export default class AuthClient {
         // const hasIdToken = route.url.hash.split("id_token");
         if (hasToken) {
           let token = accessToken;
-          
+
           console.info("token", token);
-          // 
+          //
           // get user id with access token
           self.getAuth0UserInfo(token).then((user) => {
             console.info("user", user);
@@ -268,28 +281,28 @@ export default class AuthClient {
 
             self.storageClient.storeItem("scordAccessToken", token);
             self.storageClient.storeItem("scordAuth0Id", auth0Id);
-            
+
             setTimeout(() => {
               // now check if mongo account exists with id
               self.getUserData(null, false).then((res) => {
                 console.info("token res", res)
-                if (typeof res['error'] !== "undefined" && 
+                if (typeof res['error'] !== "undefined" &&
                     res['error'].error.title === "Account Not Found") {
                   // send to complete profile if not
                   self.createLocalAccount(
-                    auth0Id, 
-                    {
-                      firstName,
-                      lastName
-                    }, 
-                    () => {
-                      console.info("success");
-                      Navigation.push(compId, HomeTabs());
-                    }, 
-                    (err) => console.error("social login new account creation failure", err)
+                      auth0Id,
+                      {
+                        firstName,
+                        lastName
+                      },
+                      () => {
+                        console.info("success");
+                        Navigation.push(compId, HomeTabs());
+                      },
+                      (err) => console.error("social login new account creation failure", err)
                   );
                   // window.location.href = window.location.origin + "/account";
-                  
+
                 } else if (typeof res["id"] !== "undefined") {
                   // send to scores is yes
                   // window.location.href = window.location.origin + "/scores";
@@ -299,7 +312,7 @@ export default class AuthClient {
                 }
               })
             }, 500)
-            
+
           }).catch((err) => {
             console.error("err", err);
           })
@@ -313,17 +326,17 @@ export default class AuthClient {
         //   let token = hasIdToken[1].split("&")[0];
         //   token = token.substr(1, token.length - 1);
         //   let userInfo = JSON.parse(window.atob(token.split(".")[1]));
-  
-        //   const auth0Id = userInfo.sub.split("google-oauth2|")[1];
-  
-        //   console.info("token 2", userInfo, auth0Id);
-        
-        //   setCookie("scordAuth0Id", auth0Id);
-  
-        //   // setTimeout(() => {
+
+            //   const auth0Id = userInfo.sub.split("google-oauth2|")[1];
+
+            //   console.info("token 2", userInfo, auth0Id);
+
+            //   setCookie("scordAuth0Id", auth0Id);
+
+            //   // setTimeout(() => {
         //   //   window.location.replace("/");
-        //   // }, 500);
-        // } 
+            //   // }, 500);
+        // }
         else {
           setTimeout(() => {
             Navigation.push(compId, {

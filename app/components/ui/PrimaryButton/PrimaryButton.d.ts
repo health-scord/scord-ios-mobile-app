@@ -5,4 +5,5 @@ export interface PrimaryButtonProps {
   label: string;
   buttonProps?: any;
   styles?: any;
+  disabled?: boolean;
 }
