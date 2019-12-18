@@ -1,10 +1,6 @@
-import Cookies from "js-cookie";
-import client from "./ApolloClient";
 import RestClient, { formatUrl } from "./RestClient";
-import createAuth0Client from "@auth0/auth0-spa-js";
+// @ts-ignore
 import config from "../auth_config.json";
-import * as $ from "jquery";
-// import auth0 from "auth0-js";
 import StorageClient from "./StorageClient";
 import Auth0 from 'react-native-auth0';
 import env from "../../env";
@@ -70,7 +66,7 @@ export default class AuthClient {
 
               });
             } else {
-            console.warn("ERROR. Not logging in 2033")
+            console.warn("ERROR. Not logging in 2033");
             reject(false);
             }
         });
@@ -94,7 +90,7 @@ export default class AuthClient {
         false,
         onError
     ).then((res) => {
-      console.info("dbconnections/signup", res, values)
+      console.info("dbconnections/signup", res, values);
       // data-service user create
       if (typeof res['_id'] !== "undefined") {
         this.createLocalAccount(res['_id'], values, callback, onError);
@@ -205,18 +201,18 @@ export default class AuthClient {
     })
   }
 
-  getAuth0UserInfo(token) {
+  getAuth0UserInfo(token): Promise<any> {
     let self = this;
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       // this.webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
       //   if (err) {
       //     reject(err);
       //   }
-        self.auth0.auth.userInfo({ token }).then((user) => {
-          resolve(user);
-        }).catch((err) => {
-          reject(err);
-        });
+      self.auth0.auth.userInfo({token}).then((user) => {
+        resolve(user);
+      }).catch((err) => {
+        reject(err);
+      });
       // });
     })
 
@@ -238,7 +234,7 @@ export default class AuthClient {
     //   redirectUri: process.env.SERVER_URL,
     //   clientId: config.clientId
     // })
-    console.info("auth0", this.auth0)
+    console.info("auth0", this.auth0);
     let self = this;
     this.auth0.webAuth.authorize({
       connection,
@@ -253,7 +249,7 @@ export default class AuthClient {
         console.info("credentials", accessToken, expiresIn, tokenType);
 
         // when token is retrieved after successful login via auth0
-        const hasToken = typeof accessToken !== "undefined" && accessToken ? true : false;
+        const hasToken = typeof accessToken !== "undefined" && accessToken;
         // const hasClient = route.url.hash.split("auth0Client");
         // const hasIdToken = route.url.hash.split("id_token");
         if (hasToken) {
@@ -285,7 +281,7 @@ export default class AuthClient {
             setTimeout(() => {
               // now check if mongo account exists with id
               self.getUserData(null, false).then((res) => {
-                console.info("token res", res)
+                console.info("token res", res);
                 if (typeof res['error'] !== "undefined" &&
                     res['error'].error.title === "Account Not Found") {
                   // send to complete profile if not

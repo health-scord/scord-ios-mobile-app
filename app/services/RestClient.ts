@@ -12,21 +12,20 @@ export const formatUrl = (path) => {
   let pathBase = env.userApi;
 
   const adjustedPath = path[0] !== "/" ? "/" + path : path;
-  const formattedUrl = pathBase + adjustedPath;
 
-  return formattedUrl;
-}
+  return pathBase + adjustedPath;
+};
 
 export default class RestClient {
   constructor() {}
 
   execSuper(
-    endpoint = "", 
-    params = {}, 
-    method = "GET", 
-    headers = {}, 
-    format = true, 
-    onError = (err) => console.error("exec error", err)
+      endpoint = "",
+      params = {},
+      method = "GET",
+      headers = {},
+      format = true,
+      onError = (err) => console.error("exec error", err)
   ) {
     try {
       if (method === "POST") {
@@ -50,7 +49,7 @@ export default class RestClient {
           // .set("accept", "json")
           // .set(headers);
       } else if (method === "GET") {
-        console.info("run fetch", endpoint, params, method, format)
+        console.info("run fetch", endpoint, params, method, format);
         // return superagent
         //   .post(format ? formatUrl(endpoint) : endpoint)
         //   .send(params)
@@ -74,7 +73,7 @@ export default class RestClient {
   }
 
   // exec currently unused
-  exec(endpoint, params, method = "GET", format, headers, onError) {
+  exec(endpoint, params, method = "GET", format) {
     const newHeaders = new Headers();
     newHeaders.append("Content-Type", "application/json");
 
@@ -82,8 +81,8 @@ export default class RestClient {
     let fetchParams;
     if (method === "GET") {
       sendParams = this.paramsToString(params);
-      fetchParams = { 
-        method, 
+      fetchParams = {
+        method,
         headers: newHeaders
       };
     } else if (method === "POST") {
@@ -113,22 +112,22 @@ export default class RestClient {
   }
 
   makeRequest(
-    endpoint, 
-    values, 
-    callback, 
-    method = "POST", 
-    headers = {}, 
-    format = true, 
-    onError = (err) => console.warn("exec/makeRequest error", err)
-  ) {
+      endpoint,
+      values,
+      callback,
+      method = "POST",
+      headers = {},
+      format = true,
+      onError = (err) => console.warn("exec/makeRequest error", err)
+  ): Promise<any> {
     return new Promise((resolve, reject) => {
       try {
-        console.info("makeRequest", endpoint, values, method, headers, this.execSuper, "superagent", superagent)
-        this.exec(endpoint, values, method, format, headers, onError).then((value) => {
-          console.info("run callback", value)
+        console.info("makeRequest", endpoint, values, method, headers, this.execSuper, "superagent", superagent);
+        this.exec(endpoint, values, method, format, headers, onError).then((value: any) => {
+          console.info("run callback", value);
           // if (err) {
           //   console.error("makeRequest ERROR", err, res);
-  
+
           //   if (typeof res !== "undefined") {
           //     if (res.body !== null) {
           //       console.error("makeRequest ERROR BODY", res.body.errorMessage);
