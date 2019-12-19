@@ -1,6 +1,3 @@
-// const methods = ['get', 'post', 'put', 'patch', 'del'];
-import fetch from "cross-fetch";
-const superagent = require('superagent');
 import env from "../../env";
 
 // get endpoint in proper format
@@ -64,12 +61,44 @@ export default class RestClient {
 
   paramsToString(params) {
     let sendParams = "?";
-      for (const key in params) {
-        if (params.hasOwnProperty(key)) {
-          sendParams += key + "=" + params[key] + "&";
+    for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        sendParams += key + "=" + params[key] + "&";
+      }
+    }
+    return sendParams;
+  }
+
+  simpleFetch(
+      endpoint = "http://localhost",
+      method = "POST",
+      params = {},
+      body = {},
+      options = {
+        formatUrl: true,
+      },
+      handlers = {
+        onComplete: (data) => {
+          console.info("complete", data);
+        },
+        onError: (err) => {
+          console.info("error", err);
         }
       }
-    return sendParams;
+  ) {
+    const newHeaders = new Headers();
+    newHeaders.append("Content-Type", "application/json");
+
+    let sendParams = "";
+    if (Object.keys(params).length > 0) {
+      sendParams = this.paramsToString(params);
+    }
+
+    const fullUrl = options.formatUrl ? formatUrl(endpoint) + sendParams : endpoint + sendParams;
+
+    return this.fetchTimeout(fullUrl, {})
+        .then(handlers.onComplete)
+        .catch(handlers.onError)
   }
 
   // exec currently unused
@@ -95,7 +124,7 @@ export default class RestClient {
 
     const fullUrl = format ? formatUrl(endpoint) + sendParams : endpoint + sendParams;
 
-    console.info("FETCH ", method, fullUrl, fetchParams);
+    console.info("FETCH ", fetch, method, fullUrl, fetchParams);
 
     return fetch(fullUrl, fetchParams).then(data => {
       if (!data.ok || data.status === 414) {
@@ -123,7 +152,7 @@ export default class RestClient {
     return new Promise((resolve, reject) => {
       try {
         console.info("makeRequest", endpoint, values, method, headers, this.execSuper, "superagent", superagent);
-        this.exec(endpoint, values, method, format, headers, onError).then((value: any) => {
+        this.exec(endpoint, values, method, format).then((value: any) => {
           console.info("run callback", value);
           // if (err) {
           //   console.error("makeRequest ERROR", err, res);
@@ -144,5 +173,30 @@ export default class RestClient {
         reject(err);
       }
     });
+  }
+
+  fetchTimeout(url, options) {
+    const FETCH_TIMEOUT = 5000;
+    let didTimeOut = false;
+
+    return new Promise(function (resolve, reject) {
+      const timeout = setTimeout(function () {
+        didTimeOut = true;
+        reject(new Error('Request timed out'));
+      }, FETCH_TIMEOUT);
+
+      fetch(url, options)
+          .then(function (response) {
+            clearTimeout(timeout);
+            if (!didTimeOut) {
+              resolve(response.json());
+            }
+          })
+          .catch(function (err) {
+            console.warn("FETCH ERR", err);
+            if (didTimeOut) return;
+            reject(err);
+          });
+    })
   }
 }

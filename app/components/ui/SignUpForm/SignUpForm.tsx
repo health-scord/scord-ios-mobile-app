@@ -32,26 +32,26 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
   onClick = e => console.info("Click"),
   componentId = null
 }) => {
-  const storageClient = new StorageClient();
-  const authClient = new AuthClient();
+    const storageClient = new StorageClient();
+    const authClient = new AuthClient();
 
-  const [{ userData, mixpanel }, dispatch] = useAppContext();
-  const [formError, setFormError] = React.useState([null, null]);
+    const [{userData, mixpanel}, dispatch] = useAppContext();
+    const [formError, setFormError] = React.useState([null, null]);
     const [successfulSubmission, setSuccessfulSubmission] = React.useState(false);
 
-    // React.useEffect(() => {
-    //   authClient.signup(
-    //     {
-    //       email: "alexthegoodman+0003@gmail.com",
-    //       username: "alexthegoodman0003",
-    //       firstName: "Alex",
-    //       lastName: "Woodman",
-    //       password: ""
-    //     },
-    //     (val) => console.info("val", val),
-    //     (err) => console.warn("err", err)
-    //   );
-    // }, []);
+    React.useEffect(() => {
+        authClient.signup(
+            {
+                email: "alexthegoodman+000xd3@gmail.com",
+                username: "alexthegoodman000xd3",
+                firstName: "Alex",
+                lastName: "Woodman",
+                password: "las26950!"
+            },
+            (val) => console.info("signup success", val),
+            (err) => console.warn("signup err", err)
+        );
+    }, []);
 
     const validationSchema = Yup.object().shape({
         username: Yup.string()
@@ -59,20 +59,20 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
         firstName: Yup.string()
             .required("First Name is a required field"),
         lastName: Yup.string()
-      .required("Last Name is a required field"),
-    email: Yup.string()
-      .email("Must be an email")
-      .required("Email is a required field"),
-    password: Yup.string()
-      .min(4, "Use a longer password")
-      .required("Password is a required field"),
-    // zipCode: Yup.string()
-    //   .required("Zip Code is a required field"),
-    // birthday: Yup.string()
-    //   .required("Birthday is a required field"),
-    // gender: Yup.string()
-    //   .required("Gender is a required field")
-  });
+            .required("Last Name is a required field"),
+        email: Yup.string()
+            .email("Must be an email")
+            .required("Email is a required field"),
+        password: Yup.string()
+            .min(4, "Use a longer password")
+            .required("Password is a required field"),
+        // zipCode: Yup.string()
+        //   .required("Zip Code is a required field"),
+        // birthday: Yup.string()
+        //   .required("Birthday is a required field"),
+        // gender: Yup.string()
+        //   .required("Gender is a required field")
+    });
 
   return (
     <View>
@@ -187,32 +187,32 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                     }
                   }
                 );
-                // redirect to Home
-                // console.info(
-                //   "thank you - go confirm your email and complete your profile"
-                // );
-                // setSuccessfulSubmission(true);
+                  // redirect to Home
+                  // console.info(
+                  //   "thank you - go confirm your email and complete your profile"
+                  // );
+                  // setSuccessfulSubmission(true);
 
-                // Navigation.push(componentId, HomeTabs());
+                  // Navigation.push(componentId, HomeTabs());
               }
-              actions.resetForm();
-            }
+                actions.resetForm();
+            };
 
-            const onError = (err) => {
-              console.warn("onError sign up", err, err.response);
+              const onError = (err) => {
+                  console.warn("onError sign up", err, err.response);
 
-              if (typeof err !== "undefined" && typeof err.response !== "undefined") {
-                const { code, description, message, policy } = err.response.body;
+                  if (typeof err !== "undefined" && typeof err.response !== "undefined") {
+                      const {code, description, message, policy} = err.response.body;
 
-                  setFormError([code, typeof message === "string" ? message : description]);
+                      setFormError([code, typeof message === "string" ? message : description]);
 
-                  actions.setSubmitting(false);
-              }
-            }
+                      actions.setSubmitting(false);
+                  }
+              };
 
             // BEWARE: getUserData is expected to fail if no account exists
             // this informs whether to update or create
-              if (typeof userData.id !== "undefined") {
+              if (userData !== null && typeof userData.id !== "undefined") {
                   authClient.updateAccount(userData.id, values, callback, onError);
               } else {
                   storageClient.getToken("scordAccessToken").then((token) => {
@@ -225,54 +225,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                       });
                   });
               }
-
-            // if (initialValues === null) {
-            //   authClient.signup(values, callback, onError);
-            // } else {
-            //   authClient.updateAccount(userData.id, values, callback, onError);
-            // }
-
-            // // mixpanel.track("Sign up form submission attempt", {
-            // //   env: process.env.NODE_ENV,
-            // //   time: new Date(),
-            // //   data: {
-            // //     values,
-            // //   },
-            // // });
-
-            // authClient.signup(values, (err, res) => {
-            //   console.info("returned", err, res);
-
-            //   if (err) {
-            //     console.error(err);
-            //     if (res.body.errorMessage === ERROR_CODE.C008) {
-            //       setUserExists(true);
-            //     } else {
-            //       setUserExists(false);
-            //     }
-            //   }
-            //   if (res.body.success) {
-
-              //     // redirect to Home
-            //     console.info(
-            //       "thank you - go confirm your email and complete your profile"
-            //     );
-
-            //     // alert("Success");
-
-            //     storageClient.storeItem('@Reeviewr:token', res.body.data.id);
-
-            //     Navigation.push(componentId, {
-            //       component: {
-            //         name: 'AdvancedProfile'
-            //       }
-            //     });
-            //   }
-            //   actions.resetForm();
-            // }, (err) => {
-            //   console.error("ERROR signup", err);
-            //   alert("Sign up error 202");
-            // });
           }}
           validationSchema={validationSchema}
           render={props => {

@@ -68,7 +68,7 @@ export default class AuthClient {
             } else {
             console.warn("ERROR. Not logging in 2033");
             reject(false);
-            }
+          }
         });
       });
     });
@@ -76,43 +76,49 @@ export default class AuthClient {
 
   // TODO: use route constants
   async signup(values, callback, onError) {
-    // auth0 user create
-    this.restClient.makeRequest(
+    this.restClient.simpleFetch(
         "https://" + config.domain + "/dbconnections/signup",
+        "POST",
+        {},
         {
           "client_id": config.clientId,
           "connection": "Username-Password-Authentication",
           ...values
         },
-        () => console.info("Step 1 finished"),
-        "POST",
-        {"content-type": "application/x-www-form-urlencoded"},
-        false,
-        onError
-    ).then((res) => {
-      console.info("dbconnections/signup", res, values);
-      // data-service user create
-      if (typeof res['_id'] !== "undefined") {
-        this.createLocalAccount(res['_id'], values, callback, onError);
-      } else {
-        console.error(res);
-      }
-    });
+        {
+          formatUrl: false
+        },
+        {
+          onComplete: (res) => {
+            // data-service user create
+            if (typeof res['_id'] !== "undefined") {
+              this.createLocalAccount(res['_id'], values, callback, onError);
+            } else {
+              console.error(res);
+            }
+          },
+          onError
+        }
+    );
   }
 
   async createLocalAccount(id, values, callback, onError) {
-    this.restClient.makeRequest(
+    this.restClient.simpleFetch(
         env.userApi + "/accounts",
+        "POST",
+        {},
         {
           "id": id,
           ...values
         },
-        callback, // finish
-        "POST",
-        {"content-type": "application/json"},
-        false,
-        onError
-    )
+        {
+          formatUrl: false
+        },
+        {
+          onComplete: callback,
+          onError
+        }
+    );
   }
 
   async updateAccount(id, values, callback, onError) {
@@ -147,10 +153,10 @@ export default class AuthClient {
 
   async login(values, callback, onError, finished) {
     console.info("login", values, callback, onError, finished);
-    // the local User _id is not used, we use the associated auth0 id
-    // auth0 token request
-    this.restClient.makeRequest(
+    this.restClient.simpleFetch(
         "https://" + config.domain + "/oauth/token",
+        "POST",
+        {},
         {
           grant_type: "password",
           client_id: config.clientId,
@@ -160,45 +166,51 @@ export default class AuthClient {
           // realm
           ...values
         },
-        callback,
-        "POST",
-        {"content-type": "application/x-www-form-urlencoded"},
-        false,
-        onError
-    ).then(res => {
-      console.info("login res", res);
-      const token = res['access_token'];
+        {
+          formatUrl: false
+        },
+        {
+          onComplete: (res) => {
+            console.info("login res", res);
+            const token = res['access_token'];
 
-      // Cookies.set("scordAccessToken", token);
-      this.storageClient.storeItem("scordAccessToken", token);
+            // Cookies.set("scordAccessToken", token);
+            this.storageClient.storeItem("scordAccessToken", token);
 
-      this.setAuth0Id(token, callback, onError, finished);
-    })
+            this.setAuth0Id(token, callback, onError, finished);
+          },
+          onError
+        }
+    );
   }
 
   setAuth0Id(token, callback, onError, finished) {
     // auth0 id request #1
-    this.restClient.makeRequest(
-        "https://" + config.domain + "/userinfo",
+    this.restClient.simpleFetch(
+        "https://" + config.domain + "/oauth/token",
+        "POST",
+        {},
         {
           access_token: token
         },
-        callback,
-        "POST",
-        {"content-type": "application/x-www-form-urlencoded"},
-        false,
-        onError
-    ).then(res2 => {
-      console.info("res2", res2);
-      const auth0Id = res2['sub'].split("auth0|")[1];
+        {
+          formatUrl: false
+        },
+        {
+          onComplete: (res2) => {
+            console.info("res2", res2);
+            const auth0Id = res2['sub'].split("auth0|")[1];
 
-      // Cookies.set("scordAuth0Id", auth0Id);
-      this.storageClient.storeItem("scordAuth0Id", auth0Id);
+            // Cookies.set("scordAuth0Id", auth0Id);
+            this.storageClient.storeItem("scordAuth0Id", auth0Id);
 
-      if (typeof finished !== "undefined") {
-        finished(token, auth0Id);
-      }
-    })
+            if (typeof finished !== "undefined") {
+              finished(token, auth0Id);
+            }
+          },
+          onError
+        }
+    );
   }
 
   getAuth0UserInfo(token): Promise<any> {
