@@ -19,8 +19,8 @@ const SyncFitbit: React.FC<SyncFitbitProps> = ({
 
   const syncFitbit = (e) => {
     const url = env.authApi + `/accounts/${
-      userData.id
-    }/authorizeDevice/fitbit`;
+        userData.id
+    }/authorize`;
 
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
@@ -34,15 +34,15 @@ const SyncFitbit: React.FC<SyncFitbitProps> = ({
   };
 
   return (
-    <PrimaryButton 
-      buttonProps={{ 
-        inverted: true, 
-        rounded: true 
-      }} 
-      label="Sync my fitbit" 
-      onPress={syncFitbit}
-      {...passProps}
-    />
+      <PrimaryButton
+          buttonProps={{
+              inverted: true,
+              rounded: true
+          }}
+          label="Sync my fitbit"
+          onPress={syncFitbit}
+          {...passProps}
+      />
   );
 };
 

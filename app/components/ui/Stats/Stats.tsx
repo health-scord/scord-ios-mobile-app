@@ -11,6 +11,7 @@ const Stats: React.FC<StatsProps> = ({
   ref = null,
   className = "",
   onClick = e => console.info("Click"),
+   healthScore = null
 }) => {
   const styleHelpers = new StyleHelpers();
   const clickHandler = e => onClick(e);
@@ -18,15 +19,15 @@ const Stats: React.FC<StatsProps> = ({
   const stats = [
     {
       label: "Average hours of sleep per night",
-      percentage: 0
+        percentage: healthScore["components"]["sleep"]["averageDailySleepHours"]
     },
     {
       label: "Daily active minutes average",
-      percentage: 0
+        percentage: healthScore["components"]["fitness"]["averageDailyRigorousActivityMinutes"]
     },
     {
       label: "Average resting heart rate",
-      percentage: 0
+        percentage: healthScore["components"]["heartRate"]["averageRestingHeartRate"]
     }
   ];
 

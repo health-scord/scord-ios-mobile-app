@@ -2,376 +2,388 @@ import RestClient, { formatUrl } from "./RestClient";
 // @ts-ignore
 import config from "../auth_config.json";
 import StorageClient from "./StorageClient";
+import NavigationService from "./NavigationService";
 import Auth0 from 'react-native-auth0';
 import env from "../../env";
 import { Navigation } from "react-native-navigation";
-import HomeTabs from "../components/pages/Dispatcher/HomeTabs";
 
 export default class AuthClient {
-  // public auth0;
-  // public webAuth = new auth0.WebAuth({
-  //   domain:       config.domain,
-  //   clientID:     config.clientId
-  // });
   public auth0 = new Auth0({
     domain: config.domain,
     clientId: config.clientId,
   });
-  public storageClient = new StorageClient();
-  public restClient = new RestClient();
+    public storageClient = new StorageClient();
+    public restClient = new RestClient();
+    public navigationService = new NavigationService();
 
-  constructor() {
-    this.init();
-  }
+    constructor() {
+        this.init();
+    }
 
-  async init() {
-    // this.auth0 = await createAuth0Client({
-    //   domain: config.domain,
-    //   client_id: config.clientId,
-    //   redirect_uri: window.location.origin
-    // });
-  }
+    async init() {
+    }
 
-  async getUserData(dispatch, setData = true) {
-    return new Promise((resolve, reject) => {
-      this.storageClient.getToken("scordAccessToken").then((token) => {
-        this.storageClient.getToken("scordAuth0Id").then((auth0Id) => {
-          const validCreds = (token !== null && typeof token !== 'undefined') && (auth0Id !== null && typeof auth0Id !== 'undefined');
+    async getUserData(dispatch) {
+        const setContextData = dispatch !== null ? true : false;
 
-          if (!validCreds && dispatch === null) {
-            console.warn("ERROR. Not logging in 2033");
-            resolve(true);
-          } else if ((dispatch !== null && validCreds) || (dispatch === null)) {
-            this.restClient.makeRequest(
-                formatUrl("/accounts/" + auth0Id),
-                {},
-                () => console.info("getUserData finished"),
-                "GET",
-                {"content-type": "application/json"},
-                false
-            ).then(res => {
-              console.info("user data", res);
+        return new Promise((resolve, reject) => {
+            this.storageClient.getToken("scordAccessToken").then((token) => {
+                this.storageClient.getToken("scordAuth0Id").then((auth0Id) => {
+                    const validCreds = (token !== null && typeof token !== 'undefined') && (auth0Id !== null && typeof auth0Id !== 'undefined');
+                    const setContextData = dispatch !== null ? true : false;
 
-                if (typeof res["error"] === "undefined") {
-                  if (dispatch && setData) {
-                    dispatch({
-                      type: "setUserData",
-                      userData: res,
-                    });
-                  }
-                  resolve(res);
-                } else {
-                  reject(res);
-                }
+                    console.info("getUserData", validCreds, setContextData);
 
-              });
-            } else {
-            console.warn("ERROR. Not logging in 2033");
-            reject(false);
-          }
+                    if (validCreds) {
+                        this.restClient.simpleFetch(
+                            "/accounts/" + auth0Id,
+                            "GET",
+                            {},
+                            {},
+                            {
+                                formatUrl: true
+                            },
+                            {
+                                onComplete: (res) => {
+                                    console.info("user data", res);
+
+                                    if (typeof res["error"] === "undefined") {
+                                        if (setContextData) {
+                                            dispatch({
+                                                type: "setUserData",
+                                                userData: res,
+                                            });
+                                        }
+                                        resolve(res);
+                                    } else {
+                                        reject(res);
+                                    }
+                                },
+                                onError: (err) => {
+                                    reject(err);
+                                }
+                            }
+                        );
+                    } else {
+                        resolve(null);
+                    }
+                });
+            });
         });
-      });
-    });
-  }
+    }
 
-  // TODO: use route constants
-  async signup(values, callback, onError) {
-    this.restClient.simpleFetch(
-        "https://" + config.domain + "/dbconnections/signup",
-        "POST",
-        {},
-        {
-          "client_id": config.clientId,
-          "connection": "Username-Password-Authentication",
-          ...values
+    // async createAuth0Account(values, metaData, callback, onError) {
+    //     return new Promise((resolve, reject) => {
+    //         const userData = {
+    //             email: values.email,
+    //             username: values.username,
+    //             password: values.password,
+    //             connection: "Username-Password-Authentication",
+    //             metadata: {
+    //                 firstName: values.firstName,
+    //                 lastName: values.lastName,
+    //                 ...metaData
+    //             }
+    //         };
+    //         console.info("userData", userData);
+    //         this.auth0.auth
+    //             .createUser(userData).then((data) => {
+    //                 console.info("auth0 creation", data);
+    //                 callback(data);
+    //             })
+    //             .catch((err) => {
+    //                 onError(err);
+    //                 reject(err);
+    //             });
+    //     });
+    // }
+    //
+    // async createLocalAccount(id, values, callback, onError, resolve, reject) {
+    //     this.restClient.simpleFetch(
+    //         env.userApi + "/accounts",
+    //         "POST",
+    //         {},
+    //         {
+    //             "id": id,
+    //             ...values
+    //         },
+    //         {
+    //             formatUrl: false
+    //         },
+    //         {
+    //             onComplete: (data) => {
+    //                 console.info("data", id, data);
+    //                 if (typeof data['id'] !== "undefined") {
+    //                     this.createAuth0Account(values, { mongoId: id }, callback, onError);
+    //                 } else {
+    //                     console.error(data);
+    //                     reject(data);
+    //                 }
+    //             },
+    //             onError: reject
+    //         }
+    //     );
+    // }
+
+    async signup(values, callback, onError) {
+        return new Promise((resolve, reject) => {
+            const userData = {
+                email: values.email,
+                username: values.username,
+                password: values.password,
+                connection: "Username-Password-Authentication",
+                metadata: {
+                    firstName: values.firstName,
+                    lastName: values.lastName
+                }
+            };
+            console.info("userData", userData);
+            this.auth0.auth
+                .createUser(userData).then((data) => {
+                console.info("data", data);
+                if (typeof data['Id'] !== "undefined") {
+                    this.createLocalAccount(data['Id'], values, callback, onError, resolve, reject);
+                } else {
+                    console.error(data);
+                    reject(data);
+                }
+            })
+                .catch(reject);
+        });
+    }
+
+    async createLocalAccount(id, values, callback, onError, resolve, reject) {
+        this.restClient.simpleFetch(
+            env.userApi + "/accounts",
+            "POST",
+            {},
+            {
+                "id": id,
+                ...values
+            },
+            {
+                formatUrl: false
         },
-        {
-          formatUrl: false
-        },
-        {
-          onComplete: (res) => {
-            // data-service user create
-            if (typeof res['_id'] !== "undefined") {
-              this.createLocalAccount(res['_id'], values, callback, onError);
-            } else {
-              console.error(res);
+            {
+                onComplete: (data) => {
+                    callback(data);
+                    resolve(data);
+                },
+                onError: (err) => {
+                    console.error("err", err);
+                    reject(err);
+                }
             }
-          },
-          onError
-        }
-    );
-  }
-
-  async createLocalAccount(id, values, callback, onError) {
-    this.restClient.simpleFetch(
-        env.userApi + "/accounts",
-        "POST",
-        {},
-        {
-          "id": id,
-          ...values
-        },
-        {
-          formatUrl: false
-        },
-        {
-          onComplete: callback,
-          onError
-        }
     );
   }
 
   async updateAccount(id, values, callback, onError) {
-    // data-service user update
-    this.restClient.makeRequest(
-        "/accounts/" + id,
-        values,
-        callback, // finish
-        "PATCH",
-        {"content-type": "application/json"},
-        false,
-        onError
-    )
+      this.restClient.makeRequest(
+          "/accounts/" + id,
+          values,
+          callback, // finish
+          "PATCH",
+          {"content-type": "application/json"},
+          false,
+          onError
+      );
   }
 
   forgotPassword(values, callback) {
-    this.restClient.makeRequest(
-        "https://" + config.domain + "/dbconnections/change_password",
-        {
-          email: values.email,
-          client_id: config.clientId,
-          connection: values.connection
-        },
-        callback,
-        "POST",
-        {"content-type": "application/x-www-form-urlencoded"},
-        false
-    ).then(data => {
-      console.info("data", data);
-    })
+      return new Promise((resolve, reject) => {
+          this.auth0.auth
+              .resetPassword({
+                  email: values.email,
+                  connection: "Username-Password-Authentication"
+              }).then(resolve)
+              .catch(reject);
+      });
   }
 
-  async login(values, callback, onError, finished) {
-    console.info("login", values, callback, onError, finished);
-    this.restClient.simpleFetch(
-        "https://" + config.domain + "/oauth/token",
-        "POST",
-        {},
-        {
-          grant_type: "password",
-          client_id: config.clientId,
-          // client_secret
-          // audience
-          // scope
-          // realm
-          ...values
-        },
-        {
-          formatUrl: false
-        },
-        {
-          onComplete: (res) => {
-            console.info("login res", res);
-            const token = res['access_token'];
+    async login(values) {
+        return new Promise((resolve, reject) => {
+            this.auth0.auth
+                .passwordRealm({
+                    username: values.username,
+                    password: values.password,
+                    realm: "Username-Password-Authentication",
+                })
+                .then((data) => {
+                    this.getAuth0UserInfo(data["accessToken"]).then((userData) => {
+                        console.info("login data", data, userData);
+                        const auth0Id = userData['sub'].split("auth0|")[1];
+                        this.storageClient.storeItem("scordAccessToken", data["accessToken"]);
+                        this.storageClient.storeItem("scordAuth0Id", auth0Id);
+                        // this.storageClient.storeItem("scordMongoId", data["userMetadata"]["mongoId"]);
+                        resolve(data);
+                    }).catch(reject);
+                })
+                .catch(reject);
+        });
+    }
 
-            // Cookies.set("scordAccessToken", token);
-            this.storageClient.storeItem("scordAccessToken", token);
+    setAuth0Id(token, callback, onError, finished) {
+        // auth0 id request #1
+        this.restClient.simpleFetch(
+            "https://" + config.domain + "/oauth/token",
+            "POST",
+            {},
+            {
+                access_token: token
+            },
+            {
+                formatUrl: false
+            },
+            {
+                onComplete: (res2) => {
+                    console.info("res2", res2);
+                    const auth0Id = res2['sub'].split("auth0|")[1];
 
-            this.setAuth0Id(token, callback, onError, finished);
-          },
-          onError
-        }
-    );
-  }
+                    // Cookies.set("scordAuth0Id", auth0Id);
+                    this.storageClient.storeItem("scordAuth0Id", auth0Id);
 
-  setAuth0Id(token, callback, onError, finished) {
-    // auth0 id request #1
-    this.restClient.simpleFetch(
-        "https://" + config.domain + "/oauth/token",
-        "POST",
-        {},
-        {
-          access_token: token
-        },
-        {
-          formatUrl: false
-        },
-        {
-          onComplete: (res2) => {
-            console.info("res2", res2);
-            const auth0Id = res2['sub'].split("auth0|")[1];
-
-            // Cookies.set("scordAuth0Id", auth0Id);
-            this.storageClient.storeItem("scordAuth0Id", auth0Id);
-
-            if (typeof finished !== "undefined") {
-              finished(token, auth0Id);
+                    if (typeof finished !== "undefined") {
+                        finished(token, auth0Id);
+                    }
+                },
+                onError
             }
-          },
-          onError
-        }
-    );
+        );
   }
 
   getAuth0UserInfo(token): Promise<any> {
-    let self = this;
-    return new Promise((resolve, reject) => {
-      // this.webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
-      //   if (err) {
-      //     reject(err);
-      //   }
-      self.auth0.auth.userInfo({token}).then((user) => {
-        resolve(user);
-      }).catch((err) => {
-        reject(err);
+      return new Promise((resolve, reject) => {
+          this.storageClient.getToken("scordAccessToken").then((scordAccessToken) => {
+              this.storageClient.getToken("scordAuth0Id").then((scordAuth0Id) => {
+                  this.auth0.auth
+                      .userInfo({token})
+                      .then(resolve)
+                      .catch(reject);
+              });
+          });
       });
-      // });
-    })
-
   }
 
   socialLogin(connection, callback, compId) {
-    // const queryString = this.restClient.paramsToString({
-    //   response_type: "token",
-    //   client_id: config.clientId,
-    //   redirect_uri: process.env.SERVER_URL,
-    //   connection
-    // });
-    // const fullUrl = "https://" + config.domain + "/authorize" + queryString;
-    // window.location.href = fullUrl;
-    // console.info("auth0", this.auth0, this.webAuth);
-    // this.webAuth.authorize({
-    //   connection,
-    //   responseType: "token",
-    //   redirectUri: process.env.SERVER_URL,
-    //   clientId: config.clientId
-    // })
-    console.info("auth0", this.auth0);
-    let self = this;
-    this.auth0.webAuth.authorize({
-      connection,
-      // audience: "/userinfo",
-      scope: 'openid email profile'
-    })
-    .then(credentials => {
-      console.info("creds", credentials);
-      if (typeof credentials !== "undefined") {
-        const { accessToken, expiresIn, tokenType } = credentials;
-
-        console.info("credentials", accessToken, expiresIn, tokenType);
-
-        // when token is retrieved after successful login via auth0
-        const hasToken = typeof accessToken !== "undefined" && accessToken;
-        // const hasClient = route.url.hash.split("auth0Client");
-        // const hasIdToken = route.url.hash.split("id_token");
-        if (hasToken) {
-          let token = accessToken;
-
-          console.info("token", token);
-          //
-          // get user id with access token
-          self.getAuth0UserInfo(token).then((user) => {
-            console.info("user", user);
-
-            let firstName = "";
-            let lastName = "";
-
-            if (user && Object.keys(user).length > 0) {
-              firstName = user['given_name'];
-              lastName = user['family_name'];
-            } else {
-              console.warn("cannot find auth0 user info");
-            }
-
-            const auth0Id = user['sub'].split("google-oauth2|")[1];
-            // setCookie("scordAccessToken", token);
-            // setCookie("scordAuth0Id", auth0Id);
-
-            self.storageClient.storeItem("scordAccessToken", token);
-            self.storageClient.storeItem("scordAuth0Id", auth0Id);
-
-            setTimeout(() => {
-              // now check if mongo account exists with id
-              self.getUserData(null, false).then((res) => {
-                console.info("token res", res);
-                if (typeof res['error'] !== "undefined" &&
-                    res['error'].error.title === "Account Not Found") {
-                  // send to complete profile if not
-                  self.createLocalAccount(
-                      auth0Id,
-                      {
-                        firstName,
-                        lastName
-                      },
-                      () => {
-                        console.info("success");
-                        Navigation.push(compId, HomeTabs());
-                      },
-                      (err) => console.error("social login new account creation failure", err)
-                  );
-                  // window.location.href = window.location.origin + "/account";
-
-                } else if (typeof res["id"] !== "undefined") {
-                  // send to scores is yes
-                  // window.location.href = window.location.origin + "/scores";
-                  Navigation.push(compId, HomeTabs());
-                } else {
-                  alert("Error 195629");
-                }
-              })
-            }, 500)
-
-          }).catch((err) => {
-            console.error("err", err);
+      console.info("auth0", this.auth0);
+      return new Promise((resolve, reject) => {
+          let self = this;
+          this.auth0.webAuth.authorize({
+              connection,
+              // audience: "/userinfo",
+              scope: 'openid email profile'
           })
-        }
-        // else if (typeof hasClient[1] !== "undefined") {
-        //   let client = hasClient[1].split("&")[0];
-        //   client = client.substr(1, client.length - 1);
-        //   // setCookie("scordAccessToken", token);
-        //   console.info("client", client);
-        // } else if (typeof hasIdToken[1] !== "undefined") {
-        //   let token = hasIdToken[1].split("&")[0];
-        //   token = token.substr(1, token.length - 1);
-        //   let userInfo = JSON.parse(window.atob(token.split(".")[1]));
+              .then(credentials => {
+                  console.info("creds", credentials);
+                  if (typeof credentials !== "undefined") {
+                      const {accessToken, expiresIn, tokenType} = credentials;
 
-            //   const auth0Id = userInfo.sub.split("google-oauth2|")[1];
+                      console.info("credentials", accessToken, expiresIn, tokenType);
 
-            //   console.info("token 2", userInfo, auth0Id);
+                      // when token is retrieved after successful login via auth0
+                      const hasToken = typeof accessToken !== "undefined" && accessToken;
+                      // const hasClient = route.url.hash.split("auth0Client");
+                      // const hasIdToken = route.url.hash.split("id_token");
+                      if (hasToken) {
+                          let token = accessToken;
 
-            //   setCookie("scordAuth0Id", auth0Id);
+                          console.info("token", token);
+                          //
+                          // get user id with access token
+                          self.getAuth0UserInfo(token).then((user) => {
+                              console.info("user", user);
 
-            //   // setTimeout(() => {
-        //   //   window.location.replace("/");
-            //   // }, 500);
-        // }
-        else {
-          setTimeout(() => {
-            Navigation.push(compId, {
-              component: {
-                name: 'Login',
-                options: {
-                  topBar: {
-                    visible: false
+                              let firstName = "";
+                              let lastName = "";
+
+                              if (user && Object.keys(user).length > 0) {
+                                  firstName = user['given_name'];
+                                  lastName = user['family_name'];
+                              } else {
+                                  reject("Cannot find Auth0 user info");
+                              }
+
+                              const auth0Id = user['sub'].split("google-oauth2|")[1];
+                              // setCookie("scordAccessToken", token);
+                              // setCookie("scordAuth0Id", auth0Id);
+
+                              self.storageClient.storeItem("scordAccessToken", token);
+                              self.storageClient.storeItem("scordAuth0Id", auth0Id);
+
+                              setTimeout(() => {
+                                  // now check if mongo account exists with id
+                                  self.getUserData(null).then((res) => {
+                                      console.info("token res", res);
+                                      if (typeof res['error'] !== "undefined" &&
+                                          res['error'].error.title === "Account Not Found") {
+                                          // send to complete profile if not
+                                          self.createLocalAccount(
+                                              auth0Id,
+                                              {
+                                                  firstName,
+                                                  lastName
+                                              },
+                                              () => {
+                                                  console.info("success");
+                                                  Navigation.push(compId, {
+                                                      component: {
+                                                          name: 'Scores'
+                                                      }
+                                                  });
+                                              },
+                                              (err) => console.error("social login new account creation failure", err),
+                                              resolve,
+                                              reject
+                                          );
+                                          // window.location.href = window.location.origin + "/account";
+
+                                      } else if (typeof res["id"] !== "undefined") {
+                                          // send to scores is yes
+                                          // window.location.href = window.location.origin + "/scores";
+                                          Navigation.push(compId, {
+                                              component: {
+                                                  name: 'Scores'
+                                              }
+                                          });
+                                      } else {
+                                          alert("Error 195629");
+                                          reject("Error 195629");
+                                      }
+                                  })
+                              }, 500)
+
+                          }).catch((err) => {
+                              console.error("err", err);
+                              reject(err);
+                          })
+                      } else {
+                          setTimeout(() => {
+                              this.navigationService.navigateToAuth(Navigation, compId);
+                              // Navigation.push(compId, {
+                              //     component: {
+                              //         name: 'Login',
+                              //         options: {
+                              //             topBar: {
+                              //                 visible: false
+                              //             }
+                              //         }
+                              //     }
+                              // });
+                          }, 500)
+                      }
+                  } else {
+                      alert("Error 17493");
+                      reject("Error 17493");
                   }
-                }
-              }
-            });
-          }, 500)
-        }
-      } else {
-        alert("Error 17493");
-      }
-    })
-    .catch(error => {
-      console.warn("auth error", error)
-    });
+              })
+              .catch(error => {
+                  console.warn("auth error", error)
+                  reject(error);
+              });
+      });
   }
 
   async logout() {
-    // Cookies.remove("scordAccessToken");
-    // Cookies.remove("scordAuth0Id");
-    // window.location.href = window.location.origin;
     await this.storageClient.deleteItem("scordAccessToken");
     await this.storageClient.deleteItem("scordAuth0Id");
   }

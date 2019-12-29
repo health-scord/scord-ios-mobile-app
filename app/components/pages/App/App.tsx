@@ -50,7 +50,7 @@ const App: React.FC<AppProps> = ({children = null}) => {
   // Global Loading
   // Will users who are logged in be shown a loading symbol on SSR (with JS disabled)?
   if (userData === null) {
-    console.info('get tokens...');
+    console.info('fetch init user data...');
 
     authClient.getUserData(dispatch);
   }

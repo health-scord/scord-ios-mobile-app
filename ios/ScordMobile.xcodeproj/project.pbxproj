@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA41D2552E40DB97047E5B /* Entypo.ttf */; };
 		00E356F31AD99517003FC87E /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
@@ -16,10 +17,12 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B0731E2609D4CCDA6313DA8 /* close.svg in Resources */ = {isa = PBXBuildFile; fileRef = FBED35E48D4C4F88A12D4974 /* close.svg */; };
 		1B830B27DA434D7E81B8B329 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11C66C4D969042F29DCDFFAC /* OpenSans-SemiboldItalic.ttf */; };
+		225C28FECB264526B13F1589 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = 764C313C11B04AEF987CE2C2 /* account.png */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
+		2FF6B23907A64E1F9C8F965E /* account-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = D68B60C58CB5468AB99DBFDE /* account-copy.png */; };
 		349AFCDA4A0C4142A3F3FA0C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88AE4E843F4D470582FF8525 /* FontAwesome5_Regular.ttf */; };
 		3AB6A29434EB4DDA9B985702 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E047C775A3C34E7B8F834D00 /* AntDesign.ttf */; };
 		3D5B8803C06F4601AEE2F949 /* like.svg in Resources */ = {isa = PBXBuildFile; fileRef = 50E66651C5B2450AA4DCC09D /* like.svg */; };
@@ -29,6 +32,7 @@
 		5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C706A31F9641839D1C913F /* Logo.png */; };
 		60180CE4AC90401DA1433BF1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2BFD4D1FB4422492FB8CD0 /* FontAwesome5_Solid.ttf */; };
 		60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C50B4A706A3745A7BB18F5EC /* Playon_Logo_Icon.png */; };
+		622577CAF2DC47748BA631EA /* account.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4D59D4227588406FA5B45C5D /* account.svg */; };
 		663918BC4DCD4A85B6392C79 /* right.svg in Resources */ = {isa = PBXBuildFile; fileRef = DB3D0C1A5EE2402F814B8BB1 /* right.svg */; };
 		6892122236654948B9394A70 /* intro1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B0FA10718242B9AB936C8C /* intro1@2x.png */; };
 		6AB9052CDF864F4BB1C1ABF5 /* time.svg in Resources */ = {isa = PBXBuildFile; fileRef = BE75A2B140594C0F8FCE7471 /* time.svg */; };
@@ -55,13 +59,16 @@
 		BA84AF7DB6994D71B78EEA5E /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4736C9F715E54CFAB5C51D87 /* OpenSans-Regular.ttf */; };
 		BEA476DBE744474E828360B9 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3A2DE586CBC4E8EA4DF22D3 /* OpenSans-ExtraBold.ttf */; };
 		C0C892F9F35644CB9462EC7F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BBD0C4EDDD044E9BEB3992F /* Zocial.ttf */; };
+		CCF7E2B074BF481CA838DB6C /* scores.svg in Resources */ = {isa = PBXBuildFile; fileRef = 405513415A0F497DB93804D4 /* scores.svg */; };
 		D4E5B3215E1C4AE4A487AEC8 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EF0459354E40CEAF084A80 /* OpenSans-Semibold.ttf */; };
 		D74EBEA693384266B0455CCB /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D469D81264A4539912EDE32 /* profile.png */; };
 		E095EF6755974239A89AADF3 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEECB7ED0AF040DA99937361 /* OpenSans-Italic.ttf */; };
 		E1813EBF17A440B394714F8F /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20A7856E8DB54B4BAE7B01D1 /* OpenSans.ttf */; };
 		E289A9E599E34F4697938277 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09874863E52541CDA3E83646 /* FontAwesome.ttf */; };
+		E63217D69C3544AF8F4E8A05 /* scores.png in Resources */ = {isa = PBXBuildFile; fileRef = A67610BC06C34C229DDF6461 /* scores.png */; };
 		F051DC43DA454F22803C2D59 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */; };
 		F169CA39F2BC472C978AAE53 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA628BB352E469097584A5F /* OpenSans-Light.ttf */; };
+		F6C412DDE14A4C5DA7E33948 /* scores-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B00F1635E784A0C8B941B1C /* scores-copy.png */; };
 		F99A82C900184F0BB7A7785E /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */; };
 		FE8697926B978AD867C7A617 /* libPods-ScordMobile-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F69CDC4B99CD6F2D6A0B04 /* libPods-ScordMobile-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -124,24 +131,29 @@
 		3DA628BB352E469097584A5F /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		3F95903D799849218D99CA03 /* cluster.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = cluster.svg; path = ../assets/svg/cluster.svg; sourceTree = "<group>"; };
 		3FB54626A67A47A5ABBE05A3 /* explore.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = explore.png; path = ../assets/svg/explore.png; sourceTree = "<group>"; };
+		405513415A0F497DB93804D4 /* scores.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = scores.svg; path = ../assets/svg/scores.svg; sourceTree = "<group>"; };
 		40CEA044C7244DAEA17DE5C6 /* check.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = check.svg; path = ../assets/svg/check.svg; sourceTree = "<group>"; };
 		431E8D63EAC447B6A2E3AA18 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		4736C9F715E54CFAB5C51D87 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		4A1C4B12F86343976930961E /* Pods-ScordMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobile/Pods-ScordMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		4D59D4227588406FA5B45C5D /* account.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = account.svg; path = ../assets/svg/account.svg; sourceTree = "<group>"; };
 		4F99A4EB2F464D6A9A0D905B /* dropdownIcon.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = dropdownIcon.svg; path = ../assets/svg/dropdownIcon.svg; sourceTree = "<group>"; };
 		50E66651C5B2450AA4DCC09D /* like.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = like.svg; path = ../assets/svg/like.svg; sourceTree = "<group>"; };
 		54C4F23684294AD1BA89FDB1 /* Pods-ScordMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobileTests/Pods-ScordMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		576D8204B27A416781553FC9 /* pin.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pin.svg; path = ../assets/svg/pin.svg; sourceTree = "<group>"; };
 		57739FF3A592E54CEE179AB6 /* libPods-ScordMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScordMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BA22C790BA401CA1F0BA35 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		764C313C11B04AEF987CE2C2 /* account.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = account.png; path = ../assets/svg/account.png; sourceTree = "<group>"; };
 		79668EFDF6CD47D98120313E /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../assets/fonts/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		86C706A31F9641839D1C913F /* Logo.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Logo.png; path = ../assets/img/Logo.png; sourceTree = "<group>"; };
 		88AE4E843F4D470582FF8525 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		8D3E49EACC7F48EEA1C32FBF /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		90F69CDC4B99CD6F2D6A0B04 /* libPods-ScordMobile-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScordMobile-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B00F1635E784A0C8B941B1C /* scores-copy.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "scores-copy.png"; path = "../assets/svg/scores-copy.png"; sourceTree = "<group>"; };
 		A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-LightItalic.ttf"; path = "../assets/fonts/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		A1E86FFB0DC0AA30CABF93B3 /* libPods-ScordMobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScordMobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A67610BC06C34C229DDF6461 /* scores.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = scores.png; path = ../assets/svg/scores.png; sourceTree = "<group>"; };
 		A680D730FB0746B4ABAAC16E /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		B325A81E538C24DCA9EA0906 /* Pods-ScordMobile-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobile-tvOS/Pods-ScordMobile-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BAC812AFD2C4729098850308 /* Pods-ScordMobile-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ScordMobile-tvOSTests/Pods-ScordMobile-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +163,7 @@
 		C50B4A706A3745A7BB18F5EC /* Playon_Logo_Icon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Playon_Logo_Icon.png; path = ../assets/img/Playon_Logo_Icon.png; sourceTree = "<group>"; };
 		C7F0DD4AE2528A00E3D4C81C /* Pods-ScordMobile-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScordMobile-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ScordMobile-tvOSTests/Pods-ScordMobile-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2EF0459354E40CEAF084A80 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Semibold.ttf"; path = "../assets/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		D68B60C58CB5468AB99DBFDE /* account-copy.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "account-copy.png"; path = "../assets/svg/account-copy.png"; sourceTree = "<group>"; };
 		DB3D0C1A5EE2402F814B8BB1 /* right.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = right.svg; path = ../assets/svg/right.svg; sourceTree = "<group>"; };
 		DEBF4BFEE55C4A70908F76AE /* explore.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = explore.svg; path = ../assets/svg/explore.svg; sourceTree = "<group>"; };
 		DEECB7ED0AF040DA99937361 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Italic.ttf"; path = "../assets/fonts/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -275,6 +288,12 @@
 				85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */,
 				68BA22C790BA401CA1F0BA35 /* SimpleLineIcons.ttf */,
 				2BBD0C4EDDD044E9BEB3992F /* Zocial.ttf */,
+				D68B60C58CB5468AB99DBFDE /* account-copy.png */,
+				764C313C11B04AEF987CE2C2 /* account.png */,
+				4D59D4227588406FA5B45C5D /* account.svg */,
+				9B00F1635E784A0C8B941B1C /* scores-copy.png */,
+				A67610BC06C34C229DDF6461 /* scores.png */,
+				405513415A0F497DB93804D4 /* scores.svg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -545,6 +564,12 @@
 				F051DC43DA454F22803C2D59 /* Octicons.ttf in Resources */,
 				A2E2B0CE3238480C940B574D /* SimpleLineIcons.ttf in Resources */,
 				C0C892F9F35644CB9462EC7F /* Zocial.ttf in Resources */,
+				2FF6B23907A64E1F9C8F965E /* account-copy.png in Resources */,
+				225C28FECB264526B13F1589 /* account.png in Resources */,
+				622577CAF2DC47748BA631EA /* account.svg in Resources */,
+				F6C412DDE14A4C5DA7E33948 /* scores-copy.png in Resources */,
+				E63217D69C3544AF8F4E8A05 /* scores.png in Resources */,
+				CCF7E2B074BF481CA838DB6C /* scores.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +603,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		0C891202BA97C3EB6DCE57C6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

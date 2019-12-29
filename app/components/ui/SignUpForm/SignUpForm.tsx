@@ -39,19 +39,29 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
     const [formError, setFormError] = React.useState([null, null]);
     const [successfulSubmission, setSuccessfulSubmission] = React.useState(false);
 
-    React.useEffect(() => {
-        authClient.signup(
-            {
-                email: "alexthegoodman+000xd3@gmail.com",
-                username: "alexthegoodman000xd3",
-                firstName: "Alex",
-                lastName: "Woodman",
-                password: "las26950!"
-            },
-            (val) => console.info("signup success", val),
-            (err) => console.warn("signup err", err)
-        );
-    }, []);
+    // React.useEffect(() => {
+    //     let timestamp = Date.now();
+    //     authClient.signup(
+    //         {
+    //             email: "alexthegoodman22q3rhh@gmail.com",
+    //             username: "alexthegoodmanq273rhh",
+    //             firstName: "Alex",
+    //             lastName: "Woodman",
+    //             password: "las26950!"
+    //         },
+    //         (val) => console.info("signup success", val),
+    //         (err) => console.warn("signup err", err, JSON.stringify(err), timestamp, Date.now())
+    //     );
+    //     // console.info("GOOOOO!");
+    //     // // let timestamp = Date.now();
+    //     // fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //     //     .then(response => response.json())
+    //     //     .then(json => {
+    //     //         let timestamp2 = Date.now();
+    //     //         console.info("super ultra", json, timestamp, timestamp2);
+    //     //     })
+    //     //     .catch(err => console.error("death", err))
+    // }, []);
 
     const validationSchema = Yup.object().shape({
         username: Yup.string()
@@ -102,17 +112,11 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
             agreeTerms: false
           }}
           onSubmit={(values, actions) => {
-            console.log("values", values, actions);
+              console.log("signup values", values, actions);
 
             actions.setSubmitting(true);
 
             Keyboard.dismiss();
-
-            console.log(
-              "values",
-              { values, actions },
-              userData
-            );
 
             // mixpanel.track("Sign up form submission attempt", {
             //   env: process.env.NODE_ENV,
@@ -123,83 +127,35 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
             // });
 
             const callback = (res) => {
-              console.info("returned", res);
+                console.info("returned", values, res);
 
-              setFormError([null, null]);
+                setFormError([null, null]);
 
-              // if (err) {
-              //   console.error(err);
-              //   if (res.badRequest) {
-              //     setFormError([res.body.code, res.body.message]);
-              //   }
-              // }
-              if (res.id) {
-                authClient.login(
-                    {
-                        username: values.email,
-                        password: values.password
-                    },
-                    (err, res) => {
-                        if (err) {
-                            console.error("err", err);
+                if (typeof res.id !== "undefined") {
+                    console.info("login...");
+
+                    authClient.login(
+                        {
+                            username: values.email,
+                            password: values.password
                         }
-                    },
-                    (err) => {
-                        console.warn("ERROR LOGIN:", err, err.message, err.response);
-
-                        actions.setSubmitting(false);
-
-                    // TODO: dynamic errors like sign up
-                    // https://auth0.com/docs/libraries/error-messages
-                    // if (err.response) {
-                    //   setTooManyLoginAttempts(false);
-                    //   setUserDoesNotExist(false);
-                    //   setGeneralError(false);
-
-                    //   switch (err.response.body.error) {
-                    //     case "too_many_attempts":
-                    //       setTooManyLoginAttempts(true);
-                    //       break;
-
-                        //     case "invalid_grant":
-                    //       setUserDoesNotExist(true);
-                    //       break;
-
-                        //     default:
-                    //       setGeneralError(true);
-                    //       break;
-                    //   }
-                    // }
-
-                        if (err.response) {
-                      setFormError([err.response.body.error, err.response.body.error_description]);
-                    } else {
-                      setFormError([null, null]);
-                    }
-                  },
-                  (token, auth0Id) => {
-                    actions.resetForm();
-
-                      console.info("login from signup finalized", token, auth0Id);
-
-                      if (token && auth0Id) {
-                      Navigation.push(componentId, HomeTabs());
-                    }
-                  }
-                );
-                  // redirect to Home
-                  // console.info(
-                  //   "thank you - go confirm your email and complete your profile"
-                  // );
-                  // setSuccessfulSubmission(true);
-
-                  // Navigation.push(componentId, HomeTabs());
-              }
-                actions.resetForm();
+                    ).then((data) => {
+                        actions.resetForm();
+                        Navigation.push(componentId, {
+                            component: {
+                                name: 'Scores'
+                            }
+                        });
+                    }).catch((err) => {
+                        console.error("err", err);
+                    });
+                }
             };
 
               const onError = (err) => {
-                  console.warn("onError sign up", err, err.response);
+                  console.warn("onError sign up", JSON.stringify(err));
+
+                  // TODO: request timed out box
 
                   if (typeof err !== "undefined" && typeof err.response !== "undefined") {
                       const {code, description, message, policy} = err.response.body;
@@ -210,17 +166,41 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                   }
               };
 
-            // BEWARE: getUserData is expected to fail if no account exists
-            // this informs whether to update or create
+              // BEWARE: getUserData is expected to fail if no account exists
+              // this informs whether to update or create
               if (userData !== null && typeof userData.id !== "undefined") {
                   authClient.updateAccount(userData.id, values, callback, onError);
               } else {
                   storageClient.getToken("scordAccessToken").then((token) => {
                       storageClient.getToken("scordAuth0Id").then((auth0Id) => {
                           if (auth0Id !== null && typeof auth0Id !== 'undefined') {
-                              authClient.createLocalAccount(auth0Id, values, callback, onError);
+                              authClient.createLocalAccount(
+                                  auth0Id,
+                                  values,
+                                  callback,
+                                  onError,
+                                  (data) => console.info("data", data),
+                                  (err) => console.info("err", err)
+                              );
                           } else {
-                              authClient.signup(values, callback, onError);
+                              authClient.signup(values, callback, onError).then(data => {
+                                  console.info("signup data", data);
+                              }).catch(err => {
+                                  console.error("err", err);
+                              });
+                              // const uuid = uuidv1();
+                              // authClient.createLocalAccount(
+                              //     uuid,
+                              //     values,
+                              //     callback, // callback and resolves??
+                              //     onError,
+                              //     (data) => console.info("test1", data),
+                              //     (err) => console.info("err1", err)
+                              // ).then(data => {
+                              //     console.info("signup data", data);
+                              // }).catch(err => {
+                              //     console.error("err", err);
+                              // });
                           }
                       });
                   });

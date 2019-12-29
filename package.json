@@ -42,6 +42,8 @@
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.12.0",
+    "parse-error": "^0.2.0",
+    "query-string": "^6.9.0",
     "react": "16.8.1",
     "react-apollo": "^3.1.1",
     "react-native": "0.61.2",
@@ -72,6 +74,7 @@
     "redux": "^4.0.4",
     "superagent": "^5.1.0",
     "use-debounce": "^3.0.1",
+    "uuid": "^3.3.3",
     "yup": "^0.27.0"
   },
   "devDependencies": {

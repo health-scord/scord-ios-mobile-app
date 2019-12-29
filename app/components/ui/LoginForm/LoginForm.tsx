@@ -16,7 +16,7 @@ import Callout from "../Callout/Callout";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import Validation from "../Validation/Validation";
 import StorageClient from "../../../services/StorageClient";
-import HomeTabs from "../../pages/Dispatcher/HomeTabs";
+import NavigationService from "../../../services/NavigationService";
 
 const Form = withNextInputAutoFocusForm(View);
 
@@ -26,7 +26,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   onClick = e => console.info("Click"),
   componentId = null
 }) => {
-  const storageClient = new StorageClient();
+    const navigationService = new NavigationService();
+    const storageClient = new StorageClient();
   const authClient = new AuthClient();
 
   const [formError, setFormError] = React.useState([null, null]);
@@ -39,7 +40,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
       .required()
       .min(4, "Use a longer password")
   });
-  
+
   return (
     <>
         {formError[0] !== null ? (
@@ -68,116 +69,92 @@ const LoginForm: React.FC<LoginFormProps> = ({
             //   },
             // });
 
-            authClient.login(
-              { 
-                username: values.email,
-                password: values.password 
-              }, 
-              (err, res) => {
-                if (err) {
-                  console.error("err", err);
-                }
-              },
-              (err) => {
-                console.warn("ERROR LOGIN:", err, err.message, err.response);
+              authClient.login(
+                  {
+                      username: values.email,
+                      password: values.password
+                  }
+              ).then((data) => {
+                  actions.resetForm();
 
-                actions.setSubmitting(false);
+                  console.info("login finalized", data);
 
-                // TODO: dynamic errors like sign up
-                // https://auth0.com/docs/libraries/error-messages
-                // if (err.response) {
-                //   setTooManyLoginAttempts(false);
-                //   setUserDoesNotExist(false);
-                //   setGeneralError(false);
+                  //   Navigation.push(componentId, {
+                  //   component: {
+                  //     name: 'Scores'
+                  //   }
+                  // });
 
-                //   switch (err.response.body.error) {
-                //     case "too_many_attempts":
-                //       setTooManyLoginAttempts(true);
-                //       break;
+                  navigationService.navigateToHome(Navigation, componentId);
 
-                //     case "invalid_grant":
-                //       setUserDoesNotExist(true);
-                //       break;
-                
-                //     default:
-                //       setGeneralError(true);
-                //       break;
-                //   }
-                // }
-                
-                if (err.response) {
-                  setFormError([err.response.body.error, err.response.body.error_description]);
-                } else {
-                  setFormError([null, null]);
-                }
-              },
-              (token, auth0Id) => {
-                actions.resetForm();
+              }).catch((err) => {
+                  console.warn("ERROR LOGIN:", err, err.message, err.response);
 
-                console.info("login finalized", token, auth0Id);
+                  actions.setSubmitting(false);
 
-                if (token && auth0Id) {
-                  Navigation.push(componentId, HomeTabs());
-                }
-              }
-            );
+                  if (err.response) {
+                      setFormError([err.response.body.error, err.response.body.error_description]);
+                  } else {
+                      setFormError([null, null]);
+                  }
+              });
           }}
           validationSchema={validationSchema}
           render={props => {
             return (
               <Form>
-                <View style={{ marginBottom: 10 }}>
-                  <FormInput 
-                    label="Email" 
-                    placeholder="Email" 
-                    name="email" 
-                    type="email" 
+                  <View style={{marginBottom: 10}}>
+                      <FormInput
+                          label="Email"
+                          placeholder="Email"
+                          name="email"
+                          type="email"
+                      />
+                      <FormInput
+                          label="Password"
+                          placeholder="Password"
+                          name="password"
+                          type="password"
+                          secureTextEntry={true}
+                      />
+                      <PrimaryButton
+                          buttonProps={{
+                              inverted: true,
+                              rounded: true
+                          }}
+                          style={{marginBottom: 20}}
+                          onPress={props.handleSubmit as any}
+                          label="Login"
+                      />
+                      <Button
+                          title="Forgot your password?"
+
+                          onPress={() => {
+                              Navigation.push(componentId, {
+                                  component: {
+                                      name: 'ForgotPassword'
+                                  }
+                              })
+                          }}
+                      />
+                  </View>
+                  <PrimaryButton
+                      buttonProps={{
+                          inverted: true,
+                          rounded: true
+                      }}
+                      styles={{marginBottom: 10}}
+                      onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"), componentId)}
+                      label="Login with Google"
                   />
-                  <FormInput 
-                    label="Password" 
-                    placeholder="Password" 
-                    name="password" 
-                    type="password" 
-                    secureTextEntry={true} 
+                  <PrimaryButton
+                      buttonProps={{
+                          inverted: true,
+                          rounded: true
+                      }}
+                      onPress={() => authClient.socialLogin("facebook", () => console.info("finished"), componentId)}
+                      label="Login with Facebook"
                   />
-                  <PrimaryButton 
-                    buttonProps={{
-                      inverted: true,
-                      rounded: true
-                    }} 
-                    style={{ marginBottom: 20 }} 
-                    onPress={props.handleSubmit as any} 
-                    label="Login"
-                  />
-                  <Button 
-                    title="Forgot your password?" 
-                    
-                    onPress={() => {
-                      Navigation.push(componentId, {
-                        component: {
-                          name: 'ForgotPassword'
-                        }
-                      })
-                    }} 
-                  />
-                </View>
-                <PrimaryButton 
-                  buttonProps={{
-                    inverted: true,
-                    rounded: true
-                  }} 
-                  styles={{ marginBottom: 10 }} 
-                  onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"), componentId)} 
-                  label="Login with Google"
-                />
-                <PrimaryButton 
-                  buttonProps={{
-                    inverted: true,
-                    rounded: true
-                  }} 
-                  onPress={() => authClient.socialLogin("facebook", () => console.info("finished"), componentId)} 
-                  label="Login with Facebook" 
-                />
                 {/* {Platform.OS === "ios" && <KeyboardSpacer />} */}
               </Form>
             );

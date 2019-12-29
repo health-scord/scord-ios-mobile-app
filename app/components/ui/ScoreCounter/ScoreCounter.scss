@@ -1,5 +1,7 @@
 .scoreCounter {
     padding: 100 0 50 0;
+    display: flex;
+    justify-content: center;
 }
 
 .boxHeader {
@@ -16,13 +18,35 @@
 
 .boxContent {}
 
-.box {}
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: flex-end;
+}
 
-.italicLabel {}
+.miniBox {
+    //flex: 1;
+    flex-grow: 1;
+}
 
-.label {}
+.italicLabel {
+    font-style: italic;
+    padding-bottom: 4;
+}
 
-.scoreLabel {}
+.label {
+    font-size: 28;
+}
+
+.scoreLabel {
+    color: $iosBlue;
+    font-size: 78;
+    font-weight: 600;
+    position: relative;
+    top: 10;
+}
 
 .scoreLabelEmpty {
     font-size: 128;
@@ -31,4 +55,14 @@
     justify-content: center;
     align-content: center;
     flex-direction: row;
+}
+
+.scoreBar {
+    background-color: rgb(212, 212, 212);
+    margin-top: 25;
+}
+
+.scoreBarFill {
+    background-color: $iosBlue;
+    height: 9;
 }
