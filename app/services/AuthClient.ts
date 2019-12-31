@@ -189,7 +189,7 @@ export default class AuthClient {
       );
   }
 
-  forgotPassword(values, callback) {
+  forgotPassword(values) {
       return new Promise((resolve, reject) => {
           this.auth0.auth
               .resetPassword({
@@ -314,61 +314,51 @@ export default class AuthClient {
                                   // now check if mongo account exists with id
                                   self.getUserData(null).then((res) => {
                                       console.info("token res", res);
-                                      if (typeof res['error'] !== "undefined" &&
-                                          res['error'].error.title === "Account Not Found") {
-                                          // send to complete profile if not
-                                          self.createLocalAccount(
-                                              auth0Id,
-                                              {
-                                                  firstName,
-                                                  lastName
-                                              },
-                                              () => {
-                                                  console.info("success");
-                                                  Navigation.push(compId, {
-                                                      component: {
-                                                          name: 'Scores'
-                                                      }
-                                                  });
-                                              },
-                                              (err) => console.error("social login new account creation failure", err),
-                                              resolve,
-                                              reject
-                                          );
-                                          // window.location.href = window.location.origin + "/account";
-
-                                      } else if (typeof res["id"] !== "undefined") {
+                                      if (typeof res["id"] !== "undefined" || typeof res["Id"] !== "undefined") {
                                           // send to scores is yes
                                           // window.location.href = window.location.origin + "/scores";
-                                          Navigation.push(compId, {
-                                              component: {
-                                                  name: 'Scores'
-                                              }
-                                          });
+                                          // Navigation.push(compId, {
+                                          //     component: {
+                                          //         name: 'Scores'
+                                          //     }
+                                          // });
+                                          this.navigationService.navigateToHome(Navigation, compId);
                                       } else {
                                           alert("Error 195629");
                                           reject("Error 195629");
                                       }
-                                  })
+                                  }).catch((err) => {
+                                      console.warn("intended", err);
+                                      self.createLocalAccount(
+                                          auth0Id,
+                                          {
+                                              firstName,
+                                              lastName
+                                          },
+                                          () => {
+                                              console.info("success");
+                                              // Navigation.push(compId, {
+                                              //     component: {
+                                              //         name: 'Scores'
+                                              //     }
+                                              // });
+                                              this.navigationService.navigateToHome(Navigation, compId);
+                                          },
+                                          (err) => console.error("social login new account creation failure", err),
+                                          resolve,
+                                          reject
+                                      );
+                                      // reject(err);
+                                  });
                               }, 500)
 
                           }).catch((err) => {
-                              console.error("err", err);
+                              console.error("sociallogin 1 err", err);
                               reject(err);
                           })
                       } else {
                           setTimeout(() => {
                               this.navigationService.navigateToAuth(Navigation, compId);
-                              // Navigation.push(compId, {
-                              //     component: {
-                              //         name: 'Login',
-                              //         options: {
-                              //             topBar: {
-                              //                 visible: false
-                              //             }
-                              //         }
-                              //     }
-                              // });
                           }, 500)
                       }
                   } else {

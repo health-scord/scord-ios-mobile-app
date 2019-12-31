@@ -12,7 +12,6 @@
 		09B5DDEDC1714B7CAB3586B4 /* plus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 013482BE2BF84D73B746CBE0 /* plus.svg */; };
 		1176D26F98E153505DE7843D /* libPods-ScordMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E86FFB0DC0AA30CABF93B3 /* libPods-ScordMobileTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B0731E2609D4CCDA6313DA8 /* close.svg in Resources */ = {isa = PBXBuildFile; fileRef = FBED35E48D4C4F88A12D4974 /* close.svg */; };
@@ -70,6 +69,8 @@
 		F169CA39F2BC472C978AAE53 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA628BB352E469097584A5F /* OpenSans-Light.ttf */; };
 		F6C412DDE14A4C5DA7E33948 /* scores-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B00F1635E784A0C8B941B1C /* scores-copy.png */; };
 		F99A82C900184F0BB7A7785E /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */; };
+		FA7B12FD23BA9EE400E8B34C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7B12FC23BA9EE400E8B34C /* Launch Screen.storyboard */; };
+		FA7B12FF23BAA07B00E8B34C /* Scord Splash Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7B12FE23BAA07B00E8B34C /* Scord Splash Screen.png */; };
 		FE8697926B978AD867C7A617 /* libPods-ScordMobile-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F69CDC4B99CD6F2D6A0B04 /* libPods-ScordMobile-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +107,6 @@
 		13B07F961A680F5B00A75B9A /* ScordMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScordMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ScordMobile/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ScordMobile/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ScordMobile/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ScordMobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ScordMobile/main.m; sourceTree = "<group>"; };
@@ -174,6 +174,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EF3BE1E1E3C44F50B2F09C9D /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		FA7B12FC23BA9EE400E8B34C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		FA7B12FE23BAA07B00E8B34C /* Scord Splash Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Scord Splash Screen.png"; path = "../../../../Downloads/Scord Splash Screen.png"; sourceTree = "<group>"; };
 		FBED35E48D4C4F88A12D4974 /* close.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = close.svg; path = ../assets/svg/close.svg; sourceTree = "<group>"; };
 		FE3E398C5C62417B9DD6CF26 /* logo.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = logo.svg; path = ../assets/svg/logo.svg; sourceTree = "<group>"; };
 		FFCB74C5E5D146A4A5F1F82E /* activity.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = activity.svg; path = ../assets/svg/activity.svg; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		10A2E8E77D294FA68AC719F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA7B12FE23BAA07B00E8B34C /* Scord Splash Screen.png */,
 				02506CFF92B94BC1A368BEE1 /* intro1.png */,
 				E2B0FA10718242B9AB936C8C /* intro1@2x.png */,
 				86C706A31F9641839D1C913F /* Logo.png */,
@@ -301,12 +304,12 @@
 		13B07FAE1A68108700A75B9A /* ScordMobile */ = {
 			isa = PBXGroup;
 			children = (
+				FA7B12FC23BA9EE400E8B34C /* Launch Screen.storyboard */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = ScordMobile;
@@ -518,10 +521,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				6C963526C0E74419B3F2F28D /* intro1.png in Resources */,
 				6892122236654948B9394A70 /* intro1@2x.png in Resources */,
 				5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */,
+				FA7B12FF23BAA07B00E8B34C /* Scord Splash Screen.png in Resources */,
 				60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */,
 				4350EEF2D1474921A0A81F66 /* back.svg in Resources */,
 				A5FE602725D440029F505D7E /* check.svg in Resources */,
@@ -550,6 +553,7 @@
 				E1813EBF17A440B394714F8F /* OpenSans.ttf in Resources */,
 				3AB6A29434EB4DDA9B985702 /* AntDesign.ttf in Resources */,
 				00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */,
+				FA7B12FD23BA9EE400E8B34C /* Launch Screen.storyboard in Resources */,
 				B5DC89EFFDEE4B49A0DFEA32 /* EvilIcons.ttf in Resources */,
 				79DA9D912C1B4F1FADF732E5 /* Feather.ttf in Resources */,
 				E289A9E599E34F4697938277 /* FontAwesome.ttf in Resources */,
@@ -812,18 +816,6 @@
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = ScordMobile;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {

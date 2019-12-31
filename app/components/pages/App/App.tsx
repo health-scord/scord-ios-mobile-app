@@ -18,7 +18,8 @@ const App: React.FC<AppProps> = ({children = null}) => {
 
   React.useEffect(() => {
     Linking.addEventListener('url', (data) => {
-      console.info("data", data);
+      console.info("url data", data);
+      authClient.getUserData(dispatch);
     });
 
     return () => {

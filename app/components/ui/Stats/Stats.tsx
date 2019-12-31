@@ -19,15 +19,15 @@ const Stats: React.FC<StatsProps> = ({
   const stats = [
     {
       label: "Average hours of sleep per night",
-        percentage: healthScore["components"]["sleep"]["averageDailySleepHours"]
+        percentage: healthScore !== null ? healthScore["components"]["sleep"]["averageDailySleepHours"] : ""
     },
     {
       label: "Daily active minutes average",
-        percentage: healthScore["components"]["fitness"]["averageDailyRigorousActivityMinutes"]
+      percentage: healthScore !== null ? healthScore["components"]["fitness"]["averageDailyRigorousActivityMinutes"] : ""
     },
     {
       label: "Average resting heart rate",
-        percentage: healthScore["components"]["heartRate"]["averageRestingHeartRate"]
+      percentage: healthScore !== null ? healthScore["components"]["heartRate"]["averageRestingHeartRate"] : ""
     }
   ];
 

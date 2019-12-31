@@ -10,43 +10,62 @@ export default class NavigationService {
                 Ionicons.getImageSource('md-settings', 25, "black"),
             ]).then(([homeIcon, starIcon]) => {
                 resolve({
-                   bottomTabs: {
-                       id: "HomeTabs",
-                       options: {
-                           topBar: {
-                               visible: false
+                stack: {
+                    options: {
+                        topBar: {
+                            visible: false
+                        }
+                    },
+                    children: [
+                        {
+                           component: {
+                               id: 'ForgotPassword',
+                               name: 'ForgotPassword'
                            },
-                           bottomTabs: {
-                               currentTabIndex: 0
-                           }
+                         },
+                        {
+                        bottomTabs: {
+                           id: "HomeTabs",
+                           options: {
+                               topBar: {
+                                   visible: false
+                               },
+                               bottomTabs: {
+                                   currentTabIndex: 0
+                               }
+                           },
+                           children: [
+                               {
+                                   component: {
+                                       id: 'Scores',
+                                       name: 'Scores',
+                                       options: {
+                                           bottomTab: {
+                                               text: 'Scores',
+                                               icon: homeIcon
+                                           }
+                                       }
+                                   },
+                               },
+                               {
+                                   component: {
+                                       id: 'Account',
+                                       name: 'Account',
+                                       options: {
+                                           bottomTab: {
+                                               text: 'Account',
+                                               icon: starIcon
+                                           }
+                                       }
+                                   },
+                               },
+                           ],
+                       }
                        },
-                       children: [
-                           {
-                               component: {
-                                   id: 'Scores',
-                                   name: 'Scores',
-                                   options: {
-                                       bottomTab: {
-                                           text: 'Scores',
-                                           icon: homeIcon
-                                       }
-                                   }
-                               },
-                           },
-                           {
-                               component: {
-                                   id: 'Account',
-                                   name: 'Account',
-                                   options: {
-                                       bottomTab: {
-                                           text: 'Account',
-                                           icon: starIcon
-                                       }
-                                   }
-                               },
-                           },
-                       ],
-                   },
+
+                    ]
+                }
+
                });
             });
         });
@@ -67,6 +86,12 @@ export default class NavigationService {
                           name: 'SignUp'
                       },
                     },
+                    {
+                      component: {
+                          id: 'ForgotPassword',
+                          name: 'ForgotPassword'
+                      },
+                    },
                    {
                        component: {
                            id: 'Login',
@@ -82,24 +107,14 @@ export default class NavigationService {
                    },
                ],
         };
-//         return {
-//            component: {
-//                id: 'Login',
-//                name: 'Login',
-//                options: {
-//                     topBar: {
-//                         backButton: {
-//                             visible: false
-//                         }
-//                     }
-//                }
-//            },
-//        }
     }
 
     navigateToHome(Navigation, componentId) {
         this.getHomeLayout().then((homeTabs) => {
-            Navigation.push(componentId, homeTabs);
+//             Navigation.push(componentId, homeTabs);
+            Navigation.setRoot({
+                root: homeTabs
+            });
         });
     }
 

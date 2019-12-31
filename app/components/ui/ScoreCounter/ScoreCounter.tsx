@@ -16,7 +16,7 @@ const ScoreCounter: React.FC<ScoreCounterProps> = ({
                                                        healthScore = null
                                                    }) => {
     const styleHelpers = new StyleHelpers();
-    const calculated = typeof healthScore !== "undefined" ? healthScore.calculated : undefined;
+    const calculated = healthScore !== null ? healthScore.calculated : undefined;
 
   let bodyContent = (
     <>

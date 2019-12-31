@@ -32,21 +32,22 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
 
     if (typeof userData === "undefined" || userData === null) return <Text>Loading...</Text>;
 
-    const healthScore = {
-        calculated: "225",
-        components: {
-            sleep: {
-                averageDailySleepHours: "3"
-            },
-            fitness: {
-                averageDailyRigorousActivityMinutes: "30",
-                averageRigorousActivityTimesPerWeek: "20"
-            },
-            heartRate: {
-                averageRestingHeartRate: "10"
-            }
-        }
-    };
+    // const healthScore = {
+    //     calculated: "225",
+    //     components: {
+    //         sleep: {
+    //             averageDailySleepHours: "3"
+    //         },
+    //         fitness: {
+    //             averageDailyRigorousActivityMinutes: "30",
+    //             averageRigorousActivityTimesPerWeek: "20"
+    //         },
+    //         heartRate: {
+    //             averageRestingHeartRate: "10"
+    //         }
+    //     }
+    // };
+    const healthScore = null;
 
     return (
         <ScrollView>

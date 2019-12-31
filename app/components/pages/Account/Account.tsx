@@ -32,12 +32,7 @@ const Account: React.FC<AccountProps> = ({
               onPress={() => {
                   Navigation.push(componentId, {
                       component: {
-                          name: 'ForgotPassword',
-                          options: {
-                              topBar: {
-                                  visible: false
-                              }
-                          }
+                          name: 'ForgotPassword'
                       }
                   });
               }}

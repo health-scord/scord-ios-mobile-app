@@ -1,5 +1,9 @@
 import queryString from 'query-string';
 import env from "../../env";
+// import Toast from 'react-native-root-toast';
+// import Toast from 'react-native-simple-toast';
+// import Toast, { DURATION } from 'react-native-easy-toast';
+// import Toast from 'react-native-toast-native';
 
 const parseError = require('parse-error');
 
@@ -89,6 +93,19 @@ export default class RestClient {
             }
         }
     ) {
+        // Toast.show(this.loadingToast);
+        // Toast.show('Loading...', Toast.LONG);
+        // let toast = Toast.show('Loading...', {
+        //     duration: Toast.durations.LONG,
+        //     position: Toast.positions.BOTTOM,
+        //     shadow: true,
+        //     animation: true,
+        //     hideOnPress: true,
+        //     delay: 0
+        // });
+        //
+        // Toast.show(toast);
+
         // const newHeaders = new Headers();
         // newHeaders.append("Content-Type", "application/json");
         const headers = {
@@ -112,6 +129,10 @@ export default class RestClient {
             headers,
             body: sendBody
         })
+            // .then((res) => {
+            //     Toast.hide(toast);
+            //     return res;
+            // })
             .then(handlers.onComplete)
             .catch(handlers.onError)
     }

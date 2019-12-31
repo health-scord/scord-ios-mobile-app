@@ -33,7 +33,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
       .email("Invalid email")
       .required("Required"),
   });
-  
+
   return (
     <KeyboardAwareScrollView>
       <View>
@@ -48,28 +48,25 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
         <Formik
           initialValues={{}}
           onSubmit={(values, actions) => {
-            console.log("values", { values, actions });
-            authClient.forgotPassword({ connection: "Username-Password-Authentication", ...values}, (err, res) => {
-              if (err) {
-                console.error("err", err)
-                // console.info("here 1");
-                // if (res.body.errorMessage === ERROR_CODE.C001) {
-                //   // console.info("hero");
-                //   setCannotFindEmail(true);
-                // } else {
-                //   setCannotFindEmail(false);
-                // }
-                // if (res.body.errorMessage === ERROR_CODE.C002) {
+              console.log("values", {values, actions});
+              authClient.forgotPassword({connection: "Username-Password-Authentication", ...values}).then((res) => {
+                  console.info("res", res);
+                  setEmailSent(true);
+                  actions.setSubmitting(false);
+                  actions.resetForm();
+              }).catch((err) => {
+                  if (err) {
+                      console.error("err", err)
+                      // console.info("here 1");
+                      // if (res.body.errorMessage === ERROR_CODE.C001) {
+                      //   // console.info("hero");
+                      //   setCannotFindEmail(true);
+                      // } else {
+                      //   setCannotFindEmail(false);
+                      // }
+                      // if (res.body.errorMessage === ERROR_CODE.C002) {
                 // }
               }
-              console.info("res", res);
-              if (res.text) {
-                setEmailSent(true);
-              } else {
-                setEmailSent(false);
-              }
-              actions.setSubmitting(false);
-              actions.resetForm();
             });
           }}
           validationSchema={validationSchema}
