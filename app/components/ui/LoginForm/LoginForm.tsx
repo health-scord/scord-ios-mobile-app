@@ -104,7 +104,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             return (
               <Form>
                   <View style={{marginBottom: 10}}>
-                      <FormInput
+                      {/* <FormInput
                           label="Email"
                           placeholder="Email"
                           name="email"
@@ -125,8 +125,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
                           style={{marginBottom: 20}}
                           onPress={props.handleSubmit as any}
                           label="Login"
-                      />
-                      <Button
+                      /> */}
+                      {/* <Button
                           title="Forgot your password?"
 
                           onPress={() => {
@@ -136,7 +136,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                   }
                               })
                           }}
-                      />
+                      /> */}
                   </View>
                   <PrimaryButton
                       buttonProps={{
@@ -147,14 +147,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
                       onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"), componentId)}
                       label="Login with Google"
                   />
-                  <PrimaryButton
+                  {/* <PrimaryButton
                       buttonProps={{
                           inverted: true,
                           rounded: true
                       }}
                       onPress={() => authClient.socialLogin("facebook", () => console.info("finished"), componentId)}
                       label="Login with Facebook"
-                  />
+                  /> */}
                 {/* {Platform.OS === "ios" && <KeyboardSpacer />} */}
               </Form>
             );

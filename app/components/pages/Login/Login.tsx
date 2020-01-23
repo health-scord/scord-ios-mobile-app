@@ -19,7 +19,7 @@ const Login: React.FC<LoginProps> = ({ componentId }) => {
         <FormContainer>
           <IntroHeader />
           <LoginForm componentId={componentId} />
-          <View style={{ marginTop: 100 }}>
+          {/* <View style={{ marginTop: 100 }}>
             <Button title="Sign up for an account" onPress={() => {
               Navigation.push(componentId, {
                 component: {
@@ -27,7 +27,7 @@ const Login: React.FC<LoginProps> = ({ componentId }) => {
                 }
               })
             }} />
-          </View>
+          </View> */}
         </FormContainer>
       </KeyboardAwareScrollView>
     </AuthContainer>

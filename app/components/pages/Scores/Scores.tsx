@@ -10,8 +10,11 @@ import Summary from "../../ui/Summary/Summary";
 import {Navigation} from "react-native-navigation";
 import StorageClient from "../../../services/StorageClient";
 import NavigationService from "../../../services/NavigationService";
+import RefreshView from "../../ui/RefreshView/RefreshView";
+import AuthClient from "../../../services/AuthClient";
 
 const Scores: React.FC<ScoresProps> = ({componentId}) => {
+    const authClient = new AuthClient();
     const navigationService = new NavigationService();
     const storageClient = new StorageClient();
     const [{userData}, dispatch] = useAppContext();
@@ -50,12 +53,16 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
     const healthScore = null;
 
     return (
-        <ScrollView>
+        <RefreshView 
+            onRefresh={() => {
+                authClient.syncFitbit(userData);
+            }}
+        >
             <NotchSpacer/>
             <ScoreCounter userData={userData} healthScore={healthScore}/>
             <Summary userData={userData} healthScore={healthScore}/>
             <Stats userData={userData} healthScore={healthScore}/>
-        </ScrollView>
+        </RefreshView>
     );
 };
 

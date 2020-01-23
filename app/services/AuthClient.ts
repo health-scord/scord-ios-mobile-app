@@ -6,6 +6,7 @@ import NavigationService from "./NavigationService";
 import Auth0 from 'react-native-auth0';
 import env from "../../env";
 import { Navigation } from "react-native-navigation";
+import { Linking } from "react-native";
 
 export default class AuthClient {
   public auth0 = new Auth0({
@@ -377,4 +378,23 @@ export default class AuthClient {
     await this.storageClient.deleteItem("scordAccessToken");
     await this.storageClient.deleteItem("scordAuth0Id");
   }
+
+    syncFitbit(
+        userData, 
+        clickHandler = () => {} 
+    ) {
+        const url = env.authApi + `/accounts/${
+            userData.id
+        }/authorize`;
+
+        Linking.canOpenURL(url).then(supported => {
+            if (supported) {
+                Linking.openURL(url);
+            } else {
+                console.log("Don't know how to open URI: " + url);
+            }
+        });
+
+        clickHandler(e);
+    }
 }
