@@ -398,11 +398,11 @@ export default class AuthClient {
         clickHandler(e);
     }
 
-    deleteUser(auth0Id, userData) {
+    deleteLocalUser(auth0Id, userData) {
         return new Promise((resolve, reject) => {
             this.restClient.simpleFetch(
                 "/accounts/" + auth0Id,
-                "GET",
+                "DELETE",
                 {},
                 {},
                 {
@@ -410,7 +410,7 @@ export default class AuthClient {
                 },
                 {
                     onComplete: (res) => {
-                        console.info("user data", res, userData);
+                        console.info("local user data", res, userData);
     
                         resolve(res);
                     },
@@ -420,5 +420,20 @@ export default class AuthClient {
                 }
             );
         });
+    }
+
+    deleteAuth0User(auth0Id, userData) {
+        // return new Promise((resolve, reject) => {
+        //     this.auth0.auth
+        //         .createUser(userData).then((data) => {
+        //         if (typeof data['Id'] !== "undefined") {
+        //             resolve(data);
+        //         } else {
+        //             console.error(data);
+        //             reject(data);
+        //         }
+        //     })
+        //         .catch(reject);
+        // });
     }
 }

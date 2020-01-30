@@ -50,6 +50,11 @@ const Account: React.FC<AccountProps> = ({
               onPress={() => {
                 // delete  
                 setDeleteModalVisible(!deleteModalVisible);
+                authClient.deleteLocalUser().then(() => {
+                  authClient.deleteAuthUser().then(() => {
+
+                  });
+                });
               }}
           />
           <PrimaryButton
@@ -76,10 +81,10 @@ const Account: React.FC<AccountProps> = ({
 
                       if (validCreds) {
                         setDeleteModalVisible(!deleteModalVisible);
-                        authClient.deleteUser(auth0Id , userData)
-                          .then((res) => {
-                            console.info("deleteUser", res);
-                          });
+                        // authClient.deleteUser(auth0Id , userData)
+                        //   .then((res) => {
+                        //     console.info("deleteUser", res);
+                        //   });
                       }
                     });
                   });
