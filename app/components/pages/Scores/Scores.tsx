@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import {ScoresProps} from "./Scores.d";
-import {Text, ScrollView} from "react-native";
+import {Text, ScrollView, View, Dimensions} from "react-native";
 import ScoreCounter from "../../ui/ScoreCounter/ScoreCounter";
 import Stats from "../../ui/Stats/Stats";
 import {useAppContext} from "../../../context";
@@ -12,6 +12,9 @@ import StorageClient from "../../../services/StorageClient";
 import NavigationService from "../../../services/NavigationService";
 import RefreshView from "../../ui/RefreshView/RefreshView";
 import AuthClient from "../../../services/AuthClient";
+import styles from "../../../../build/styles";
+
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 const Scores: React.FC<ScoresProps> = ({componentId}) => {
     const authClient = new AuthClient();
@@ -52,16 +55,22 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
     // };
     const healthScore = null;
 
+    const halfHeight = (viewportHeight - 155) / 2;
+
     return (
         <RefreshView 
             onRefresh={() => {
                 authClient.syncFitbit(userData);
             }}
         >
-            <NotchSpacer/>
-            <ScoreCounter userData={userData} healthScore={healthScore}/>
-            <Summary userData={userData} healthScore={healthScore}/>
-            <Stats userData={userData} healthScore={healthScore}/>
+            <NotchSpacer />
+            <View style={{ ...styles.scoreTop, height: halfHeight }}>
+                <ScoreCounter userData={userData} healthScore={healthScore}/>
+                <Summary userData={userData} healthScore={healthScore}/>
+            </View>
+            <View style={{ ...styles.scoreBottom, height: halfHeight }}>
+                <Stats userData={userData} healthScore={healthScore}/>
+            </View>
         </RefreshView>
     );
 };

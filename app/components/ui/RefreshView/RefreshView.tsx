@@ -1,16 +1,18 @@
 import * as React from "react";
 
 import { RefreshViewProps } from "./RefreshView.d";
-import { ScrollView, RefreshControl, StyleSheet } from "react-native";
+import { ScrollView, RefreshControl, StyleSheet, Dimensions } from "react-native";
+
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     // marginTop: Constants.statusBarHeight,
   },
-  scrollView: {
-    flex: 1
-  },
+  // scrollView: {
+  //   flex: 1
+  // },
 });
 
 function wait(timeout) {
@@ -40,7 +42,7 @@ const RefreshView: React.FC<RefreshViewProps> = ({
   return (
     <>
       <ScrollView
-        contentContainerStyle={styles.scrollView}
+        contentContainerStyle={{ ...styles.scrollView, ...{ height: viewportHeight - 200 } }}
         refreshControl={
           <RefreshControl 
             refreshing={refreshing} 

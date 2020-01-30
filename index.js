@@ -9,6 +9,7 @@ import Dispatcher from './app/components/pages/Dispatcher/Dispatcher';
 import Account from './app/components/pages/Account/Account';
 import Offers from './app/components/pages/Offers/Offers';
 import Scores from './app/components/pages/Scores/Scores';
+import LoadingModal from './app/components/pages/LoadingModal/LoadingModal';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
 console.disableYellowBox = true;
@@ -44,10 +45,20 @@ Navigation.registerComponent(`Dispatcher`, () => RootProvider(Dispatcher));
 Navigation.registerComponent(`Account`, () => RootProvider(Account));
 Navigation.registerComponent(`Offers`, () => RootProvider(Offers));
 Navigation.registerComponent(`Scores`, () => RootProvider(Scores));
+Navigation.registerComponent(`LoadingModal`, () => RootProvider(LoadingModal));
 
 Navigation.events().registerAppLaunchedListener(() => {
     const storageClient = new StorageClient();
     const navigationService = new NavigationService();
+
+    Navigation.setDefaultOptions({
+        bottomTabs: {
+            backgroundColor: '#E5E5E5',
+        },
+        bottomTab: {
+            fontSize: 11
+        }
+    });
 
     storageClient.getToken('scordAccessToken').then((token) => {
         if (typeof token === 'undefined' || token === '') {

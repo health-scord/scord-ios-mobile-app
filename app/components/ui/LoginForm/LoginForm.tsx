@@ -144,7 +144,36 @@ const LoginForm: React.FC<LoginFormProps> = ({
                           rounded: true
                       }}
                       styles={{marginBottom: 10}}
-                      onPress={() => authClient.socialLogin("google-oauth2", () => console.info("finished"), componentId)}
+                      onPress={() => {
+                        Navigation.showModal({
+                          stack: {
+                            children: [{
+                              component: {
+                                name: 'LoadingModal',
+                                // passProps: {
+                                //   text: 'stack with one child'
+                                // },
+                                // options: {
+                                //   topBar: {
+                                //     title: {
+                                //       text: 'Modal'
+                                //     }
+                                //   }
+                                // }
+                              }
+                            }]
+                          }
+                        });
+
+                        authClient.socialLogin(
+                          "google-oauth2", 
+                          () => {
+                            console.info("finished");
+                            Navigation.dismissAllModals();
+                          }, 
+                          componentId
+                        );
+                      }}
                       label="Login with Google"
                   />
                   {/* <PrimaryButton

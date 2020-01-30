@@ -1,18 +1,23 @@
 .stats {
     background-color: #E5E5E5;
-    padding: 40 0;
+    // padding: 30 0 20 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .statItem {
-    margin-bottom: 20;
+    margin-bottom: 16;
 }
 
 .itemLabel {
-    font-size: 20;
-    margin-bottom: 7;
+    font-size: 16;
+    margin-bottom: 5;
 }
 
 .itemPerc {
-    font-size: 36;
+    font-size: 28;
     font-weight: 600;
 }
