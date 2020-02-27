@@ -1,5 +1,5 @@
 PODS:
-  - A0Auth0 (2.1.0):
+  - A0Auth0 (2.3.0):
     - React
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.5.6):
@@ -227,9 +227,9 @@ PODS:
     - ReactCommon/jscallinvoker (= 0.61.2)
   - ReactNativeDarkMode (0.2.2):
     - React
-  - ReactNativeNavigation (3.4.0):
+  - ReactNativeNavigation (3.7.0):
     - React
-  - RNCAsyncStorage (1.7.1):
+  - RNCAsyncStorage (1.8.0):
     - React
   - RNSVG (9.13.6):
     - React
@@ -351,7 +351,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  A0Auth0: 351b3b07e58db39b3bb33f58acf35a878fbba74d
+  A0Auth0: 802f5f5add8ac5265cfeea125caa2720dafccfa6
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
@@ -368,7 +368,7 @@ SPEC CHECKSUMS:
   React-jsi: 32285a21b1b24c36060493ed3057a34677d58d09
   React-jsiexecutor: 8909917ff7d8f21a57e443a866fd8d4560e50c65
   React-jsinspector: 111d7d342b07a904c400592e02a2b958f1098b60
-  react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
+  react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
   React-RCTActionSheet: 89b037c0fb7d2671607cb645760164e7e0c013f6
   React-RCTAnimation: e3cefa93c38c004c318f7ec04b883eb14b8b8235
@@ -381,8 +381,8 @@ SPEC CHECKSUMS:
   React-RCTVibration: fb54c732fd20405a76598e431aa2f8c2bf527de9
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
   ReactNativeDarkMode: 0178ffca3b10f6a7c9f49d6f9810232b328fa949
-  ReactNativeNavigation: 8c8c90fec3ee912010ce4cfb6c9678912c056b9b
-  RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
+  ReactNativeNavigation: bed6f504aa1a4dadd151503bf99d0ef96d06847f
+  RNCAsyncStorage: 5d83b49070d41fd72906a116c5e7bdac4ea3a814
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f

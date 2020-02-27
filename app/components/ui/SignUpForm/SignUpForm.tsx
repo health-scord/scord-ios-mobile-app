@@ -171,6 +171,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
               if (userData !== null && typeof userData.id !== "undefined") {
                   authClient.updateAccount(userData.id, values, callback, onError);
               } else {
+                console.log('got in here!!!!!!!!!!!!!')
                   storageClient.getToken("scordAccessToken").then((token) => {
                       storageClient.getToken("scordAuth0Id").then((auth0Id) => {
                           if (auth0Id !== null && typeof auth0Id !== 'undefined') {

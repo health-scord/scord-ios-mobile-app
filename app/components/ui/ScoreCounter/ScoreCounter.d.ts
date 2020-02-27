@@ -3,4 +3,5 @@ export interface ScoreCounterProps {
   className?: string;
   onClick?: (e: MouseEvent) => void;
   userData: any;
+  healthScore: any
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFA41D2552E40DB97047E5B /* Entypo.ttf */; };
 		00E356F31AD99517003FC87E /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
 		09B5DDEDC1714B7CAB3586B4 /* plus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 013482BE2BF84D73B746CBE0 /* plus.svg */; };
 		1176D26F98E153505DE7843D /* libPods-ScordMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E86FFB0DC0AA30CABF93B3 /* libPods-ScordMobileTests.a */; };
@@ -15,62 +14,35 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B0731E2609D4CCDA6313DA8 /* close.svg in Resources */ = {isa = PBXBuildFile; fileRef = FBED35E48D4C4F88A12D4974 /* close.svg */; };
-		1B830B27DA434D7E81B8B329 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11C66C4D969042F29DCDFFAC /* OpenSans-SemiboldItalic.ttf */; };
 		225C28FECB264526B13F1589 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = 764C313C11B04AEF987CE2C2 /* account.png */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ScordMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ScordMobileTests.m */; };
 		2FF6B23907A64E1F9C8F965E /* account-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = D68B60C58CB5468AB99DBFDE /* account-copy.png */; };
-		349AFCDA4A0C4142A3F3FA0C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88AE4E843F4D470582FF8525 /* FontAwesome5_Regular.ttf */; };
-		3AB6A29434EB4DDA9B985702 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E047C775A3C34E7B8F834D00 /* AntDesign.ttf */; };
 		3D5B8803C06F4601AEE2F949 /* like.svg in Resources */ = {isa = PBXBuildFile; fileRef = 50E66651C5B2450AA4DCC09D /* like.svg */; };
 		4350EEF2D1474921A0A81F66 /* back.svg in Resources */ = {isa = PBXBuildFile; fileRef = 37858521A24840A8ACF0D377 /* back.svg */; };
 		460DB40886E641998140E03B /* share.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1DE4DA6B9C4944C79910FB9D /* share.svg */; };
 		515052F33F05352BD977DF4C /* libPods-ScordMobile-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BC02E3349A2A2F2ADBD560 /* libPods-ScordMobile-tvOS.a */; };
 		5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C706A31F9641839D1C913F /* Logo.png */; };
-		60180CE4AC90401DA1433BF1 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2BFD4D1FB4422492FB8CD0 /* FontAwesome5_Solid.ttf */; };
 		60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C50B4A706A3745A7BB18F5EC /* Playon_Logo_Icon.png */; };
 		622577CAF2DC47748BA631EA /* account.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4D59D4227588406FA5B45C5D /* account.svg */; };
 		663918BC4DCD4A85B6392C79 /* right.svg in Resources */ = {isa = PBXBuildFile; fileRef = DB3D0C1A5EE2402F814B8BB1 /* right.svg */; };
 		6892122236654948B9394A70 /* intro1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B0FA10718242B9AB936C8C /* intro1@2x.png */; };
 		6AB9052CDF864F4BB1C1ABF5 /* time.svg in Resources */ = {isa = PBXBuildFile; fileRef = BE75A2B140594C0F8FCE7471 /* time.svg */; };
-		6B9F7A1ECBF546CDBDFA31E7 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E6390D24DD47628D7059FE /* MaterialIcons.ttf */; };
 		6C963526C0E74419B3F2F28D /* intro1.png in Resources */ = {isa = PBXBuildFile; fileRef = 02506CFF92B94BC1A368BEE1 /* intro1.png */; };
-		6DFA104F086D4CC5AB746E32 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A680D730FB0746B4ABAAC16E /* Fontisto.ttf */; };
 		6E5D9F7A91F6B8F4504D3841 /* libPods-ScordMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57739FF3A592E54CEE179AB6 /* libPods-ScordMobile.a */; };
-		6F26973AB9484708B878D656 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF3BE1E1E3C44F50B2F09C9D /* OpenSans-Bold.ttf */; };
 		73B800898B784214928F400C /* profile.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB87F847F6455CA7099D42 /* profile.svg */; };
-		79DA9D912C1B4F1FADF732E5 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19698474CC9C49849B1EBED5 /* Feather.ttf */; };
-		8348D389809747DC8BAA40C0 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 431E8D63EAC447B6A2E3AA18 /* Ionicons.ttf */; };
 		863A5B86C50948A19449EE61 /* search.svg in Resources */ = {isa = PBXBuildFile; fileRef = 25F1C8B66DAC4388AF4CFFFD /* search.svg */; };
-		8B0053CEED914CB89598B968 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF77CE8FCDB7447A8499DC65 /* Foundation.ttf */; };
-		919D6D5027FF43F8A485F533 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06ADEC4DC5FB4E788EAE601F /* OpenSans-BoldItalic.ttf */; };
-		94C1BC356A8047C9A7EF1046 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3E49EACC7F48EEA1C32FBF /* FontAwesome5_Brands.ttf */; };
-		95B86BC95EE84D7AA23EDE9C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C4351F2F17440BFA45E0AC9 /* MaterialCommunityIcons.ttf */; };
-		A2E2B0CE3238480C940B574D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68BA22C790BA401CA1F0BA35 /* SimpleLineIcons.ttf */; };
 		A4246B4ABC3946AAACCD52BF /* pin.svg in Resources */ = {isa = PBXBuildFile; fileRef = 576D8204B27A416781553FC9 /* pin.svg */; };
 		A5FE602725D440029F505D7E /* check.svg in Resources */ = {isa = PBXBuildFile; fileRef = 40CEA044C7244DAEA17DE5C6 /* check.svg */; };
-		A78BD8DFCDB6474A9713B40E /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79668EFDF6CD47D98120313E /* OpenSans-ExtraBoldItalic.ttf */; };
 		A9140BBB8FD145C5BEAAF6C7 /* dropdownIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4F99A4EB2F464D6A9A0D905B /* dropdownIcon.svg */; };
-		B5DC89EFFDEE4B49A0DFEA32 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16BDF1308B9648DC873CA12D /* EvilIcons.ttf */; };
 		B718242486654C799B206E33 /* heart.svg in Resources */ = {isa = PBXBuildFile; fileRef = 295193760A904CD1BB090D4B /* heart.svg */; };
-		BA84AF7DB6994D71B78EEA5E /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4736C9F715E54CFAB5C51D87 /* OpenSans-Regular.ttf */; };
-		BEA476DBE744474E828360B9 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3A2DE586CBC4E8EA4DF22D3 /* OpenSans-ExtraBold.ttf */; };
-		C0C892F9F35644CB9462EC7F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BBD0C4EDDD044E9BEB3992F /* Zocial.ttf */; };
 		CCF7E2B074BF481CA838DB6C /* scores.svg in Resources */ = {isa = PBXBuildFile; fileRef = 405513415A0F497DB93804D4 /* scores.svg */; };
-		D4E5B3215E1C4AE4A487AEC8 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EF0459354E40CEAF084A80 /* OpenSans-Semibold.ttf */; };
 		D74EBEA693384266B0455CCB /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D469D81264A4539912EDE32 /* profile.png */; };
-		E095EF6755974239A89AADF3 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEECB7ED0AF040DA99937361 /* OpenSans-Italic.ttf */; };
-		E1813EBF17A440B394714F8F /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20A7856E8DB54B4BAE7B01D1 /* OpenSans.ttf */; };
-		E289A9E599E34F4697938277 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09874863E52541CDA3E83646 /* FontAwesome.ttf */; };
 		E63217D69C3544AF8F4E8A05 /* scores.png in Resources */ = {isa = PBXBuildFile; fileRef = A67610BC06C34C229DDF6461 /* scores.png */; };
-		F051DC43DA454F22803C2D59 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85DEDBF6220B4BF0B5029D1E /* Octicons.ttf */; };
-		F169CA39F2BC472C978AAE53 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA628BB352E469097584A5F /* OpenSans-Light.ttf */; };
 		F6C412DDE14A4C5DA7E33948 /* scores-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B00F1635E784A0C8B941B1C /* scores-copy.png */; };
-		F99A82C900184F0BB7A7785E /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0DFD90009044FE8875693D0 /* OpenSans-LightItalic.ttf */; };
 		FA7B12FD23BA9EE400E8B34C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7B12FC23BA9EE400E8B34C /* Launch Screen.storyboard */; };
-		FA7B12FF23BAA07B00E8B34C /* Scord Splash Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7B12FE23BAA07B00E8B34C /* Scord Splash Screen.png */; };
 		FE8697926B978AD867C7A617 /* libPods-ScordMobile-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F69CDC4B99CD6F2D6A0B04 /* libPods-ScordMobile-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -524,7 +496,6 @@
 				6C963526C0E74419B3F2F28D /* intro1.png in Resources */,
 				6892122236654948B9394A70 /* intro1@2x.png in Resources */,
 				5B88B42145CB4789AD2E1D98 /* Logo.png in Resources */,
-				FA7B12FF23BAA07B00E8B34C /* Scord Splash Screen.png in Resources */,
 				60C32CABFC994249A603FA0F /* Playon_Logo_Icon.png in Resources */,
 				4350EEF2D1474921A0A81F66 /* back.svg in Resources */,
 				A5FE602725D440029F505D7E /* check.svg in Resources */,
@@ -540,34 +511,7 @@
 				863A5B86C50948A19449EE61 /* search.svg in Resources */,
 				460DB40886E641998140E03B /* share.svg in Resources */,
 				6AB9052CDF864F4BB1C1ABF5 /* time.svg in Resources */,
-				6F26973AB9484708B878D656 /* OpenSans-Bold.ttf in Resources */,
-				919D6D5027FF43F8A485F533 /* OpenSans-BoldItalic.ttf in Resources */,
-				BEA476DBE744474E828360B9 /* OpenSans-ExtraBold.ttf in Resources */,
-				A78BD8DFCDB6474A9713B40E /* OpenSans-ExtraBoldItalic.ttf in Resources */,
-				E095EF6755974239A89AADF3 /* OpenSans-Italic.ttf in Resources */,
-				F169CA39F2BC472C978AAE53 /* OpenSans-Light.ttf in Resources */,
-				F99A82C900184F0BB7A7785E /* OpenSans-LightItalic.ttf in Resources */,
-				BA84AF7DB6994D71B78EEA5E /* OpenSans-Regular.ttf in Resources */,
-				D4E5B3215E1C4AE4A487AEC8 /* OpenSans-Semibold.ttf in Resources */,
-				1B830B27DA434D7E81B8B329 /* OpenSans-SemiboldItalic.ttf in Resources */,
-				E1813EBF17A440B394714F8F /* OpenSans.ttf in Resources */,
-				3AB6A29434EB4DDA9B985702 /* AntDesign.ttf in Resources */,
-				00D342BFD2A643DCB19A8425 /* Entypo.ttf in Resources */,
 				FA7B12FD23BA9EE400E8B34C /* Launch Screen.storyboard in Resources */,
-				B5DC89EFFDEE4B49A0DFEA32 /* EvilIcons.ttf in Resources */,
-				79DA9D912C1B4F1FADF732E5 /* Feather.ttf in Resources */,
-				E289A9E599E34F4697938277 /* FontAwesome.ttf in Resources */,
-				94C1BC356A8047C9A7EF1046 /* FontAwesome5_Brands.ttf in Resources */,
-				349AFCDA4A0C4142A3F3FA0C /* FontAwesome5_Regular.ttf in Resources */,
-				60180CE4AC90401DA1433BF1 /* FontAwesome5_Solid.ttf in Resources */,
-				6DFA104F086D4CC5AB746E32 /* Fontisto.ttf in Resources */,
-				8B0053CEED914CB89598B968 /* Foundation.ttf in Resources */,
-				8348D389809747DC8BAA40C0 /* Ionicons.ttf in Resources */,
-				95B86BC95EE84D7AA23EDE9C /* MaterialCommunityIcons.ttf in Resources */,
-				6B9F7A1ECBF546CDBDFA31E7 /* MaterialIcons.ttf in Resources */,
-				F051DC43DA454F22803C2D59 /* Octicons.ttf in Resources */,
-				A2E2B0CE3238480C940B574D /* SimpleLineIcons.ttf in Resources */,
-				C0C892F9F35644CB9462EC7F /* Zocial.ttf in Resources */,
 				2FF6B23907A64E1F9C8F965E /* account-copy.png in Resources */,
 				225C28FECB264526B13F1589 /* account.png in Resources */,
 				622577CAF2DC47748BA631EA /* account.svg in Resources */,
@@ -616,9 +560,41 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ScordMobile/Pods-ScordMobile-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

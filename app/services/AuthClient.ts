@@ -33,7 +33,11 @@ export default class AuthClient {
                     const validCreds = (token !== null && typeof token !== 'undefined') && (auth0Id !== null && typeof auth0Id !== 'undefined');
                     const setContextData = dispatch !== null ? true : false;
 
-                    console.info("getUserData", validCreds, setContextData);
+                    
+                    // console.log('fetching user data')
+                    // console.log(`token: ${token}`)
+                    // console.log(`auth0Id: ${auth0Id}`)
+                    // console.info("getUserData", validCreds, setContextData);
 
                     if (validCreds) {
                         this.restClient.simpleFetch(
@@ -49,6 +53,7 @@ export default class AuthClient {
                                     console.info("user data", res);
 
                                     if (typeof res["error"] === "undefined") {
+
                                         if (setContextData) {
                                             dispatch({
                                                 type: "setUserData",
@@ -176,30 +181,30 @@ export default class AuthClient {
                 }
             }
     );
-  }
+    }
 
-  async updateAccount(id, values, callback, onError) {
-      this.restClient.makeRequest(
-          "/accounts/" + id,
-          values,
-          callback, // finish
-          "PATCH",
-          {"content-type": "application/json"},
-          false,
-          onError
-      );
-  }
+    async updateAccount(id, values, callback, onError) {
+        this.restClient.makeRequest(
+            "/accounts/" + id,
+            values,
+            callback, // finish
+            "PATCH",
+            {"content-type": "application/json"},
+            false,
+            onError
+        );
+    }
 
-  forgotPassword(values) {
-      return new Promise((resolve, reject) => {
-          this.auth0.auth
-              .resetPassword({
-                  email: values.email,
-                  connection: "Username-Password-Authentication"
-              }).then(resolve)
-              .catch(reject);
-      });
-  }
+    forgotPassword(values) {
+        return new Promise((resolve, reject) => {
+            this.auth0.auth
+                .resetPassword({
+                    email: values.email,
+                    connection: "Username-Password-Authentication"
+                }).then(resolve)
+                .catch(reject);
+        });
+    }
 
     async login(values) {
         return new Promise((resolve, reject) => {
@@ -223,8 +228,13 @@ export default class AuthClient {
         });
     }
 
+
+
+
+
     setAuth0Id(token, callback, onError, finished) {
         // auth0 id request #1
+        console.log('in here!!!!!!!!!')
         this.restClient.simpleFetch(
             "https://" + config.domain + "/oauth/token",
             "POST",
@@ -250,134 +260,135 @@ export default class AuthClient {
                 onError
             }
         );
-  }
+    }
 
-  getAuth0UserInfo(token): Promise<any> {
-      return new Promise((resolve, reject) => {
-          this.storageClient.getToken("scordAccessToken").then((scordAccessToken) => {
-              this.storageClient.getToken("scordAuth0Id").then((scordAuth0Id) => {
-                  this.auth0.auth
-                      .userInfo({token})
-                      .then(resolve)
-                      .catch(reject);
-              });
-          });
-      });
-  }
+    getAuth0UserInfo(token): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.storageClient.getToken("scordAccessToken").then((scordAccessToken) => {
+                this.storageClient.getToken("scordAuth0Id").then((scordAuth0Id) => {
+                    this.auth0.auth
+                        .userInfo({token})
+                        .then(resolve)
+                        .catch(reject);
+                });
+            });
+        });
+    }
 
-  socialLogin(connection, callback, compId) {
-      console.info("auth0", this.auth0);
-      return new Promise((resolve, reject) => {
-          let self = this;
-          this.auth0.webAuth.authorize({
-              connection,
-              // audience: "/userinfo",
-              scope: 'openid email profile'
-          })
-              .then(credentials => {
-                  console.info("creds", credentials);
-                  if (typeof credentials !== "undefined") {
-                      const {accessToken, expiresIn, tokenType} = credentials;
+    socialLogin(connection, callback, compId) {
+        console.log('IN SOCIAL LOGIN')
+        console.info("auth0", this.auth0);
+        return new Promise((resolve, reject) => {
+            let self = this;
+            this.auth0.webAuth.authorize({
+                connection,
+                // audience: "/userinfo",
+                scope: 'openid email profile'
+            })
+                .then(credentials => {
+                    console.info("creds", credentials);
+                    if (typeof credentials !== "undefined") {
+                        const {accessToken, expiresIn, tokenType} = credentials;
 
-                      console.info("credentials", accessToken, expiresIn, tokenType);
+                        console.info("credentials", accessToken, expiresIn, tokenType);
 
-                      // when token is retrieved after successful login via auth0
-                      const hasToken = typeof accessToken !== "undefined" && accessToken;
-                      // const hasClient = route.url.hash.split("auth0Client");
-                      // const hasIdToken = route.url.hash.split("id_token");
-                      if (hasToken) {
-                          let token = accessToken;
+                        // when token is retrieved after successful login via auth0
+                        const hasToken = typeof accessToken !== "undefined" && accessToken;
+                        // const hasClient = route.url.hash.split("auth0Client");
+                        // const hasIdToken = route.url.hash.split("id_token");
+                        if (hasToken) {
+                            let token = accessToken;
 
-                          console.info("token", token);
-                          //
-                          // get user id with access token
-                          self.getAuth0UserInfo(token).then((user) => {
-                              console.info("user", user);
+                            console.info("token", token);
+                            //
+                            // get user id with access token
+                            self.getAuth0UserInfo(token).then((user) => {
+                                // console.info("user", user);
 
-                              let firstName = "";
-                              let lastName = "";
+                                let firstName = "";
+                                let lastName = "";
 
-                              if (user && Object.keys(user).length > 0) {
-                                  firstName = user['given_name'];
-                                  lastName = user['family_name'];
-                              } else {
-                                  reject("Cannot find Auth0 user info");
-                              }
+                                if (user && Object.keys(user).length > 0) {
+                                    firstName = user['givenName'];
+                                    lastName = user['familyName'];
+                                } else {
+                                    reject("Cannot find Auth0 user info");
+                                }
 
-                              const auth0Id = user['sub'].split("google-oauth2|")[1];
-                              // setCookie("scordAccessToken", token);
-                              // setCookie("scordAuth0Id", auth0Id);
+                                const auth0Id = user['sub'].split("google-oauth2|")[1];
+                                // setCookie("scordAccessToken", token);
+                                // setCookie("scordAuth0Id", auth0Id);
 
-                              self.storageClient.storeItem("scordAccessToken", token);
-                              self.storageClient.storeItem("scordAuth0Id", auth0Id);
+                                self.storageClient.storeItem("scordAccessToken", token);
+                                self.storageClient.storeItem("scordAuth0Id", auth0Id);
 
-                              setTimeout(() => {
-                                  // now check if mongo account exists with id
-                                  self.getUserData(null).then((res) => {
-                                      console.info("token res", res);
-                                      if (typeof res["id"] !== "undefined" || typeof res["Id"] !== "undefined") {
-                                          // send to scores is yes
-                                          // window.location.href = window.location.origin + "/scores";
-                                          // Navigation.push(compId, {
-                                          //     component: {
-                                          //         name: 'Scores'
-                                          //     }
-                                          // });
-                                          this.navigationService.navigateToHome(Navigation, compId);
-                                      } else {
-                                          alert("Error 195629");
-                                          reject("Error 195629");
-                                      }
-                                  }).catch((err) => {
-                                      console.warn("intended", err);
-                                      self.createLocalAccount(
-                                          auth0Id,
-                                          {
-                                              firstName,
-                                              lastName
-                                          },
-                                          () => {
-                                              console.info("success");
-                                              // Navigation.push(compId, {
-                                              //     component: {
-                                              //         name: 'Scores'
-                                              //     }
-                                              // });
-                                              this.navigationService.navigateToHome(Navigation, compId);
-                                          },
-                                          (err) => console.error("social login new account creation failure", err),
-                                          resolve,
-                                          reject
-                                      );
-                                      // reject(err);
-                                  });
-                              }, 500)
+                                setTimeout(() => {
+                                    // now check if mongo account exists with id
+                                    self.getUserData(null).then((res) => {
+                                        console.info("token res", res);
+                                        if (typeof res["id"] !== "undefined" || typeof res["Id"] !== "undefined") {
+                                            // send to scores is yes
+                                            // window.location.href = window.location.origin + "/scores";
+                                            // Navigation.push(compId, {
+                                            //     component: {
+                                            //         name: 'Scores'
+                                            //     }
+                                            // });
+                                            this.navigationService.navigateToHome(Navigation, compId);
+                                        } else {
+                                            alert("Error 195629");
+                                            reject("Error 195629");
+                                        }
+                                    }).catch((err) => {
+                                        console.warn("intended", err);
+                                        self.createLocalAccount(
+                                            auth0Id,
+                                            {
+                                                firstName,
+                                                lastName
+                                            },
+                                            () => {
+                                                console.info("account successfully created in accounts API");
+                                                // Navigation.push(compId, {
+                                                //     component: {
+                                                //         name: 'Scores'
+                                                //     }
+                                                // });
+                                                this.navigationService.navigateToHome(Navigation, compId);
+                                            },
+                                            (err) => console.error("social login new account creation failure", err),
+                                            resolve,
+                                            reject
+                                        );
+                                        // reject(err);
+                                    });
+                                }, 500)
 
-                          }).catch((err) => {
-                              console.error("sociallogin 1 err", err);
-                              reject(err);
-                          })
-                      } else {
-                          setTimeout(() => {
-                              this.navigationService.navigateToAuth(Navigation, compId);
-                          }, 500)
-                      }
-                  } else {
-                      alert("Error 17493");
-                      reject("Error 17493");
-                  }
-              })
-              .catch(error => {
-                  console.warn("auth error", error)
-                  reject(error);
-              });
-      });
-  }
+                            }).catch((err) => {
+                                console.error("sociallogin 1 err", err);
+                                reject(err);
+                            })
+                        } else {
+                            setTimeout(() => {
+                                this.navigationService.navigateToAuth(Navigation, compId);
+                            }, 500)
+                        }
+                    } else {
+                        alert("Error 17493");
+                        reject("Error 17493");
+                    }
+                })
+                .catch(error => {
+                    console.warn("auth error", error)
+                    reject(error);
+                });
+        });
+    }
 
-  async logout() {
-    await this.storageClient.deleteItem("scordAccessToken");
-    await this.storageClient.deleteItem("scordAuth0Id");
-  }
+    async logout() {
+        await this.storageClient.deleteItem("scordAccessToken");
+        await this.storageClient.deleteItem("scordAuth0Id");
+    }
 
     syncFitbit(
         userData, 

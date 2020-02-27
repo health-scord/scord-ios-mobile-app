@@ -29,13 +29,13 @@ const ScoreCounter: React.FC<ScoreCounterProps> = ({
         <View style={{...styles.box, ...styles.bigBox}}>
             <View style={{...styles.box, ...styles.miniBox}}>
                 <Text style={styles.italicLabel}>Min</Text>
-                <Text style={styles.label}>100</Text>
+                <Text style={styles.label}>0</Text>
             </View>
             <View style={{...styles.box, ...styles.miniBox}}>
                 <Text style={styles.scoreLabel}>{calculated}</Text>
             </View>
             <View style={{...styles.box, ...styles.miniBox}}>
-                <Text style={styles.label}>300</Text>
+                <Text style={styles.label}>100</Text>
                 <Text style={styles.italicLabel}>Max</Text>
             </View>
         </View>
@@ -51,7 +51,7 @@ const ScoreCounter: React.FC<ScoreCounterProps> = ({
               {bodyContent}
           </View>
           <View style={{...styles.scoreBar, ...{width: styleHelpers.getWidth() * 0.85, alignSelf: "center"}}}>
-              <View style={{...styles.scoreBarFill, ...{width: ((calculated / 300) * 100) + "%"}}}></View>
+              <View style={{...styles.scoreBarFill, ...{width: ((calculated / 100) * 100) + "%"}}}></View>
           </View>
       </View>
   );

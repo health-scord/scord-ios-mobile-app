@@ -3,4 +3,5 @@ export interface SummaryProps {
   className?: string;
   onClick?: (e: MouseEvent) => void;
   userData: any;
+  healthScore: any
 }

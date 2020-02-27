@@ -16,8 +16,13 @@ const App: React.FC<AppProps> = ({children = null}) => {
   const storageClient = new StorageClient();
   const [{userData}, dispatch] = useAppContext();
 
+  console.log('APP RELOADING')
+  console.log(userData)
+  console.log(dispatch)
+
   React.useEffect(() => {
     Linking.addEventListener('url', (data) => {
+      console.log('inside event listener')
       console.info("url data", data);
       authClient.getUserData(dispatch);
     });
@@ -51,7 +56,7 @@ const App: React.FC<AppProps> = ({children = null}) => {
   // Global Loading
   // Will users who are logged in be shown a loading symbol on SSR (with JS disabled)?
   if (userData === null) {
-    console.info('fetch init user data...');
+    console.info('no user data in context, fetching from backend API');
 
     authClient.getUserData(dispatch);
   }
