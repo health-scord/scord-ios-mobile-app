@@ -36,32 +36,10 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
     //     })
     // });
 
-    if (typeof userData === "undefined" || userData === null) return <Text>Loading...</Text>;
-
-    console.log("RIGHT HERE!!!!!!!")
-    console.log(userData.healthScore)
+    if (typeof userData === undefined || userData === null) return <Text>Loading...</Text>;
 
 
-    let healthScore = {
-        calculated: 'default',
-        components: {
-            sleep: {
-                averageDailySleepHours: "default"
-            },
-            fitness: {
-                averageDailyRigorousActivityMinutes: "default",
-                averageRigorousActivityTimesPerWeek: "default"
-            },
-            heartRate: {
-                averageRestingHeartRate: "default"
-            }
-        }
-    };
-
-    healthScore = { ...healthScore, ...userData.healthScore}
-
-   
-
+    let healthScore = userData.healthScore   
     const halfHeight = (viewportHeight - 155) / 2;
 
     return (

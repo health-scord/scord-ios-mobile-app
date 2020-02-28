@@ -16,14 +16,8 @@ const App: React.FC<AppProps> = ({children = null}) => {
   const storageClient = new StorageClient();
   const [{userData}, dispatch] = useAppContext();
 
-  console.log('APP RELOADING')
-  console.log(userData)
-  console.log(dispatch)
-
   React.useEffect(() => {
     Linking.addEventListener('url', (data) => {
-      console.log('inside event listener')
-      console.info("url data", data);
       authClient.getUserData(dispatch);
     });
 
@@ -31,35 +25,23 @@ const App: React.FC<AppProps> = ({children = null}) => {
       Linking.removeEventListener('url', this._handleOpenURL);
     }
 
-    // DeepLinking.addScheme('scord://');
-    // DeepLinking.addScheme('goodman.beta.ScordMobile://');
-
-    // DeepLinking.addRoute('/', (response) => {
-    //   console.info("sssss", response);
-    // });
-
-    // DeepLinking.addRoute('/test', (response) => {
-    //   console.info("test", response);
-    // });
-
-    // DeepLinking.addRoute('/test/:id', (response) => {
-    //   console.info("test id", response);
-    // });
-
-    // Linking.getInitialURL().then((url) => {
-    //   if (url) {
-    //     Linking.openURL(url);
-    //   }
-    // }).catch(err => console.error('An error occurred', err));
+    
   }, [])
 
   // Global Loading
   // Will users who are logged in be shown a loading symbol on SSR (with JS disabled)?
   if (userData === null) {
-    console.info('no user data in context, fetching from backend API');
 
-    authClient.getUserData(dispatch);
+    console.log('THIS GOT CALLED')
+
+    authClient.getUserData(dispatch).then((response) => {
+      return <>{children}</>;
+
+    }).catch((err) => {
+      return <>{children}</>;
+    })
   }
+
 
   return <>{children}</>;
 };

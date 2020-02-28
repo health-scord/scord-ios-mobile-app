@@ -27,6 +27,17 @@ export default class StorageClient {
         }
     };
 
+    async clear() {
+        try {
+            await AsyncStorage.clear();
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+
+
+
     async deleteItem(name) {
         try {
             await AsyncStorage.removeItem(name);

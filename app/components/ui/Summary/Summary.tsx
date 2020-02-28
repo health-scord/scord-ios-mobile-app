@@ -17,6 +17,10 @@ const Summary: React.FC<SummaryProps> = ({
                                              userData = {},
                                              healthScore = null
                                          }) => {
+
+  console.log('rendering SUmmary')    
+  console.log(userData)                                      
+
   const clickHandler = e => onClick(e);
 
   return (

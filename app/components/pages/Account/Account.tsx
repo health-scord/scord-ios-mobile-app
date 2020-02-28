@@ -43,7 +43,7 @@ const Account: React.FC<AccountProps> = ({
                   });
               }}
           /> */}
-          <PrimaryButton
+          {/* <PrimaryButton
               styles={{marginBottom: 25}}
               buttonProps={{inverted: true, rounded: true}}
               label="Delete Account"
@@ -56,7 +56,7 @@ const Account: React.FC<AccountProps> = ({
                   });
                 });
               }}
-          />
+          /> */}
           <PrimaryButton
               styles={{marginBottom: 25}}
               buttonProps={{inverted: true, rounded: true}}

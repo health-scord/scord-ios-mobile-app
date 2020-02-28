@@ -101,6 +101,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           }}
           validationSchema={validationSchema}
           render={props => {
+
             return (
               <Form>
                   <View style={{marginBottom: 10}}>
@@ -164,15 +165,11 @@ const LoginForm: React.FC<LoginFormProps> = ({
                             }]
                           }
                         });
-
                         authClient.socialLogin(
                           "google-oauth2", 
-                          () => {
-                            console.info("finished");
-                            Navigation.dismissAllModals();
-                          }, 
                           componentId
                         );
+                        Navigation.dismissAllModals();
                       }}
                       label="Login with Google"
                   />
