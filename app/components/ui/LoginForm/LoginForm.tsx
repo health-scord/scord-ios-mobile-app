@@ -17,6 +17,8 @@ import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import Validation from "../Validation/Validation";
 import StorageClient from "../../../services/StorageClient";
 import NavigationService from "../../../services/NavigationService";
+import Promise from 'bluebird'
+
 
 const Form = withNextInputAutoFocusForm(View);
 
@@ -26,8 +28,9 @@ const LoginForm: React.FC<LoginFormProps> = ({
   onClick = e => console.info("Click"),
   componentId = null
 }) => {
-    const navigationService = new NavigationService();
-    const storageClient = new StorageClient();
+
+  const navigationService = new NavigationService();
+  const storageClient = new StorageClient();
   const authClient = new AuthClient();
 
   const [formError, setFormError] = React.useState([null, null]);
@@ -145,8 +148,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
                           rounded: true
                       }}
                       styles={{marginBottom: 10}}
-                      onPress={() => {
-                        Navigation.showModal({
+                      onPress={async () => {
+                        await Navigation.showModal({
                           stack: {
                             children: [{
                               component: {
@@ -165,11 +168,20 @@ const LoginForm: React.FC<LoginFormProps> = ({
                             }]
                           }
                         });
-                        authClient.socialLogin(
+
+                        console.log('right here!!!!!!')
+                        console.log(componentId)
+
+                        await authClient.socialLogin(
                           "google-oauth2", 
                           componentId
                         );
-                        Navigation.dismissAllModals();
+
+                        await Promise.delay(3000)
+
+                        //await Navigation.dismissAllModals();
+
+                        navigationService.navigateToHome(Navigation, 1);
                       }}
                       label="Login with Google"
                   />

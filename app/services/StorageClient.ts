@@ -35,9 +35,6 @@ export default class StorageClient {
         }
     };
 
-
-
-
     async deleteItem(name) {
         try {
             await AsyncStorage.removeItem(name);

@@ -32,8 +32,6 @@ const App: React.FC<AppProps> = ({children = null}) => {
   // Will users who are logged in be shown a loading symbol on SSR (with JS disabled)?
   if (userData === null) {
 
-    console.log('THIS GOT CALLED')
-
     authClient.getUserData(dispatch).then((response) => {
       return <>{children}</>;
 

@@ -12,10 +12,11 @@ import Promise from 'bluebird'
 import axios from 'axios'
 
 export default class AuthClient {
-  public auth0 = new Auth0({
-    domain: config.domain,
-    clientId: config.clientId,
-  });
+    public auth0 = new Auth0({
+        domain: config.domain,
+        clientId: config.clientId,
+    });
+
     public storageClient = new StorageClient();
     public restClient = new RestClient();
     public navigationService = new NavigationService();
@@ -39,6 +40,7 @@ export default class AuthClient {
             try {
                 let results = await axios.get(`${env.userApi}/accounts/${auth0Id}`)
                 console.log('results')
+                console.log(results.data)
                 if (setContextData) {
                     dispatch({
                         type: "setUserData",
@@ -86,17 +88,12 @@ export default class AuthClient {
         });
     }
 
-    async socialLogin(connection, compId) {
-        console.log('IN SOCIAL LOGIN')
-     
+    async socialLogin(connection, compId) {     
         let credentials = await this.auth0.webAuth.authorize({ connection, scope: 'openid email profile'})
 
         if (typeof credentials !== "undefined") {
             const { accessToken } = credentials;
             const hasToken = typeof accessToken !== "undefined" && accessToken;
-
-            console.log('hasToken:')
-            console.log(hasToken)
 
             if (hasToken) {
                 let token = accessToken;
@@ -144,18 +141,13 @@ export default class AuthClient {
 
                     await axios.get('https://us-central1-scord-260818.cloudfunctions.net/scord-score-calculation-daemon')
 
-                    // await this.getUserData(1)
-
-
                 }
-                this.navigationService.navigateToHome(Navigation, compId);
-
             } else {
                 this.navigationService.navigateToAuth(Navigation, compId);
             }
         } else {
-            alert("Error 17493");
-            return Promise.reject("Error 17493");
+            alert("Authorization Error");
+            return Promise.reject("Authorization Error");
         }
 
 

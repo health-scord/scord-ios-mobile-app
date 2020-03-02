@@ -36,7 +36,11 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
     //     })
     // });
 
+
     if (typeof userData === undefined || userData === null) return <Text>Loading...</Text>;
+
+    console.log("RERENDERING SCORES")
+
 
 
     let healthScore = userData.healthScore   
@@ -44,8 +48,12 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
 
     return (
         <RefreshView 
-            onRefresh={() => {
-                authClient.syncFitbit(userData);
+            onRefresh={async () => {
+                //authClient.syncFitbit(userData);
+                console.log("THIS WAS CALLED!!!!!")
+                await authClient.getUserData(dispatch) 
+
+                //logic here to query api for latest data and set it to the 
             }}
         >
             <NotchSpacer />
