@@ -13,6 +13,8 @@ import NavigationService from "../../../services/NavigationService";
 import RefreshView from "../../ui/RefreshView/RefreshView";
 import AuthClient from "../../../services/AuthClient";
 import styles from "../../../../build/styles";
+import axios from 'axios'
+
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -51,6 +53,7 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
             onRefresh={async () => {
                 //authClient.syncFitbit(userData);
                 console.log("THIS WAS CALLED!!!!!")
+                await axios.get('https://us-central1-scord-260818.cloudfunctions.net/scord-score-calculation-daemon')
                 await authClient.getUserData(dispatch) 
 
                 //logic here to query api for latest data and set it to the 
