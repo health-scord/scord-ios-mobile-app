@@ -29,6 +29,8 @@ export default class AuthClient {
     }
 
     async getUserData(dispatch) {
+        console.log('getUserData called')
+
         const setContextData = dispatch !== null ? true : false;
 
         const token = await this.storageClient.getToken("scordAccessToken")
@@ -42,6 +44,7 @@ export default class AuthClient {
                 console.log('results')
                 console.log(results.data)
                 if (setContextData) {
+                    console.log('setting ContextData')
                     dispatch({
                         type: "setUserData",
                         userData: results.data,

@@ -38,12 +38,11 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
     //     })
     // });
 
-
-    if (typeof userData === undefined || userData === null) return <Text>Loading...</Text>;
-
     console.log("RERENDERING SCORES")
 
 
+
+    if (typeof userData === undefined || userData === null) return <Text>Loading...</Text>;
 
     let healthScore = userData.healthScore   
     const halfHeight = (viewportHeight - 155) / 2;
@@ -53,8 +52,14 @@ const Scores: React.FC<ScoresProps> = ({componentId}) => {
             onRefresh={async () => {
                 //authClient.syncFitbit(userData);
                 console.log("THIS WAS CALLED!!!!!")
-                await axios.get('https://us-central1-scord-260818.cloudfunctions.net/scord-score-calculation-daemon')
-                await authClient.getUserData(dispatch) 
+                try {
+                    axios.get('https://us-central1-scord-260818.cloudfunctions.net/scord-score-calculation-daemon')
+                } catch(err){
+                    err
+                }
+                let results = await authClient.getUserData(dispatch) 
+                console.log(results)
+                this.forceUpdate()
 
                 //logic here to query api for latest data and set it to the 
             }}
