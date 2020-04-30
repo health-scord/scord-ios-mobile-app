@@ -42,7 +42,7 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-react-native-stylesheet-css": "^1.4.4",
     "gulp-sass": "^4.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.12.0",
     "parse-error": "^0.2.0",
