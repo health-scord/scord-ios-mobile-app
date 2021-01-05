@@ -28,7 +28,7 @@
     "apollo-link-error": "^1.1.12",
     "apollo-link-http": "^1.5.16",
     "auth0-js": "^9.11.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-preset-react-native": "5",
     "bluebird": "^3.7.2",
     "cross-fetch": "^3.0.4",
